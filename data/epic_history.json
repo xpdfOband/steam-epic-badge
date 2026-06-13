@@ -3251,6 +3251,19 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1731870/header.jpg"
     },
     {
+      "title": "Sifu",
+      "epic_id": "sifu",
+      "steam_appid": 2138710,
+      "free_dates": [
+        {
+          "start": "2024-12-31",
+          "end": "2025-01-02",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/2138710/header.jpg"
+    },
+    {
       "title": "Turbo Golf Racing",
       "epic_id": "turbo-golf-racing",
       "steam_appid": 1374840,
@@ -3522,6 +3535,19 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1538850/header.jpg"
+    },
+    {
+      "title": "Sifu",
+      "epic_id": "sifu",
+      "steam_appid": 2138710,
+      "free_dates": [
+        {
+          "start": "2025-05-22",
+          "end": "2025-05-29",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/2138710/header.jpg"
     },
     {
       "title": "Dordogne",
