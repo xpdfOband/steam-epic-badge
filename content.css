@@ -49,9 +49,9 @@
 
 /* --- 角标内容：Epic 图标 + 文字 --- */
 .epic-badge::before {
-  content: "🎮 Epic";
+  content: "Epic";
   font-size: 10px;
-  margin-right: 3px;
+  margin-right: 0;
 }
 
 /* --- 悬停效果 --- */
@@ -71,30 +71,47 @@
 }
 
 .epic-badge.currently-free::before {
-  content: "🎮 免费中";
+  content: "免费中";
 }
 
 .epic-badge.currently-free:hover {
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.5);
 }
 
-/* --- 首页大图角标：更大更醒目 --- */
+/* --- 首页大图角标：左侧堆叠，模仿 Xbox Game Pass 标签 --- */
 .highlighted_app .epic-badge {
-  min-width: 36px;
-  height: 36px;
-  padding: 0 10px;
-  font-size: 14px;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: auto;
+  min-width: auto;
+  height: 28px;
+  padding: 0 10px 0 8px;
+  font-size: 13px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  gap: 5px;
 }
 
 .highlighted_app .epic-badge::before {
-  font-size: 13px;
-  margin-right: 4px;
+  content: "Epic";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-right: 0;
+}
+
+.highlighted_app .epic-badge:hover {
+  transform: none;
+  box-shadow: 0 1px 6px rgba(0, 120, 242, 0.4);
 }
 
 .highlighted_app .epic-badge.currently-free::before {
-  content: "🎮 免费中";
+  content: "Epic";
+}
+
+.highlighted_app .epic-badge .tooltip-arrow {
+  display: none;
 }
 
 /* --- Tooltip 样式 --- */
