@@ -87,14 +87,23 @@
     // 搜索结果页 - 每个搜索结果行
     search: ".search_result_row",
 
-    // 首页推荐 - 高亮推荐游戏
+    // 首页推荐 - 高亮推荐游戏（旧版 Steam）
     homepage_highlight: ".highlighted_app",
 
-    // 首页常规推荐 - 带 /app/ 链接的元素
+    // 首页常规推荐 - 带 /app/ 链接的元素（旧版 Steam）
     homepage_capsule: '.cap a[href*="/app/"]',
 
-    // 首页特惠/新品等板块
+    // 首页特惠/新品等板块（旧版 Steam）
     homepage_tab: '.tab_item a[href*="/app/"]',
+
+    // 首页主轮播胶囊（新版 Steam 2025+）
+    homepage_main_capsule: 'a.store_main_capsule[href*="/app/"]',
+
+    // 首页折扣区域（新版 Steam 2025+）
+    homepage_discount: '.home_discount_games_ctn a[href*="/app/"]',
+
+    // 首页标签页内容区域（新版 Steam 2025+）
+    homepage_tab_content: '.tab_content_items a[href*="/app/"]',
 
     // 游戏详情页 - 游戏名称
     detail_name: ".apphub_AppName",
@@ -407,17 +416,26 @@
       // 强制 overflow:visible 防止角标被裁剪
       element.style.setProperty("overflow", "visible", "important");
     } else {
-      // 策略1：查找图片容器
-      const imgContainer =
-        element.querySelector(
-          ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn, .highlighted_app_img, .highlighted_capsule"
-        ) || element.querySelector("img")?.parentElement;
+      // 策略1：查找新版 Steam 胶囊容器（优先，避免 img parent 返回内部小 div）
+      const capsuleContainer = element.closest('.store_main_capsule')
+        || element.closest('.home_discount_games_ctn')
+        || element.closest('.tab_content_items');
 
-      if (imgContainer) {
-        targetParent = imgContainer;
+      if (capsuleContainer) {
+        targetParent = capsuleContainer;
       } else {
-        // 策略2：使用元素本身
-        targetParent = element;
+        // 策略2：查找图片容器（旧版 Steam 选择器）
+        const imgContainer =
+          element.querySelector(
+            ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn, .highlighted_app_img, .highlighted_capsule"
+          ) || element.querySelector("img")?.parentElement;
+
+        if (imgContainer && imgContainer !== element) {
+          targetParent = imgContainer;
+        } else {
+          // 策略3：使用元素本身
+          targetParent = element;
+        }
       }
     }
 
@@ -559,10 +577,17 @@
 
       case "homepage":
         selectorsToUse = [
+          // 新版 Steam（2025+）
+          SELECTORS.homepage_main_capsule,
+          SELECTORS.homepage_discount,
+          SELECTORS.homepage_tab_content,
+          // 旧版 Steam（兼容）
           SELECTORS.homepage_highlight,
           SELECTORS.homepage_capsule,
           SELECTORS.homepage_tab,
           SELECTORS.recommended,
+          // 通用兜底
+          SELECTORS.generic_link,
         ];
         break;
 

@@ -217,6 +217,15 @@
  * ============================================================ */
 .epic-badge-parent {
   position: relative;
+  overflow: visible !important;
+}
+
+/* 新版 Steam 胶囊容器适配 */
+.store_main_capsule .epic-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 100;
 }
 
 /* ============================================================
