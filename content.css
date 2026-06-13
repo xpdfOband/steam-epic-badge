@@ -223,8 +223,10 @@
 /* 新版 Steam 胶囊容器适配 */
 .store_main_capsule .epic-badge {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
   z-index: 100;
 }
 
