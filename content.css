@@ -5,10 +5,10 @@
 
 /* --- 角标基础样式 --- */
 .epic-badge {
-  /* 绝对定位：相对于父容器（游戏图标）的右上角 */
+  /* 绝对定位：相对于父容器的左下角 */
   position: absolute;
-  top: 0;
-  right: 0;
+  bottom: 0;
+  left: 0;
 
   /* 尺寸：自适应内容 */
   min-width: 24px;
@@ -47,9 +47,9 @@
   cursor: default;
 }
 
-/* --- 角标内容：Epic 图标 + 文字 --- */
+/* --- 角标内容：游戏手柄 + Epic 文字 --- */
 .epic-badge::before {
-  content: "Epic";
+  content: "🎮 Epic";
   font-size: 10px;
   margin-right: 0;
 }
@@ -71,7 +71,7 @@
 }
 
 .epic-badge.currently-free::before {
-  content: "免费中";
+  content: "🎮 免费中";
 }
 
 .epic-badge.currently-free:hover {
@@ -86,7 +86,7 @@
 /* --- 首页大图角标：左侧堆叠，模仿 Xbox Game Pass 标签 --- */
 .highlighted_app .epic-badge {
   position: absolute;
-  top: 12px;
+  bottom: 12px;
   left: 12px;
   right: auto;
   min-width: auto;
@@ -99,7 +99,7 @@
 }
 
 .highlighted_app .epic-badge::before {
-  content: "Epic";
+  content: "🎮 Epic";
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.3px;
@@ -223,8 +223,8 @@
 /* 新版 Steam 胶囊容器适配 */
 .store_main_capsule .epic-badge {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  bottom: 0;
+  left: 0;
   z-index: 100;
 }
 
