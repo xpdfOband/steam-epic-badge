@@ -400,17 +400,25 @@
     // 确定角标插入位置
     let targetParent = null;
 
-    // 策略1：查找图片容器
-    const imgContainer =
-      element.querySelector(
-        ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn, .highlighted_app_img, .highlighted_capsule"
-      ) || element.querySelector("img")?.parentElement;
-
-    if (imgContainer) {
-      targetParent = imgContainer;
-    } else {
-      // 策略2：使用元素本身
+    // 首页大图特殊处理：直接注入到 .highlighted_app 容器本身
+    // 因为其内部的图片容器可能有 overflow:hidden 裁剪角标
+    if (element.classList.contains("highlighted_app") || element.matches(".highlighted_app")) {
       targetParent = element;
+      // 强制 overflow:visible 防止角标被裁剪
+      element.style.setProperty("overflow", "visible", "important");
+    } else {
+      // 策略1：查找图片容器
+      const imgContainer =
+        element.querySelector(
+          ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn, .highlighted_app_img, .highlighted_capsule"
+        ) || element.querySelector("img")?.parentElement;
+
+      if (imgContainer) {
+        targetParent = imgContainer;
+      } else {
+        // 策略2：使用元素本身
+        targetParent = element;
+      }
     }
 
     // 确保父容器有正确定位

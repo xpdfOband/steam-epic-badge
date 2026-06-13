@@ -78,6 +78,11 @@
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.5);
 }
 
+/* --- 首页大图容器：防止 overflow hidden 裁剪角标 --- */
+.highlighted_app {
+  overflow: visible !important;
+}
+
 /* --- 首页大图角标：左侧堆叠，模仿 Xbox Game Pass 标签 --- */
 .highlighted_app .epic-badge {
   position: absolute;
