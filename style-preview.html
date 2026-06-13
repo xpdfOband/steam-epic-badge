@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Epic Detail Panel - Style Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1b2838;
+    font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .card {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .card-label {
+    color: #8f98a0;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .card-body {
+    padding: 24px;
+  }
+
+  /* ── 模拟 Steam 购买区域 ── */
+  .steam-purchase-mock {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    border-radius: 3px;
+    color: #c7d5e0;
+    font-size: 12px;
+  }
+  .steam-purchase-mock .price {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .steam-purchase-mock .btn-mock {
+    display: inline-block;
+    background: linear-gradient(90deg, #06BFFF 0%, #2D73FF 100%);
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: default;
+  }
+  .steam-purchase-mock .btn-mock.green {
+    background: linear-gradient(90deg, #1f9c1f 0%, #1f7b1f 100%);
+  }
+
+  /* ── 当前已实现的 D ── */
+  .panel-d {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+  .panel-d:hover { background: rgba(0, 0, 0, 0.3); }
+  .panel-d .header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  }
+  .panel-d .logo { width: 18px; height: 18px; border-radius: 3px; background: #0078F2; color: #fff; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; }
+  .panel-d .title { color: #fff; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; }
+  .panel-d .count { margin-left: auto; background: rgba(102, 192, 244, 0.1); border: 1px solid rgba(102, 192, 244, 0.2); color: #66C0F4; padding: 1px 8px; border-radius: 2px; font-size: 11px; }
+  .panel-d .dates { display: flex; flex-direction: column; gap: 4px; }
+  .panel-d .date-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; font-size: 12px; color: #c7d5e0; }
+  .panel-d .date-row.latest { color: #fff; }
+  .panel-d .dot { width: 4px; height: 4px; border-radius: 50%; background: #8f98a0; flex-shrink: 0; }
+  .panel-d .date-row.latest .dot { background: #66C0F4; box-shadow: 0 0 4px rgba(102,192,244,0.5); }
+  .panel-d .badge { font-size: 10px; color: #66C0F4; background: rgba(102,192,244,0.1); padding: 0 5px; border-radius: 2px; }
+  .panel-d .link { display: inline-block; margin-top: 10px; font-size: 11px; color: #8f98a0; text-decoration: none; }
+  .panel-d .link:hover { color: #66C0F4; }
+  .panel-d .free { color: #4caf50; font-weight: 600; font-size: 13px; margin-top: 10px; padding: 6px 10px; background: rgba(76,175,80,0.1); border: 1px solid rgba(76,175,80,0.25); border-radius: 2px; cursor: default; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.7} }
+
+  /* ── 方案 A: Epic 品牌卡片 ── */
+  .panel-a {
+    background: linear-gradient(135deg, #2b0d3f 0%, #1a0530 50%, #0d0820 100%);
+    border-left: 4px solid #0078F2;
+    padding: 16px 16px 16px 14px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+  .panel-a::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,120,242,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .panel-a .header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px; position: relative;
+  }
+  .panel-a .logo-wrap {
+    width: 22px; height: 22px; background: #0078F2; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-size: 13px; font-weight: 800; color: #fff;
+  }
+  .panel-a .title { color: #fff; font-size: 14px; font-weight: 600; letter-spacing: 0.3px; }
+  .panel-a .epic-brand { color: #0078F2; font-weight: 700; }
+  .panel-a .count { margin-left: auto; background: rgba(0,120,242,0.15); color: #66C0F4; padding: 1px 8px; border-radius: 3px; font-size: 11px; border: 1px solid rgba(0,120,242,0.25); }
+  .panel-a .dates { display: flex; flex-direction: column; gap: 3px; position: relative; }
+  .panel-a .date-row { display: flex; align-items: center; gap: 8px; padding: 4px 0 4px 12px; font-size: 12px; color: #b0b8c0; border-left: 1px solid rgba(0,120,242,0.2); position: relative; }
+  .panel-a .date-row::before { content: ''; position: absolute; left: -3px; top: 10px; width: 5px; height: 5px; border-radius: 50%; background: rgba(0,120,242,0.3); }
+  .panel-a .date-row.latest { color: #fff; }
+  .panel-a .date-row.latest::before { background: #0078F2; box-shadow: 0 0 6px rgba(0,120,242,0.6); }
+  .panel-a .badge { font-size: 10px; color: #0078F2; margin-left: 4px; }
+  .panel-a .free { color: #00e676; font-weight: 600; font-size: 13px; margin-top: 12px; padding: 6px 12px; background: rgba(0,230,118,0.08); border: 1px solid rgba(0,230,118,0.2); border-radius: 3px; cursor: default; animation: pulse 2s ease-in-out infinite; display: inline-block; }
+  .panel-a .link { display: inline-block; margin-top: 10px; font-size: 11px; color: rgba(0,120,242,0.6); text-decoration: none; }
+  .panel-a .link:hover { color: #0078F2; }
+
+  /* ── 方案 B: 赠送历史时间线 ── */
+  .panel-b {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    margin-bottom: 8px;
+    border-radius: 3px;
+  }
+  .panel-b .header {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+  }
+  .panel-b .icon-wrap {
+    width: 20px; height: 20px; border-radius: 50%; background: #66C0F4;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-size: 11px; color: #1b2838;
+  }
+  .panel-b .title { color: #fff; font-size: 14px; font-weight: 600; }
+  .panel-b .count { margin-left: auto; color: #66C0F4; font-size: 12px; }
+  .panel-b .timeline { position: relative; padding-left: 20px; }
+  .panel-b .timeline::before { content: ''; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 1px; background: rgba(255,255,255,0.08); }
+  .panel-b .tl-item { position: relative; padding: 5px 0 5px 12px; font-size: 12px; color: #c7d5e0; }
+  .panel-b .tl-item::before { content: ''; position: absolute; left: -14px; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: #8f98a0; }
+  .panel-b .tl-item.latest { color: #fff; }
+  .panel-b .tl-item.latest::before { background: #66C0F4; width: 8px; height: 8px; left: -15px; top: 9px; box-shadow: 0 0 6px rgba(102,192,244,0.5); }
+  .panel-b .tl-badge { font-size: 10px; background: rgba(102,192,244,0.1); color: #66C0F4; padding: 0 5px; border-radius: 2px; margin-left: 6px; }
+  .panel-b .tl-more { color: #8f98a0; font-size: 11px; padding: 4px 0 4px 12px; cursor: default; }
+  .panel-b .tl-more:hover { color: #66C0F4; }
+  .panel-b .free { color: #4caf50; font-weight: 600; font-size: 13px; margin-top: 12px; animation: pulse 2s ease-in-out infinite; }
+  .panel-b .link { display: inline-block; margin-top: 10px; font-size: 11px; color: #8f98a0; text-decoration: none; }
+  .panel-b .link:hover { color: #66C0F4; }
+
+  /* ── 方案 C: 简洁赛博风格 ── */
+  .panel-c {
+    background: rgba(15, 20, 30, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 120, 242, 0.25);
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .panel-c:hover {
+    border-color: rgba(0, 120, 242, 0.5);
+    box-shadow: 0 4px 24px rgba(0, 120, 242, 0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .panel-c .header {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  }
+  .panel-c .glow-icon {
+    width: 20px; height: 20px; border-radius: 4px; background: linear-gradient(135deg, #0078F2, #5a2fd6);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-size: 11px; color: #fff; font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 120, 242, 0.4);
+  }
+  .panel-c .title { color: #e0e8f0; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; }
+  .panel-c .count { margin-left: auto; background: linear-gradient(135deg, rgba(0,120,242,0.2), rgba(90,47,214,0.2)); border: 1px solid rgba(0,120,242,0.3); color: #66C0F4; padding: 1px 8px; border-radius: 3px; font-size: 11px; }
+  .panel-c .dates { display: flex; flex-direction: column; gap: 6px; }
+  .panel-c .date-row { display: flex; align-items: center; gap: 10px; padding: 4px 8px; border-radius: 3px; font-size: 12px; color: #b0bcc8; transition: background 0.2s ease; }
+  .panel-c .date-row:hover { background: rgba(255,255,255,0.03); }
+  .panel-c .date-row.latest { color: #d0e0f0; background: rgba(0,120,242,0.05); }
+  .panel-c .cyber-dot { width: 4px; height: 4px; border-radius: 50%; background: #4a5a6a; flex-shrink: 0; }
+  .panel-c .date-row.latest .cyber-dot { background: #0078F2; box-shadow: 0 0 8px rgba(0,120,242,0.6); }
+  .panel-c .cyber-badge { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: rgba(0,120,242,0.6); border: 1px solid rgba(0,120,242,0.15); padding: 0 6px; border-radius: 2px; }
+  .panel-c .free { color: #00e676; font-weight: 600; font-size: 13px; margin-top: 12px; padding: 6px 12px; background: rgba(0,230,118,0.06); border: 1px solid rgba(0,230,118,0.15); border-radius: 4px; cursor: default; text-align: center; animation: glow-pulse 2s ease-in-out infinite; }
+  @keyframes glow-pulse { 0%,100%{box-shadow: 0 0 4px rgba(0,230,118,0.1)} 50%{box-shadow: 0 0 12px rgba(0,230,118,0.2)} }
+  .panel-c .link { display: inline-block; margin-top: 10px; font-size: 11px; color: rgba(255,255,255,0.2); text-decoration: none; transition: color 0.3s ease; }
+  .panel-c .link:hover { color: rgba(0,120,242,0.6); }
+</style>
+</head>
+<body>
+  <h1>Epic 详情面板 — 风格对比</h1>
+
+  <div class="grid">
+
+    <!-- ── 当前实现：D ── -->
+    <div class="card">
+      <div class="card-label">▶ 当前已实现 · 方案D · Steam 原生融合</div>
+      <div class="card-body">
+        <div class="panel-d">
+          <div class="header">
+            <span class="logo">E</span>
+            <span class="title">Epic Games 赠送记录</span>
+            <span class="count">2 次</span>
+          </div>
+          <div class="dates">
+            <div class="date-row latest">
+              <span class="dot"></span>
+              <span>2025年5月22日 - 2025年5月29日</span>
+              <span class="badge">最近</span>
+            </div>
+            <div class="date-row">
+              <span class="dot"></span>
+              <span>2024年12月31日 - 2025年1月2日</span>
+            </div>
+          </div>
+          <div class="free">现在免费！限时领取中 →</div>
+          <a class="link" href="#">Epic 商店页 ↗</a>
+        </div>
+        <div class="steam-purchase-mock">
+          <div class="price">¥ 99.50</div>
+          <span class="btn-mock">添加入库</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 方案 A ── -->
+    <div class="card">
+      <div class="card-label">☐ 方案A · Epic 品牌卡片</div>
+      <div class="card-body">
+        <div class="panel-a">
+          <div class="header">
+            <span class="logo-wrap">E</span>
+            <span class="title"><span class="epic-brand">EPIC</span> GAMES 赠送记录</span>
+            <span class="count">2 次</span>
+          </div>
+          <div class="dates">
+            <div class="date-row latest">
+              <span>2025年5月22日 - 2025年5月29日</span>
+              <span class="badge">← 最近</span>
+            </div>
+            <div class="date-row">
+              <span>2024年12月31日 - 2025年1月2日</span>
+            </div>
+          </div>
+          <div class="free">🎁 现在免费！限时领取中</div>
+          <a class="link" href="#">访问 Epic 商店 →</a>
+        </div>
+        <div class="steam-purchase-mock">
+          <div class="price">¥ 99.50</div>
+          <span class="btn-mock">添加入库</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 方案 B ── -->
+    <div class="card">
+      <div class="card-label">☐ 方案B · 赠送历史时间线</div>
+      <div class="card-body">
+        <div class="panel-b">
+          <div class="header">
+            <span class="icon-wrap">★</span>
+            <span class="title">Epic 赠送历史</span>
+            <span class="count">共 2 次</span>
+          </div>
+          <div class="timeline">
+            <div class="tl-item latest">
+              2025年5月22日 - 2025年5月29日
+              <span class="tl-badge">最新</span>
+            </div>
+            <div class="tl-item">
+              2024年12月31日 - 2025年1月2日
+            </div>
+            <div class="tl-more">↕ 展开更多历史</div>
+          </div>
+          <div class="free">🎮 现在免费领取中！</div>
+          <a class="link" href="#">Epic 商店 →</a>
+        </div>
+        <div class="steam-purchase-mock">
+          <div class="price">¥ 99.50</div>
+          <span class="btn-mock">添加入库</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 方案 C ── -->
+    <div class="card">
+      <div class="card-label">☐ 方案C · 简洁赛博风格</div>
+      <div class="card-body">
+        <div class="panel-c">
+          <div class="header">
+            <span class="glow-icon">E</span>
+            <span class="title">EPIC GAMES</span>
+            <span class="count">×2</span>
+          </div>
+          <div class="dates">
+            <div class="date-row latest">
+              <span class="cyber-dot"></span>
+              <span>2025.05.22 → 2025.05.29</span>
+              <span class="cyber-badge">current</span>
+            </div>
+            <div class="date-row">
+              <span class="cyber-dot"></span>
+              <span>2024.12.31 → 2025.01.02</span>
+            </div>
+          </div>
+          <div class="free">NOW FREE · 限时领取</div>
+          <a class="link" href="#">store.epicgames.com ↗</a>
+        </div>
+        <div class="steam-purchase-mock">
+          <div class="price">¥ 99.50</div>
+          <span class="btn-mock">添加入库</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
