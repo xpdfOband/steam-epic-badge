@@ -207,6 +207,12 @@
   flex-shrink: 0;
 }
 
+.epic-detail-logo {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+}
+
 .epic-detail-title {
   color: #fff;
   font-size: 14px;

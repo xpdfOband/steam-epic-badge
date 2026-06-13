@@ -425,14 +425,9 @@
   }
 
   /**
-   * Epic Games SVG logo（蓝色圆角方块 + 白色 E）
+   * Epic Games logo URL（扩展内图片资源）
    */
-  const EPIC_SVG_LOGO = `
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" rx="5" fill="#0078F2"/>
-      <path d="M6 5h12v2.5H9.5v3.5h7v2.5h-7V19H6V5z" fill="white"/>
-    </svg>
-  `;
+  const EPIC_LOGO_URL = chrome.runtime.getURL('icons/epic-games.jpg');
 
   /**
    * 格式化日期为中文年月日
@@ -489,7 +484,7 @@
 
     panel.innerHTML = `
       <div class="epic-detail-header">
-        <span class="epic-detail-icon">${EPIC_SVG_LOGO}</span>
+        <span class="epic-detail-icon"><img class="epic-detail-logo" src="${EPIC_LOGO_URL}" alt="Epic Games"></span>
         <span class="epic-detail-title">Epic Games 赠送记录</span>
         ${count > 0 ? `<span class="epic-detail-count">${count} 次</span>` : ''}
       </div>
