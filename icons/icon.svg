@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078F2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00C3FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景圆形 -->
+  <circle cx="64" cy="64" r="60" fill="url(#bg)" stroke="#fff" stroke-width="4"/>
+
+  <!-- 字母 E -->
+  <text x="64" y="82" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">E</text>
+
+  <!-- Steam 手柄图标简化 -->
+  <g transform="translate(20, 20) scale(0.7)">
+    <path d="M30 60 Q30 40 50 30 Q70 20 90 30 Q110 40 110 60 L110 80 Q110 100 90 110 L70 120 L60 110 L50 120 L30 110 Q10 100 10 80 Z" fill="none" stroke="white" stroke-width="6" opacity="0.6"/>
+  </g>
+</svg>

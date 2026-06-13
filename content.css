@@ -1,0 +1,265 @@
+/* ============================================================
+ * Epic 赠送标记角标样式
+ * 模拟 Steam 原生"愿望单"标签风格
+ * ============================================================ */
+
+/* --- 角标基础样式 --- */
+.epic-badge {
+  /* 绝对定位：相对于父容器（游戏图标）的右上角 */
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  /* 尺寸：自适应内容 */
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 3px;
+
+  /* Epic 蓝色背景 */
+  background: linear-gradient(180deg, #0078F2 0%, #005BBB 100%);
+
+  /* 文字样式 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  /* 确保角标在最上层 */
+  z-index: 100;
+
+  /* 阴影效果 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+  /* 入场动画 */
+  animation: epic-badge-fade-in 0.3s ease-out both;
+
+  /* 允许鼠标事件（用于 tooltip） */
+  pointer-events: auto;
+
+  /* 默认鼠标样式 */
+  cursor: default;
+}
+
+/* --- 角标内容：Epic 图标 + 文字 --- */
+.epic-badge::before {
+  content: "🎮 Epic";
+  font-size: 10px;
+  margin-right: 3px;
+}
+
+/* --- 悬停效果 --- */
+.epic-badge:hover {
+  /* 悬停时略微放大 */
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 120, 242, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* --- 当前免费：绿色角标 --- */
+.epic-badge.currently-free {
+  background: linear-gradient(180deg, #4caf50 0%, #388e3c 100%);
+  box-shadow: 0 1px 3px rgba(76, 175, 80, 0.4);
+  animation: epic-badge-fade-in 0.3s ease-out both,
+             epic-badge-pulse 2s ease-in-out 0.3s infinite;
+}
+
+.epic-badge.currently-free::before {
+  content: "🎮 免费中";
+}
+
+.epic-badge.currently-free:hover {
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.5);
+}
+
+/* --- Tooltip 样式 --- */
+.epic-badge[data-tooltip]::after {
+  /* 内容从 data-tooltip 属性读取 */
+  content: attr(data-tooltip);
+
+  /* 定位：在角标下方居中 */
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+
+  /* 外观：深色背景、白色文字、圆角 */
+  background-color: rgba(20, 20, 30, 0.95);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+  white-space: nowrap;
+  padding: 8px 12px;
+  border-radius: 4px;
+
+  /* 阴影 */
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+
+  /* 默认隐藏 */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  /* 过渡动画 */
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+
+  /* 层级高于角标本身 */
+  z-index: 101;
+}
+
+/* 悬停时显示 tooltip */
+.epic-badge[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- Tooltip 箭头指示器 --- */
+.epic-badge .tooltip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid rgba(20, 20, 30, 0.95);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 101;
+}
+
+.epic-badge:hover .tooltip-arrow {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================================
+ * 动画关键帧
+ * ============================================================ */
+
+/* 淡入效果 */
+@keyframes epic-badge-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 呼吸脉动动画（当前免费时使用） */
+@keyframes epic-badge-pulse {
+  0%, 100% {
+    box-shadow: 0 1px 3px rgba(76, 175, 80, 0.4);
+  }
+  50% {
+    box-shadow: 0 1px 6px rgba(76, 175, 80, 0.6),
+                0 0 12px rgba(76, 175, 80, 0.3);
+  }
+}
+
+/* ============================================================
+ * 父容器适配
+ * 确保游戏图标容器具有 position: relative 以便角标正确定位
+ * ============================================================ */
+.epic-badge-parent {
+  position: relative;
+}
+
+/* ============================================================
+ * 游戏详情页面板样式
+ * ============================================================ */
+.epic-detail-panel {
+  background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+  border: 1px solid #0078F2;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  animation: epic-detail-fade-in 0.3s ease-out;
+}
+
+.epic-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.epic-detail-icon {
+  font-size: 18px;
+}
+
+.epic-detail-title {
+  color: #66C0F4;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.epic-detail-body {
+  font-size: 12px;
+  color: #c7d5e0;
+}
+
+.epic-detail-date {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.epic-detail-label {
+  color: #8f98a0;
+}
+
+.epic-detail-value {
+  color: #fff;
+}
+
+.epic-detail-count {
+  display: inline-block;
+  background: #0078F2;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.epic-detail-status {
+  color: #4caf50;
+  font-weight: 600;
+  margin-top: 6px;
+  animation: epic-pulse-text 1.5s ease-in-out infinite;
+}
+
+@keyframes epic-detail-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes epic-pulse-text {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

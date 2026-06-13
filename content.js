@@ -1,0 +1,802 @@
+﻿/**
+ * Steam Epic Badge - Content Script
+ * ============================================================
+ * 在 Steam 商店页面检测游戏信息，查询 Epic 赠送记录，并注入角标
+ *
+ * 功能：
+ * 1. 检测页面类型（首页、搜索、详情、愿望单等）
+ * 2. 提取游戏 AppID 和名称
+ * 3. 注入 Epic 赠送角标
+ * 4. MutationObserver 监听动态加载
+ * 5. 与 background.js 通信查询数据
+ * ============================================================
+ */
+
+(function () {
+  "use strict";
+
+  // ============================================================
+  // 配置常量
+  // ============================================================
+
+  /** 角标 CSS 类名 */
+  const BADGE_CLASS = "epic-badge";
+
+  /** 已注入标记属性，防止重复注入 */
+  const ATTR_INJECTED = "data-epic-badge-injected";
+
+  /** 父容器标记类 */
+  const PARENT_CLASS = "epic-badge-parent";
+
+  /** 防抖延迟（毫秒） */
+  const DEBOUNCE_DELAY = 300;
+
+  /** 批量查询最大数量 */
+  const BATCH_SIZE = 20;
+
+  // ============================================================
+  // 用户设置
+  // ============================================================
+
+  /** 设置存储键 */
+  const SETTINGS_KEY = 'popup_settings';
+
+  /** 当前页面设置 */
+  let pageSettings = {
+    enableSearch: true,
+    enableHomepage: true,
+    enableDetail: true,
+    enableWishlist: true,
+  };
+
+  /**
+   * 从 chrome.storage.sync 加载用户设置
+   */
+  async function loadSettings() {
+    return new Promise((resolve) => {
+      chrome.storage.sync.get(SETTINGS_KEY, (result) => {
+        const saved = result[SETTINGS_KEY] || {};
+        pageSettings = { ...pageSettings, ...saved };
+        resolve(pageSettings);
+      });
+    });
+  }
+
+  /**
+   * 检查当前页面类型是否启用
+   */
+  function isPageEnabled(pageType) {
+    switch (pageType) {
+      case 'search': return pageSettings.enableSearch;
+      case 'homepage': return pageSettings.enableHomepage;
+      case 'detail': return pageSettings.enableDetail;
+      case 'wishlist': return pageSettings.enableWishlist;
+      default: return true;
+    }
+  }
+
+  // ============================================================
+  // 选择器配置
+  // ============================================================
+
+  /**
+   * 各页面类型的选择器映射
+   * 每个选择器对应一种游戏元素的 DOM 结构
+   */
+  const SELECTORS = {
+    // 搜索结果页 - 每个搜索结果行
+    search: ".search_result_row",
+
+    // 首页推荐 - 高亮推荐游戏
+    homepage_highlight: ".highlighted_app",
+
+    // 首页常规推荐 - 带 /app/ 链接的元素
+    homepage_capsule: '.cap a[href*="/app/"]',
+
+    // 首页特惠/新品等板块
+    homepage_tab: '.tab_item a[href*="/app/"]',
+
+    // 游戏详情页 - 游戏名称
+    detail_name: ".apphub_AppName",
+
+    // 愿望单页面 - 每个愿望单行
+    wishlist: ".wishlist_row",
+
+    // 通用游戏链接（兜底选择器）
+    generic_link: 'a[href*="store.steampowered.com/app/"]',
+
+    // 相似游戏/推荐区块
+    recommended: '.recommendation_highlight a[href*="/app/"]',
+    similar: ".similar_grid_item",
+
+    // 搜索建议下拉
+    search_suggestion: ".search_suggestion_contents a[href*='/app/']",
+  };
+
+  // ============================================================
+  // 页面类型检测
+  // ============================================================
+
+  /**
+   * 检测当前页面类型
+   * @returns {string} 页面类型标识
+   */
+  function detectPageType() {
+    const url = window.location.href;
+    const pathname = window.location.pathname;
+
+    // 游戏详情页：/app/{appid}/
+    if (/\/app\/\d+/.test(pathname)) {
+      return "detail";
+    }
+
+    // 搜索结果页
+    if (pathname === "/search/" || pathname.startsWith("/search")) {
+      return "search";
+    }
+
+    // 愿望单页
+    if (pathname.includes("/wishlist") || pathname.includes("/wishlist/")) {
+      return "wishlist";
+    }
+
+    // 标签/分类浏览页
+    if (pathname.startsWith("/tags/") || pathname.startsWith("/category/")) {
+      return "category";
+    }
+
+    // 首页（排除上述情况）
+    if (
+      pathname === "/" ||
+      pathname === "" ||
+      pathname.startsWith("/?")
+    ) {
+      return "homepage";
+    }
+
+    // 其他页面（如特殊活动页）
+    return "other";
+  }
+
+  // ============================================================
+  // 游戏信息提取
+  // ============================================================
+
+  /**
+   * 从 URL 中提取 Steam AppID
+   * @param {string} url - Steam 商店 URL
+   * @returns {number|null} AppID 或 null
+   */
+  function extractAppIdFromUrl(url) {
+    if (!url) return null;
+
+    // 匹配 /app/数字/ 格式
+    const match = url.match(/\/app\/(\d+)/);
+    if (match && match[1]) {
+      return parseInt(match[1], 10);
+    }
+    return null;
+  }
+
+  /**
+   * 从游戏详情页提取游戏名称
+   * @returns {string|null} 游戏名称
+   */
+  function extractDetailPageName() {
+    // 详情页游戏名称选择器
+    const selectors = [
+      ".apphub_AppName",
+      ".game_area_purchase_game .game_purchase_action",
+      "#appHubAppName",
+    ];
+
+    for (const selector of selectors) {
+      const el = document.querySelector(selector);
+      if (el && el.textContent.trim()) {
+        return el.textContent.trim();
+      }
+    }
+    return null;
+  }
+
+  /**
+   * 从单个游戏元素中提取信息
+   * @param {Element} element - DOM 元素
+   * @returns {object|null} 包含 appId 和 name 的对象
+   */
+  function extractGameInfo(element) {
+    if (!element) return null;
+
+    // 方法1：从 href 属性提取 AppID
+    let appId = null;
+    let name = null;
+
+    // 检查元素本身是否是链接
+    if (element.tagName === "A" && element.href) {
+      appId = extractAppIdFromUrl(element.href);
+    }
+
+    // 检查元素内部的链接
+    if (!appId) {
+      const link = element.querySelector('a[href*="/app/"]');
+      if (link) {
+        appId = extractAppIdFromUrl(link.href);
+      }
+    }
+
+    // 检查父元素链接
+    if (!appId && element.closest('a[href*="/app/"]')) {
+      appId = extractAppIdFromUrl(element.closest('a[href*="/app/"]').href);
+    }
+
+    // 如果仍然没有 AppID，返回 null
+    if (!appId) return null;
+
+    // 提取游戏名称
+    name = extractGameName(element, appId);
+
+    return { appId, name };
+  }
+
+  /**
+   * 从元素中提取游戏名称
+   * @param {Element} element - DOM 元素
+   * @param {number} appId - AppID（用于兜底）
+   * @returns {string} 游戏名称
+   */
+  function extractGameName(element, appId) {
+    // 按优先级尝试各种名称选择器
+    const nameSelectors = [
+      // 搜索结果
+      ".title",
+      ".search_name .title",
+
+      // 首页推荐
+      ".app_name",
+      ".highlighted_app_name",
+
+      // 愿望单
+      ".wishlistAppName",
+
+      // 通用
+      ".game_area_app_name",
+      ".tab_item_name",
+      ".similar_game_name",
+    ];
+
+    for (const selector of nameSelectors) {
+      const nameEl = element.querySelector(selector);
+      if (nameEl && nameEl.textContent.trim()) {
+        return nameEl.textContent.trim();
+      }
+    }
+
+    // 兜底：使用元素的文本内容（截取前50字符）
+    const text = element.textContent.trim();
+    if (text && text.length > 0) {
+      return text.substring(0, 50).replace(/\n/g, " ");
+    }
+
+    // 最终兜底
+    return `App ${appId}`;
+  }
+
+  /**
+   * 从详情页提取当前游戏的完整信息
+   * @returns {object|null} 包含 appId、name 和 element 的对象
+   */
+  function extractDetailPageInfo() {
+    const appId = extractAppIdFromUrl(window.location.href);
+    if (!appId) return null;
+
+    const name = extractDetailPageName();
+    // 详情页的游戏名称元素作为注入目标
+    const element = document.querySelector(".apphub_AppName") ||
+                    document.querySelector("#appHubAppName") ||
+                    document.querySelector(".game_area_purchase_game");
+    return { appId, name: name || `App ${appId}`, element };
+  }
+
+  // ============================================================
+  // 角标注入
+  // ============================================================
+
+  /**
+   * 检查元素是否已注入角标
+   * @param {Element} element - DOM 元素
+   * @returns {boolean} 是否已注入
+   */
+  function isAlreadyInjected(element) {
+    return element.hasAttribute(ATTR_INJECTED);
+  }
+
+  /**
+   * 标记元素为已注入
+   * @param {Element} element - DOM 元素
+   */
+  function markAsInjected(element) {
+    element.setAttribute(ATTR_INJECTED, "true");
+  }
+
+  /**
+   * 创建 Epic 赠送角标元素
+   * @param {string} tooltipText - 提示文本（赠送日期）
+   * @returns {Element} 角标 DOM 元素
+   */
+  function createBadgeElement(tooltipText, isCurrentlyFree) {
+    const badge = document.createElement("div");
+    badge.className = BADGE_CLASS + (isCurrentlyFree ? " currently-free" : "");
+    badge.setAttribute("data-tooltip", tooltipText);
+
+    // 添加箭头元素（用于 tooltip 指示）
+    const arrow = document.createElement("span");
+    arrow.className = "tooltip-arrow";
+    badge.appendChild(arrow);
+
+    return badge;
+  }
+
+  /**
+   * 格式化赠送日期为可读文本（完整年月日）
+   * @param {Array} freeDates - 赠送日期数组
+   * @returns {string} 格式化后的文本
+   */
+  function formatFreeDates(freeDates) {
+    if (!freeDates || freeDates.length === 0) {
+      return "Epic 曾免费赠送";
+    }
+
+    // 取最近一次赠送记录
+    const latest = freeDates[freeDates.length - 1];
+    const startDate = latest.start || "";
+    const endDate = latest.end || "";
+
+    if (startDate && endDate) {
+      // 格式化日期为 YYYY-MM-DD
+      const formatDate = (dateStr) => {
+        const parts = dateStr.split("-");
+        if (parts.length === 3) {
+          return `${parts[0]}年${parseInt(parts[1])}月${parseInt(parts[2])}日`;
+        }
+        return dateStr;
+      };
+
+      const count = freeDates.length;
+      const countText = count > 1 ? `（共${count}次）` : "";
+      return `Epic 曾免费赠送 ${formatDate(startDate)} - ${formatDate(endDate)}${countText}`;
+    }
+
+    return "Epic 曾免费赠送";
+  }
+
+  /**
+   * 确保父容器有正确的定位样式
+   * @param {Element} parent - 父容器元素
+   */
+  function ensureParentPosition(parent) {
+    if (!parent.classList.contains(PARENT_CLASS)) {
+      parent.classList.add(PARENT_CLASS);
+
+      // 如果父容器没有 position，设置为 relative
+      const computedStyle = window.getComputedStyle(parent);
+      if (computedStyle.position === "static") {
+        parent.style.position = "relative";
+      }
+    }
+  }
+
+  /**
+   * 向指定元素注入角标
+   * @param {Element} element - 目标元素
+   * @param {object} gameData - 游戏数据（包含 freeDates）
+   */
+  function injectBadge(element, gameData) {
+    // 检查是否已注入
+    if (isAlreadyInjected(element)) return;
+
+    // 标记为已注入
+    markAsInjected(element);
+
+    // 确定角标插入位置
+    let targetParent = null;
+
+    // 策略1：查找图片容器
+    const imgContainer =
+      element.querySelector(
+        ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn"
+      ) || element.querySelector("img")?.parentElement;
+
+    if (imgContainer) {
+      targetParent = imgContainer;
+    } else {
+      // 策略2：使用元素本身
+      targetParent = element;
+    }
+
+    // 确保父容器有正确定位
+    ensureParentPosition(targetParent);
+
+    // 格式化提示文本
+    const tooltipText = formatFreeDates(gameData.freeDates);
+
+    // 创建并注入角标
+    const badge = createBadgeElement(tooltipText, gameData.details?.isCurrentlyFree);
+    targetParent.appendChild(badge);
+  }
+
+  /**
+   * 在详情页注入 Epic 赠送信息面板（放在"添加入库"上方）
+   * @param {object} gameData - 游戏数据
+   */
+  function injectDetailPanel(gameData) {
+    // 检查是否已注入
+    const existingPanel = document.querySelector('.epic-detail-panel');
+    if (existingPanel) return;
+
+    // 查找"添加入库"按钮区域
+    const addToCartArea = document.querySelector('.game_area_purchase_game') ||
+                          document.querySelector('#game_area_purchase') ||
+                          document.querySelector('.game_area_purchase');
+
+    if (!addToCartArea) {
+      console.log("[Epic Badge] 未找到购买区域，跳过详情面板注入");
+      return;
+    }
+
+    // 创建信息面板
+    const panel = document.createElement('div');
+    panel.className = 'epic-detail-panel';
+
+    const isCurrentlyFree = gameData.details?.isCurrentlyFree;
+    const freeDates = gameData.freeDates || [];
+    const latestDate = freeDates.length > 0 ? freeDates[freeDates.length - 1] : null;
+
+    // 构建面板内容
+    let dateText = '未知时间';
+    if (latestDate) {
+      const formatDate = (dateStr) => {
+        const parts = dateStr.split('-');
+        if (parts.length === 3) {
+          return `${parts[0]}年${parseInt(parts[1])}月${parseInt(parts[2])}日`;
+        }
+        return dateStr;
+      };
+      dateText = `${formatDate(latestDate.start)} - ${formatDate(latestDate.end)}`;
+    }
+
+    const count = freeDates.length;
+    const countText = count > 1 ? `<span class="epic-detail-count">共赠送 ${count} 次</span>` : '';
+
+    panel.innerHTML = `
+      <div class="epic-detail-header">
+        <span class="epic-detail-icon">${isCurrentlyFree ? '🎮' : '✅'}</span>
+        <span class="epic-detail-title">${isCurrentlyFree ? 'Epic 当前免费领取中！' : 'Epic 曾免费赠送'}</span>
+      </div>
+      <div class="epic-detail-body">
+        <div class="epic-detail-date">
+          <span class="epic-detail-label">赠送时间：</span>
+          <span class="epic-detail-value">${dateText}</span>
+        </div>
+        ${countText}
+        ${isCurrentlyFree ? '<div class="epic-detail-status">限时免费，快去领取！</div>' : ''}
+      </div>
+    `;
+
+    // 插入到购买区域上方
+    addToCartArea.parentNode.insertBefore(panel, addToCartArea);
+  }
+
+  // ============================================================
+  // 页面扫描与批量处理
+  // ============================================================
+
+  /** 已处理的 AppID 集合（避免重复查询） */
+  const processedAppIds = new Set();
+
+  /** 待查询的游戏信息队列 */
+  let pendingQueries = [];
+
+  /** 查询定时器 */
+  let queryTimer = null;
+
+  /**
+   * 扫描页面上的游戏元素
+   * @returns {Array} 游戏信息数组
+   */
+  function scanPageForGames() {
+    const pageType = detectPageType();
+    const games = [];
+    const seenAppIds = new Set();
+
+    console.log(`[Epic Badge] 扫描页面类型: ${pageType}`);
+
+    // 根据页面类型选择选择器
+    let selectorsToUse = [];
+
+    switch (pageType) {
+      case "search":
+        selectorsToUse = [SELECTORS.search];
+        break;
+
+      case "detail":
+        // 详情页单独处理
+        const detailInfo = extractDetailPageInfo();
+        if (detailInfo) {
+          return [detailInfo];
+        }
+        return [];
+
+      case "wishlist":
+        selectorsToUse = [SELECTORS.wishlist];
+        break;
+
+      case "homepage":
+        selectorsToUse = [
+          SELECTORS.homepage_highlight,
+          SELECTORS.homepage_capsule,
+          SELECTORS.homepage_tab,
+          SELECTORS.recommended,
+        ];
+        break;
+
+      case "category":
+        selectorsToUse = [SELECTORS.search, SELECTORS.generic_link];
+        break;
+
+      default:
+        // 其他页面使用通用选择器
+        selectorsToUse = [
+          SELECTORS.generic_link,
+          SELECTORS.recommended,
+          SELECTORS.similar,
+        ];
+        break;
+    }
+
+    // 遍历选择器收集游戏元素
+    for (const selector of selectorsToUse) {
+      const elements = document.querySelectorAll(selector);
+
+      elements.forEach((element) => {
+        const info = extractGameInfo(element);
+        if (info && !seenAppIds.has(info.appId)) {
+          seenAppIds.add(info.appId);
+          games.push({ ...info, element });
+        }
+      });
+    }
+
+    console.log(`[Epic Badge] 发现 ${games.length} 个游戏元素`);
+    return games;
+  }
+
+  /**
+   * 将游戏加入查询队列
+   * @param {Array} games - 游戏信息数组
+   */
+  function enqueueGames(games) {
+    games.forEach((game) => {
+      // 跳过已处理的
+      if (processedAppIds.has(game.appId)) return;
+
+      // 标记为待处理
+      processedAppIds.add(game.appId);
+      pendingQueries.push(game);
+    });
+
+    // 触发批量查询（防抖）
+    scheduleBatchQuery();
+  }
+
+  /**
+   * 安排批量查询（防抖处理）
+   */
+  function scheduleBatchQuery() {
+    if (queryTimer) {
+      clearTimeout(queryTimer);
+    }
+
+    queryTimer = setTimeout(() => {
+      flushBatchQuery();
+    }, DEBOUNCE_DELAY);
+  }
+
+  /**
+   * 执行批量查询
+   */
+  function flushBatchQuery() {
+    if (pendingQueries.length === 0) return;
+
+    // 取出一批待查询项
+    const batch = pendingQueries.splice(0, BATCH_SIZE);
+
+    // 提取 AppID 列表
+    const appIds = batch.map((g) => g.appId);
+
+    console.log(`[Epic Badge] 批量查询 ${appIds.length} 个游戏:`, appIds);
+
+    // 发送到 background.js 查询
+    queryBackground(appIds, batch);
+
+    // 如果还有剩余，继续处理
+    if (pendingQueries.length > 0) {
+      scheduleBatchQuery();
+    }
+  }
+
+  // ============================================================
+  // Background 通信
+  // ============================================================
+
+  /**
+   * 向 background.js 发送批量查询请求
+   * @param {Array<number>} appIds - AppID 列表
+   * @param {Array} games - 对应的游戏信息数组
+   */
+  function queryBackground(appIds, games) {
+    if (!chrome.runtime || !chrome.runtime.sendMessage) {
+      return;
+    }
+
+    chrome.runtime.sendMessage(
+      { action: "queryBatchByIds", payload: { appIds } },
+      (response) => {
+        if (chrome.runtime.lastError) {
+          console.error("[Epic Badge] 通信错误:", chrome.runtime.lastError.message);
+          return;
+        }
+        if (response && response.success) {
+          handleQueryResponse(response.data, games);
+        }
+      }
+    );
+  }
+
+  /**
+   * 处理 background 返回的查询结果
+   * @param {object} data - 查询结果，键为 AppID，值为游戏数据
+   * @param {Array} games - 原始游戏信息数组（含 element 引用）
+   */
+  function handleQueryResponse(data, games) {
+    if (!data) return;
+
+    const pageType = detectPageType();
+
+    games.forEach((game) => {
+      const epicData = data[game.appId];
+      if (epicData && epicData.isFree) {
+        // 详情页使用专门的面板，其他页面使用角标
+        if (pageType === 'detail') {
+          injectDetailPanel(epicData);
+        } else {
+          injectBadge(game.element, epicData);
+        }
+      }
+    });
+  }
+
+  // ============================================================
+  // MutationObserver 监听
+  // ============================================================
+
+  /** MutationObserver 实例 */
+  let observer = null;
+
+  /** 观察防抖定时器 */
+  let observerTimer = null;
+
+  /**
+   * 创建 MutationObserver 监听 DOM 变化
+   */
+  function setupObserver() {
+    // 如果已有观察器，先断开
+    if (observer) {
+      observer.disconnect();
+    }
+
+    observer = new MutationObserver((mutations) => {
+      // 检查是否有新增节点
+      let hasNewNodes = false;
+
+      for (const mutation of mutations) {
+        if (mutation.addedNodes.length > 0) {
+          hasNewNodes = true;
+          break;
+        }
+      }
+
+      if (!hasNewNodes) return;
+
+      // 防抖处理
+      if (observerTimer) {
+        clearTimeout(observerTimer);
+      }
+
+      observerTimer = setTimeout(() => {
+        console.log("[Epic Badge] 检测到 DOM 变化，重新扫描");
+        scanAndProcess();
+      }, DEBOUNCE_DELAY);
+    });
+
+    // 开始观察
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    console.log("[Epic Badge] MutationObserver 已启动");
+  }
+
+  // ============================================================
+  // 主流程
+  // ============================================================
+
+  /**
+   * 扫描页面并处理游戏角标注入
+   */
+  function scanAndProcess() {
+    const games = scanPageForGames();
+    if (games.length > 0) {
+      enqueueGames(games);
+    }
+  }
+
+  /**
+   * 初始化 content script
+   */
+  async function init() {
+    // 加载设置并检查页面是否启用
+    await loadSettings();
+    const pageType = detectPageType();
+    if (!isPageEnabled(pageType)) {
+      return;
+    }
+
+    // 初始扫描
+    scanAndProcess();
+
+    // 设置 DOM 变化监听
+    setupObserver();
+
+    // 监听设置变化（popup 切换开关时实时响应）
+    chrome.storage.onChanged.addListener((changes, area) => {
+      if (area === 'sync' && changes[SETTINGS_KEY]) {
+        const newSettings = changes[SETTINGS_KEY].newValue || {};
+        pageSettings = { ...pageSettings, ...newSettings };
+        if (!isPageEnabled(detectPageType())) {
+          document.querySelectorAll(`.${BADGE_CLASS}`).forEach(el => el.remove());
+          document.querySelectorAll(`[${ATTR_INJECTED}]`).forEach(el =>
+            el.removeAttribute(ATTR_INJECTED)
+          );
+        } else {
+          processedAppIds.clear();
+          scanAndProcess();
+        }
+      }
+    });
+
+    // 监听来自 background 的消息（如数据更新通知）
+    if (chrome.runtime && chrome.runtime.onMessage) {
+      chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+        if (message.type === "FORCE_REFRESH") {
+          console.log("[Epic Badge] 收到强制刷新指令");
+          // 清除已处理记录，重新扫描
+          processedAppIds.clear();
+          scanAndProcess();
+          sendResponse({ success: true });
+        }
+      });
+    }
+  }
+
+  // ============================================================
+  // 启动
+  // ============================================================
+
+  // 确保 DOM 已准备好
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

@@ -1,0 +1,456 @@
+/* ============================================================
+ * Steam Epic Badge - Popup 样式
+ * ============================================================
+ * 颜色方案：
+ *   - 主色：Epic 蓝紫渐变 (#0078F2 -> #00C3FF)
+ *   - 背景：Steam 深色系 (#1B2838, #2A475E)
+ *   - 文字：白色/浅灰
+ *   - 强调：Epic 黄 (#FFD700)
+ * ============================================================ */
+
+/* --- 基础重置与全局 --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  max-height: 520px;
+  overflow-y: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: #c7d5e0;
+  background-color: #1b2838;
+}
+
+/* 自定义滚动条 */
+body::-webkit-scrollbar {
+  width: 6px;
+}
+body::-webkit-scrollbar-track {
+  background: #1b2838;
+}
+body::-webkit-scrollbar-thumb {
+  background: #2a475e;
+  border-radius: 3px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #3a6a8e;
+}
+
+/* ============================================================
+ * 头部
+ * ============================================================ */
+.header {
+  background: linear-gradient(135deg, #171a21 0%, #1b2838 100%);
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid #2a475e;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.header-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+}
+
+/* --- 状态指示灯 --- */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-dot.status-active {
+  background-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.6);
+}
+
+.status-dot.status-inactive {
+  background-color: #f44336;
+  box-shadow: 0 0 6px rgba(244, 67, 54, 0.6);
+}
+
+.status-text {
+  font-size: 11px;
+  color: #8f98a0;
+}
+
+/* ============================================================
+ * 区块通用
+ * ============================================================ */
+.section {
+  padding: 12px 16px;
+  border-bottom: 1px solid #2a475e;
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8f98a0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-icon {
+  font-size: 14px;
+}
+
+/* ============================================================
+ * 图标按钮（刷新）
+ * ============================================================ */
+.btn-icon {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: #2a475e;
+  color: #c7d5e0;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.btn-icon:hover {
+  background: #3a6a8e;
+  transform: scale(1.05);
+}
+
+.btn-icon:active {
+  transform: scale(0.95);
+}
+
+.btn-icon:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- 刷新图标旋转动画 --- */
+.refresh-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.refresh-icon.spinning {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+ * 免费游戏列表
+ * ============================================================ */
+.free-games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* --- 游戏卡片 --- */
+.game-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #171a21;
+  border-radius: 8px;
+  padding: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.game-card:hover {
+  background: #1e2630;
+}
+
+.game-card-img {
+  width: 80px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background-color: #2a475e;
+}
+
+/* 无图片占位 */
+.game-card-no-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0078f2 0%, #00c3ff 100%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+.game-card-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.game-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.game-card-dates {
+  font-size: 11px;
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.game-card-desc {
+  font-size: 11px;
+  color: #8f98a0;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+/* ============================================================
+ * 加载与空状态
+ * ============================================================ */
+.loading-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 0;
+  color: #8f98a0;
+  font-size: 12px;
+}
+
+/* --- 旋转加载器 --- */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #2a475e;
+  border-top-color: #0078f2;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.empty-hint {
+  text-align: center;
+  padding: 20px 0;
+  color: #4a5568;
+  font-size: 12px;
+}
+
+.error-hint {
+  text-align: center;
+  padding: 16px 0;
+  color: #f44336;
+  font-size: 12px;
+}
+
+/* ============================================================
+ * 数据统计
+ * ============================================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.stat-card {
+  background: #171a21;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: #8f98a0;
+}
+
+.last-fetch-info {
+  font-size: 11px;
+  color: #4a5568;
+  text-align: center;
+}
+
+/* ============================================================
+ * 设置开关
+ * ============================================================ */
+.settings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.setting-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.setting-label {
+  font-size: 13px;
+  color: #c7d5e0;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* --- Toggle 开关 --- */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2a475e;
+  border-radius: 20px;
+  transition: background-color 0.25s ease;
+}
+
+.toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #8f98a0;
+  border-radius: 50%;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+/* 选中状态 */
+.toggle-switch input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #0078f2 0%, #00c3ff 100%);
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+  background-color: #ffffff;
+}
+
+/* 焦点样式（键盘导航） */
+.toggle-switch input:focus-visible + .toggle-slider {
+  outline: 2px solid #0078f2;
+  outline-offset: 2px;
+}
+
+/* ============================================================
+ * 底部
+ * ============================================================ */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid #2a475e;
+}
+
+.footer-version {
+  font-size: 11px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.footer-separator {
+  color: #2a475e;
+  font-size: 11px;
+}
+
+.footer-text {
+  font-size: 11px;
+  color: #4a5568;
+}
