@@ -78,6 +78,25 @@
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.5);
 }
 
+/* --- 首页大图角标：更大更醒目 --- */
+.highlighted_app .epic-badge {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.highlighted_app .epic-badge::before {
+  font-size: 13px;
+  margin-right: 4px;
+}
+
+.highlighted_app .epic-badge.currently-free::before {
+  content: "🎮 免费中";
+}
+
 /* --- Tooltip 样式 --- */
 .epic-badge[data-tooltip]::after {
   /* 内容从 data-tooltip 属性读取 */

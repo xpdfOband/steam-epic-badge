@@ -403,7 +403,7 @@
     // 策略1：查找图片容器
     const imgContainer =
       element.querySelector(
-        ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn"
+        ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn, .highlighted_app_img, .highlighted_capsule"
       ) || element.querySelector("img")?.parentElement;
 
     if (imgContainer) {
