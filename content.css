@@ -49,13 +49,9 @@
 
 /* --- 角标内容：Epic 图标 + 文字 --- */
 .epic-badge::before {
-  content: "";
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  background: url('icons/images.png') center/contain no-repeat;
-  margin-right: 4px;
-  flex-shrink: 0;
+  content: "🎮 Epic";
+  font-size: 10px;
+  margin-right: 3px;
 }
 
 /* --- 悬停效果 --- */
@@ -72,6 +68,10 @@
   box-shadow: 0 1px 3px rgba(76, 175, 80, 0.4);
   animation: epic-badge-fade-in 0.3s ease-out both,
              epic-badge-pulse 2s ease-in-out 0.3s infinite;
+}
+
+.epic-badge.currently-free::before {
+  content: "🎮 免费中";
 }
 
 .epic-badge.currently-free:hover {
@@ -198,9 +198,7 @@
 }
 
 .epic-detail-icon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
+  font-size: 18px;
 }
 
 .epic-detail-title {

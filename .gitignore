@@ -3,3 +3,5 @@ __pycache__/
 data/epic_history_full.json
 .vscode/
 .DS_Store
+.claude/
+.memsearch/

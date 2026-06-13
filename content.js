@@ -328,9 +328,6 @@
     badge.className = BADGE_CLASS + (isCurrentlyFree ? " currently-free" : "");
     badge.setAttribute("data-tooltip", tooltipText);
 
-    // 添加文字标签（图标由 CSS ::before 伪元素提供）
-    badge.appendChild(document.createTextNode(isCurrentlyFree ? "免费中" : "Epic"));
-
     // 添加箭头元素（用于 tooltip 指示）
     const arrow = document.createElement("span");
     arrow.className = "tooltip-arrow";
@@ -470,11 +467,9 @@
     const count = freeDates.length;
     const countText = count > 1 ? `<span class="epic-detail-count">共赠送 ${count} 次</span>` : '';
 
-    const iconUrl = chrome.runtime.getURL('icons/images.png');
-
     panel.innerHTML = `
       <div class="epic-detail-header">
-        <img class="epic-detail-icon" src="${iconUrl}" alt="Epic" style="width:18px;height:18px;vertical-align:middle;" />
+        <span class="epic-detail-icon">${isCurrentlyFree ? '🎮' : '✅'}</span>
         <span class="epic-detail-title">${isCurrentlyFree ? 'Epic 当前免费领取中！' : 'Epic 曾免费赠送'}</span>
       </div>
       <div class="epic-detail-body">
