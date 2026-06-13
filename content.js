@@ -425,15 +425,35 @@
   }
 
   /**
-   * 在详情页注入 Epic 赠送信息面板（放在"添加入库"上方）
+   * Epic Games SVG logo（蓝色圆角方块 + 白色 E）
+   */
+  const EPIC_SVG_LOGO = `
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="5" fill="#0078F2"/>
+      <path d="M6 5h12v2.5H9.5v3.5h7v2.5h-7V19H6V5z" fill="white"/>
+    </svg>
+  `;
+
+  /**
+   * 格式化日期为中文年月日
+   */
+  function formatDateCN(dateStr) {
+    if (!dateStr) return '';
+    const parts = dateStr.split('-');
+    if (parts.length === 3) {
+      return `${parts[0]}年${parseInt(parts[1])}月${parseInt(parts[2])}日`;
+    }
+    return dateStr;
+  }
+
+  /**
+   * 在详情页注入 Epic 赠送信息面板（放在购买区域上方）
    * @param {object} gameData - 游戏数据
    */
   function injectDetailPanel(gameData) {
-    // 检查是否已注入
     const existingPanel = document.querySelector('.epic-detail-panel');
     if (existingPanel) return;
 
-    // 查找"添加入库"按钮区域
     const addToCartArea = document.querySelector('.game_area_purchase_game') ||
                           document.querySelector('#game_area_purchase') ||
                           document.querySelector('.game_area_purchase');
@@ -443,47 +463,51 @@
       return;
     }
 
-    // 创建信息面板
+    const isCurrentlyFree = gameData.details?.isCurrentlyFree;
+    const freeDates = gameData.freeDates || [];
+    const count = freeDates.length;
+
+    // 构建所有赠送日期列表
+    let datesHtml = '';
+    if (count > 0) {
+      datesHtml = '<div class="epic-detail-dates">';
+      [...freeDates].reverse().forEach((d, i) => {
+        const start = formatDateCN(d.start);
+        const end = formatDateCN(d.end);
+        datesHtml += `
+          <div class="epic-detail-date-row ${i === 0 ? 'latest' : ''}">
+            <span class="epic-detail-date-dot"></span>
+            <span class="epic-detail-date-range">${start} - ${end}</span>
+            ${i === 0 ? '<span class="epic-detail-date-badge">最近</span>' : ''}
+          </div>`;
+      });
+      datesHtml += '</div>';
+    }
+
     const panel = document.createElement('div');
     panel.className = 'epic-detail-panel';
 
-    const isCurrentlyFree = gameData.details?.isCurrentlyFree;
-    const freeDates = gameData.freeDates || [];
-    const latestDate = freeDates.length > 0 ? freeDates[freeDates.length - 1] : null;
-
-    // 构建面板内容
-    let dateText = '未知时间';
-    if (latestDate) {
-      const formatDate = (dateStr) => {
-        const parts = dateStr.split('-');
-        if (parts.length === 3) {
-          return `${parts[0]}年${parseInt(parts[1])}月${parseInt(parts[2])}日`;
-        }
-        return dateStr;
-      };
-      dateText = `${formatDate(latestDate.start)} - ${formatDate(latestDate.end)}`;
-    }
-
-    const count = freeDates.length;
-    const countText = count > 1 ? `<span class="epic-detail-count">共赠送 ${count} 次</span>` : '';
-
     panel.innerHTML = `
       <div class="epic-detail-header">
-        <span class="epic-detail-icon">${isCurrentlyFree ? '🎮' : '✅'}</span>
-        <span class="epic-detail-title">${isCurrentlyFree ? 'Epic 当前免费领取中！' : 'Epic 曾免费赠送'}</span>
+        <span class="epic-detail-icon">${EPIC_SVG_LOGO}</span>
+        <span class="epic-detail-title">Epic Games 赠送记录</span>
+        ${count > 0 ? `<span class="epic-detail-count">${count} 次</span>` : ''}
       </div>
       <div class="epic-detail-body">
-        <div class="epic-detail-date">
-          <span class="epic-detail-label">赠送时间：</span>
-          <span class="epic-detail-value">${dateText}</span>
-        </div>
-        ${countText}
-        ${isCurrentlyFree ? '<div class="epic-detail-status">限时免费，快去领取！</div>' : ''}
+        ${datesHtml || '<div class="epic-detail-empty">暂无赠送记录</div>'}
+        ${isCurrentlyFree ? '<div class="epic-detail-status">现在免费！限时领取中 →</div>' : ''}
       </div>
+      <a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>
     `;
 
-    // 插入到购买区域上方
     addToCartArea.parentNode.insertBefore(panel, addToCartArea);
+
+    // 点击"现在免费"跳转 Epic 商店
+    if (isCurrentlyFree) {
+      panel.querySelector('.epic-detail-status').addEventListener('click', (e) => {
+        window.open('https://store.epicgames.com/', '_blank');
+      });
+    }
   }
 
   // ============================================================

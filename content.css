@@ -179,75 +179,145 @@
 }
 
 /* ============================================================
- * 游戏详情页面板样式
+ * 游戏详情页面板样式（Steam 原生融合）
  * ============================================================ */
 .epic-detail-panel {
-  background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
-  border: 1px solid #0078F2;
-  border-radius: 4px;
-  padding: 12px 16px;
-  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin-bottom: 8px;
+  border-radius: 3px;
   animation: epic-detail-fade-in 0.3s ease-out;
+  transition: background 0.2s ease;
+}
+
+.epic-detail-panel:hover {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .epic-detail-header {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .epic-detail-icon {
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .epic-detail-title {
-  color: #66C0F4;
+  color: #fff;
   font-size: 14px;
   font-weight: 600;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.epic-detail-count {
+  margin-left: auto;
+  background: rgba(102, 192, 244, 0.1);
+  border: 1px solid rgba(102, 192, 244, 0.2);
+  color: #66C0F4;
+  padding: 1px 8px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
 }
 
 .epic-detail-body {
   font-size: 12px;
   color: #c7d5e0;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
 
-.epic-detail-date {
+.epic-detail-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.epic-detail-date-row {
   display: flex;
   align-items: center;
-  gap: 4px;
-  margin-bottom: 4px;
+  gap: 8px;
+  padding: 3px 0;
 }
 
-.epic-detail-label {
+.epic-detail-date-row.latest {
+  color: #fff;
+}
+
+.epic-detail-date-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #8f98a0;
+  flex-shrink: 0;
+}
+
+.epic-detail-date-row.latest .epic-detail-date-dot {
+  background: #66C0F4;
+  box-shadow: 0 0 4px rgba(102, 192, 244, 0.5);
+}
+
+.epic-detail-date-range {
+  color: inherit;
+}
+
+.epic-detail-date-badge {
+  font-size: 10px;
+  color: #66C0F4;
+  background: rgba(102, 192, 244, 0.1);
+  padding: 0 5px;
+  border-radius: 2px;
+}
+
+.epic-detail-empty {
   color: #8f98a0;
-}
-
-.epic-detail-value {
-  color: #fff;
-}
-
-.epic-detail-count {
-  display: inline-block;
-  background: #0078F2;
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 3px;
-  font-size: 11px;
-  margin-top: 4px;
+  font-style: italic;
 }
 
 .epic-detail-status {
   color: #4caf50;
   font-weight: 600;
-  margin-top: 6px;
-  animation: epic-pulse-text 1.5s ease-in-out infinite;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 6px 10px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.25);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  animation: epic-pulse-text 2s ease-in-out infinite;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+}
+
+.epic-detail-status:hover {
+  background: rgba(76, 175, 80, 0.2);
+}
+
+.epic-detail-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px;
+  color: #8f98a0;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.epic-detail-link:hover {
+  color: #66C0F4;
 }
 
 @keyframes epic-detail-fade-in {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
