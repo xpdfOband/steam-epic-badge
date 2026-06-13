@@ -2615,7 +2615,7 @@
     {
       "title": "Make Way",
       "epic_id": "make-way",
-      "steam_appid": 1872720,
+      "steam_appid": 1445790,
       "free_dates": [
         {
           "start": "2024-03-28",
@@ -2623,7 +2623,7 @@
           "type": "giveaway"
         }
       ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1582540/header.jpg"
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1445790/header.jpg"
     },
     {
       "title": "Islets",
@@ -3711,7 +3711,7 @@
     {
       "title": "The Ouroboros King",
       "epic_id": "the-ouroboros-king",
-      "steam_appid": 1877980,
+      "steam_appid": 2096510,
       "free_dates": [
         {
           "start": "2025-06-12",
@@ -3719,7 +3719,7 @@
           "type": "giveaway"
         }
       ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1945280/header.jpg"
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/2096510/header.jpg"
     },
     {
       "title": "Warhammer 40K Speed Freeks",
@@ -3997,7 +3997,7 @@
     {
       "title": "Ghostrunner 2",
       "epic_id": "ghostrunner-2",
-      "steam_appid": 2064860,
+      "steam_appid": 2144740,
       "free_dates": [
         {
           "start": "2025-09-11",
@@ -4005,7 +4005,7 @@
           "type": "giveaway"
         }
       ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/2064860/header.jpg"
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/2144740/header.jpg"
     },
     {
       "title": "Project Winter",
