@@ -216,6 +216,14 @@
   function extractGameInfo(element) {
     if (!element) return null;
 
+    // 跳过小按钮（如"访问产品页面"、"添加至愿望单"等）
+    // 这些按钮也有 /app/ 链接，但不是游戏卡片
+    if (element.tagName === 'A' &&
+        element.classList.toString().includes('btn_') &&
+        !element.querySelector('img')) {
+      return null;
+    }
+
     // 方法1：从 href 属性提取 AppID
     let appId = null;
     let name = null;
