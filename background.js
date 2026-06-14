@@ -407,16 +407,51 @@ async function refreshCurrentFreeGames() {
 
   const currentFree = await fetchCurrentFreeGames();
 
-  // 通过名称匹配设置 steam_appid
+  // 匹配 Steam AppID 流程：
+  // 1. 先从历史记录中查找
+  // 2. 没找到则查询 Steam API
+  // 3. 找到后更新到历史记录
   const historyData = (await getStorage(STORAGE_KEY_HISTORY)) || { games: [] };
+  let historyUpdated = false;
+
   for (const game of currentFree) {
-    if (!game.steam_appid) {
-      const match = historyData.games.find(h => fuzzyMatch(h.title, game.title));
-      if (match && match.steam_appid) {
-        game.steam_appid = match.steam_appid;
-        log('log', `匹配 Steam AppID: ${game.title} -> ${match.steam_appid}`);
-      }
+    if (game.steam_appid) continue;
+
+    // 步骤1：从历史记录查找
+    const historyMatch = historyData.games.find(h => fuzzyMatch(h.title, game.title));
+    if (historyMatch && historyMatch.steam_appid) {
+      game.steam_appid = historyMatch.steam_appid;
+      log('log', `[历史匹配] ${game.title} -> ${historyMatch.steam_appid}`);
+      continue;
     }
+
+    // 步骤2：查询 Steam API
+    const steamAppId = await searchSteamAppId(game.title);
+    if (steamAppId) {
+      game.steam_appid = steamAppId;
+      log('log', `[Steam查询] ${game.title} -> ${steamAppId}`);
+
+      // 步骤3：更新到历史记录
+      const existing = historyData.games.find(h => fuzzyMatch(h.title, game.title));
+      if (existing) {
+        existing.steam_appid = steamAppId;
+      } else {
+        historyData.games.push({
+          title: game.title,
+          epic_id: game.epic_id,
+          steam_appid: steamAppId,
+          free_dates: game.free_dates || [],
+          image: game.image || null,
+        });
+      }
+      historyUpdated = true;
+    }
+  }
+
+  // 保存更新后的历史记录
+  if (historyUpdated) {
+    await setStorage(STORAGE_KEY_HISTORY, historyData);
+    log('log', '历史记录已更新 Steam AppID');
   }
 
   await setStorage(STORAGE_KEY_CURRENT, currentFree);
