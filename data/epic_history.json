@@ -188,8 +188,13 @@
       "steam_appid": 448510,
       "free_dates": [
         {
-          "start": "2019-06-27",
+          "start": "2019-07-04",
           "end": "2019-07-11",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-06-04",
+          "end": "2020-06-11",
           "type": "giveaway"
         }
       ],
@@ -240,8 +245,13 @@
       "steam_appid": 257850,
       "free_dates": [
         {
-          "start": "2019-08-22",
-          "end": "2019-09-05",
+          "start": "2019-08-15",
+          "end": "2019-08-22",
+          "type": "giveaway"
+        },
+        {
+          "start": "2019-12-27",
+          "end": "2020-01-03",
           "type": "giveaway"
         }
       ],
@@ -266,8 +276,13 @@
       "steam_appid": 304430,
       "free_dates": [
         {
-          "start": "2019-09-12",
-          "end": "2019-09-26",
+          "start": "2019-08-29",
+          "end": "2019-09-05",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-12-24",
+          "end": "2020-12-31",
           "type": "giveaway"
         }
       ],
@@ -292,8 +307,13 @@
       "steam_appid": 286690,
       "free_dates": [
         {
-          "start": "2019-10-10",
-          "end": "2019-10-17",
+          "start": "2019-09-26",
+          "end": "2019-10-03",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-12-22",
+          "end": "2020-12-29",
           "type": "giveaway"
         }
       ],
@@ -500,8 +520,13 @@
       "steam_appid": 204240,
       "free_dates": [
         {
-          "start": "2020-01-16",
-          "end": "2020-01-23",
+          "start": "2020-01-23",
+          "end": "2020-01-30",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-03-14",
+          "end": "2024-03-21",
           "type": "giveaway"
         }
       ],
@@ -513,8 +538,13 @@
       "steam_appid": 496300,
       "free_dates": [
         {
-          "start": "2020-01-23",
-          "end": "2020-01-30",
+          "start": "2019-06-06",
+          "end": "2019-06-13",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-10-15",
+          "end": "2020-10-22",
           "type": "giveaway"
         }
       ],
@@ -604,8 +634,13 @@
       "steam_appid": 271240,
       "free_dates": [
         {
-          "start": "2020-03-12",
-          "end": "2020-03-19",
+          "start": "2020-03-05",
+          "end": "2020-03-12",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-07-15",
+          "end": "2021-07-22",
           "type": "giveaway"
         }
       ],
@@ -760,8 +795,13 @@
       "steam_appid": 346110,
       "free_dates": [
         {
-          "start": "2020-06-04",
-          "end": "2020-06-11",
+          "start": "2020-06-11",
+          "end": "2020-06-18",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-09-22",
+          "end": "2022-09-29",
           "type": "giveaway"
         }
       ],
@@ -812,8 +852,13 @@
       "steam_appid": 200710,
       "free_dates": [
         {
-          "start": "2020-07-09",
-          "end": "2020-07-16",
+          "start": "2020-07-16",
+          "end": "2020-07-23",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-12-30",
+          "end": "2021-01-06",
           "type": "giveaway"
         }
       ],
@@ -929,8 +974,13 @@
       "steam_appid": 590380,
       "free_dates": [
         {
-          "start": "2020-09-10",
-          "end": "2020-09-17",
+          "start": "2019-12-19",
+          "end": "2019-12-26",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-09-03",
+          "end": "2020-09-10",
           "type": "giveaway"
         }
       ],
@@ -1033,8 +1083,13 @@
       "steam_appid": 275180,
       "free_dates": [
         {
-          "start": "2020-11-05",
-          "end": "2020-11-12",
+          "start": "2020-10-22",
+          "end": "2020-10-29",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-12-17",
+          "end": "2022-12-24",
           "type": "giveaway"
         }
       ],
@@ -1088,6 +1143,11 @@
           "start": "2020-12-03",
           "end": "2020-12-10",
           "type": "giveaway"
+        },
+        {
+          "start": "2023-08-31",
+          "end": "2023-09-07",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/200900/header.jpg"
@@ -1124,8 +1184,13 @@
       "steam_appid": 214490,
       "free_dates": [
         {
-          "start": "2020-12-17",
-          "end": "2020-12-24",
+          "start": "2020-12-21",
+          "end": "2020-12-28",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-04-22",
+          "end": "2021-04-29",
           "type": "giveaway"
         }
       ],
@@ -1137,8 +1202,13 @@
       "steam_appid": 18500,
       "free_dates": [
         {
-          "start": "2020-12-24",
-          "end": "2020-12-31",
+          "start": "2020-12-20",
+          "end": "2020-12-27",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-07-22",
+          "end": "2021-07-29",
           "type": "giveaway"
         }
       ],
@@ -1228,6 +1298,11 @@
       "steam_appid": 527230,
       "free_dates": [
         {
+          "start": "2020-04-23",
+          "end": "2020-04-30",
+          "type": "giveaway"
+        },
+        {
           "start": "2021-02-04",
           "end": "2021-02-11",
           "type": "giveaway"
@@ -1292,6 +1367,11 @@
       "epic_id": "surviving-mars",
       "steam_appid": 3215050,
       "free_dates": [
+        {
+          "start": "2019-10-10",
+          "end": "2019-10-17",
+          "type": "giveaway"
+        },
         {
           "start": "2021-03-11",
           "end": "2021-03-18",
@@ -1371,8 +1451,33 @@
       "steam_appid": 627690,
       "free_dates": [
         {
-          "start": "2021-04-22",
-          "end": "2021-04-29",
+          "start": "2021-04-29",
+          "end": "2021-05-06",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-06-22",
+          "end": "2023-06-29",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-06-13",
+          "end": "2024-06-20",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-04-10",
+          "end": "2025-04-17",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-11-06",
+          "end": "2025-11-13",
+          "type": "giveaway"
+        },
+        {
+          "start": "2026-03-05",
+          "end": "2026-03-12",
           "type": "giveaway"
         }
       ],
@@ -1478,6 +1583,16 @@
           "start": "2021-06-10",
           "end": "2021-06-17",
           "type": "giveaway"
+        },
+        {
+          "start": "2021-12-26",
+          "end": "2022-01-02",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-12-25",
+          "end": "2025-01-01",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/4165870/header.jpg"
@@ -1517,6 +1632,16 @@
           "start": "2021-06-24",
           "end": "2021-07-01",
           "type": "giveaway"
+        },
+        {
+          "start": "2022-12-16",
+          "end": "2022-12-23",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-05-04",
+          "end": "2023-05-11",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/386940/header.jpg"
@@ -1553,8 +1678,13 @@
       "steam_appid": 752590,
       "free_dates": [
         {
-          "start": "2021-07-08",
-          "end": "2021-07-15",
+          "start": "2021-08-05",
+          "end": "2021-08-12",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-01-03",
+          "end": "2024-01-10",
           "type": "giveaway"
         }
       ],
@@ -1670,8 +1800,13 @@
       "steam_appid": 290300,
       "free_dates": [
         {
-          "start": "2021-08-19",
-          "end": "2021-08-26",
+          "start": "2019-06-20",
+          "end": "2019-06-27",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-08-12",
+          "end": "2021-08-19",
           "type": "giveaway"
         }
       ],
@@ -1722,8 +1857,13 @@
       "steam_appid": 298630,
       "free_dates": [
         {
-          "start": "2021-09-09",
-          "end": "2021-09-16",
+          "start": "2019-12-12",
+          "end": "2019-12-19",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-09-23",
+          "end": "2021-09-30",
           "type": "giveaway"
         }
       ],
@@ -1747,6 +1887,11 @@
       "epic_id": "speed-brawl",
       "steam_appid": 468670,
       "free_dates": [
+        {
+          "start": "2021-08-05",
+          "end": "2021-08-12",
+          "type": "giveaway"
+        },
         {
           "start": "2021-09-16",
           "end": "2021-09-23",
@@ -1774,8 +1919,13 @@
       "steam_appid": 236850,
       "free_dates": [
         {
-          "start": "2021-09-23",
-          "end": "2021-09-30",
+          "start": "2021-09-30",
+          "end": "2021-10-07",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-08-10",
+          "end": "2023-08-17",
           "type": "giveaway"
         }
       ],
@@ -1891,8 +2041,13 @@
       "steam_appid": 418460,
       "free_dates": [
         {
-          "start": "2021-11-18",
-          "end": "2021-11-25",
+          "start": "2020-10-08",
+          "end": "2020-10-15",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-11-03",
+          "end": "2022-11-10",
           "type": "giveaway"
         }
       ],
@@ -2021,8 +2176,13 @@
       "steam_appid": 226860,
       "free_dates": [
         {
-          "start": "2022-01-20",
-          "end": "2022-01-27",
+          "start": "2021-01-21",
+          "end": "2021-01-28",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-01-13",
+          "end": "2022-01-20",
           "type": "giveaway"
         }
       ],
@@ -2060,8 +2220,13 @@
       "steam_appid": 846870,
       "free_dates": [
         {
-          "start": "2022-02-10",
-          "end": "2022-02-17",
+          "start": "2019-12-31",
+          "end": "2020-01-07",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-02-03",
+          "end": "2022-02-10",
           "type": "giveaway"
         }
       ],
@@ -2125,8 +2290,13 @@
       "steam_appid": 301840,
       "free_dates": [
         {
-          "start": "2022-03-10",
-          "end": "2022-03-17",
+          "start": "2019-05-30",
+          "end": "2019-06-06",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-03-31",
+          "end": "2022-04-07",
           "type": "giveaway"
         }
       ],
@@ -2164,8 +2334,13 @@
       "steam_appid": 258520,
       "free_dates": [
         {
-          "start": "2022-03-31",
-          "end": "2022-04-07",
+          "start": "2021-12-19",
+          "end": "2021-12-26",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-04-07",
+          "end": "2022-04-14",
           "type": "giveaway"
         }
       ],
@@ -2269,7 +2444,12 @@
       "free_dates": [
         {
           "start": "2022-12-25",
-          "end": "2022-12-26",
+          "end": "2023-01-01",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-05-18",
+          "end": "2023-05-25",
           "type": "giveaway"
         }
       ],
@@ -2307,8 +2487,13 @@
       "steam_appid": 418240,
       "free_dates": [
         {
-          "start": "2023-01-19",
-          "end": "2023-01-26",
+          "start": "2019-12-28",
+          "end": "2020-01-04",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-11-10",
+          "end": "2022-11-17",
           "type": "giveaway"
         }
       ],
@@ -2710,8 +2895,13 @@
       "steam_appid": 1544020,
       "free_dates": [
         {
-          "start": "2024-03-21",
-          "end": "2024-03-28",
+          "start": "2024-08-22",
+          "end": "2024-08-29",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-12-24",
+          "end": "2025-12-25",
           "type": "giveaway"
         }
       ],
@@ -2749,8 +2939,13 @@
       "steam_appid": 1920490,
       "free_dates": [
         {
-          "start": "2024-04-11",
-          "end": "2024-04-18",
+          "start": "2023-12-25",
+          "end": "2024-01-01",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-04-04",
+          "end": "2024-04-11",
           "type": "giveaway"
         }
       ],
@@ -2801,8 +2996,18 @@
       "steam_appid": 3063880,
       "free_dates": [
         {
-          "start": "2024-05-09",
-          "end": "2024-05-16",
+          "start": "2025-04-17",
+          "end": "2025-04-24",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-10-02",
+          "end": "2025-10-09",
+          "type": "giveaway"
+        },
+        {
+          "start": "2026-04-30",
+          "end": "2026-05-07",
           "type": "giveaway"
         }
       ],
@@ -2866,8 +3071,13 @@
       "steam_appid": 1139900,
       "free_dates": [
         {
-          "start": "2024-06-13",
-          "end": "2024-06-20",
+          "start": "2023-12-31",
+          "end": "2024-01-07",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-04-11",
+          "end": "2024-04-18",
           "type": "giveaway"
         }
       ],
@@ -2944,8 +3154,13 @@
       "steam_appid": 1522820,
       "free_dates": [
         {
-          "start": "2024-07-25",
-          "end": "2024-08-01",
+          "start": "2024-05-02",
+          "end": "2024-05-09",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-12-29",
+          "end": "2025-01-05",
           "type": "giveaway"
         }
       ],
@@ -2957,8 +3172,13 @@
       "steam_appid": 504230,
       "free_dates": [
         {
-          "start": "2024-08-01",
-          "end": "2024-08-08",
+          "start": "2019-08-29",
+          "end": "2019-09-05",
+          "type": "giveaway"
+        },
+        {
+          "start": "2019-12-24",
+          "end": "2019-12-31",
           "type": "giveaway"
         }
       ],
@@ -3152,8 +3372,13 @@
       "steam_appid": 1475810,
       "free_dates": [
         {
-          "start": "2024-11-07",
-          "end": "2024-11-14",
+          "start": "2023-12-24",
+          "end": "2023-12-31",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-10-31",
+          "end": "2024-11-07",
           "type": "giveaway"
         }
       ],
@@ -3256,8 +3481,13 @@
       "steam_appid": 379430,
       "free_dates": [
         {
-          "start": "2025-01-02",
-          "end": "2025-01-09",
+          "start": "2020-02-13",
+          "end": "2020-02-20",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-01-08",
           "type": "giveaway"
         }
       ],
@@ -3307,6 +3537,11 @@
       "epic_id": "escape-academy",
       "steam_appid": 1812090,
       "free_dates": [
+        {
+          "start": "2024-01-01",
+          "end": "2024-01-08",
+          "type": "giveaway"
+        },
         {
           "start": "2025-01-16",
           "end": "2025-01-23",
@@ -3373,6 +3608,11 @@
       "steam_appid": 574980,
       "free_dates": [
         {
+          "start": "2022-12-19",
+          "end": "2022-12-26",
+          "type": "giveaway"
+        },
+        {
           "start": "2025-03-06",
           "end": "2025-03-13",
           "type": "giveaway"
@@ -3385,6 +3625,11 @@
       "epic_id": "cat-quest",
       "steam_appid": 593280,
       "free_dates": [
+        {
+          "start": "2023-12-28",
+          "end": "2024-01-04",
+          "type": "giveaway"
+        },
         {
           "start": "2025-03-27",
           "end": "2025-04-03",
@@ -3529,8 +3774,8 @@
       "steam_appid": 2138710,
       "free_dates": [
         {
-          "start": "2024-12-24",
-          "end": "2024-12-25",
+          "start": "2024-12-31",
+          "end": "2025-01-07",
           "type": "giveaway"
         },
         {
@@ -3559,6 +3804,11 @@
       "epic_id": "limbo",
       "steam_appid": 48000,
       "free_dates": [
+        {
+          "start": "2019-07-18",
+          "end": "2019-07-25",
+          "type": "giveaway"
+        },
         {
           "start": "2025-05-29",
           "end": "2025-06-05",
@@ -3677,6 +3927,11 @@
       "steam_appid": 883360,
       "free_dates": [
         {
+          "start": "2023-04-20",
+          "end": "2023-04-27",
+          "type": "giveaway"
+        },
+        {
           "start": "2025-02-06",
           "end": "2025-02-13",
           "type": "giveaway"
@@ -3729,8 +3984,13 @@
       "steam_appid": 529660,
       "free_dates": [
         {
-          "start": "2025-03-06",
-          "end": "2025-03-13",
+          "start": "2021-12-27",
+          "end": "2022-01-03",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-02-27",
+          "end": "2025-03-06",
           "type": "giveaway"
         }
       ],
@@ -3755,8 +4015,13 @@
       "steam_appid": 1110910,
       "free_dates": [
         {
-          "start": "2025-03-20",
-          "end": "2025-03-27",
+          "start": "2022-12-28",
+          "end": "2023-01-04",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-03-13",
+          "end": "2025-03-20",
           "type": "giveaway"
         }
       ],
@@ -3768,8 +4033,13 @@
       "steam_appid": 2060870,
       "free_dates": [
         {
-          "start": "2025-03-27",
-          "end": "2025-04-03",
+          "start": "2024-03-21",
+          "end": "2024-03-28",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-10-17",
+          "end": "2024-10-24",
           "type": "giveaway"
         }
       ],
@@ -3794,8 +4064,13 @@
       "steam_appid": 1824220,
       "free_dates": [
         {
-          "start": "2025-04-10",
-          "end": "2025-04-17",
+          "start": "2024-05-30",
+          "end": "2024-06-06",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-12-31",
+          "end": "2026-01-01",
           "type": "giveaway"
         }
       ],
@@ -3963,6 +4238,11 @@
       "steam_appid": 757310,
       "free_dates": [
         {
+          "start": "2022-12-18",
+          "end": "2022-12-25",
+          "type": "giveaway"
+        },
+        {
           "start": "2025-06-26",
           "end": "2025-07-03",
           "type": "giveaway"
@@ -3988,6 +4268,11 @@
       "epic_id": "figment",
       "steam_appid": 493540,
       "free_dates": [
+        {
+          "start": "2020-03-26",
+          "end": "2020-04-02",
+          "type": "giveaway"
+        },
         {
           "start": "2025-07-03",
           "end": "2025-07-10",
@@ -4183,6 +4468,11 @@
       "epic_id": "ghostrunner-2",
       "steam_appid": 2144740,
       "free_dates": [
+        {
+          "start": "2024-12-26",
+          "end": "2025-01-02",
+          "type": "giveaway"
+        },
         {
           "start": "2025-09-11",
           "end": "2025-09-18",
@@ -4457,7 +4747,12 @@
       "steam_appid": 990080,
       "free_dates": [
         {
-          "start": "2025-12-11",
+          "start": "2025-12-12",
+          "end": "2025-12-18",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-12-12",
           "end": "2025-12-18",
           "type": "giveaway"
         }
@@ -4651,6 +4946,16 @@
       "epic_id": "bloons-td-6",
       "steam_appid": 960090,
       "free_dates": [
+        {
+          "start": "2022-12-15",
+          "end": "2022-12-22",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-08-03",
+          "end": "2023-08-10",
+          "type": "giveaway"
+        },
         {
           "start": "2026-01-08",
           "end": "2026-01-15",
@@ -5074,6 +5379,402 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/867210/header.jpg"
+    },
+    {
+      "title": "Abzû",
+      "epic_id": "dedd448c38d947ab90291540f183378b",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2019-09-05",
+          "end": "2019-09-12",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-10-08",
+          "end": "2020-10-15",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Cat Quest II",
+      "epic_id": "2a8398bbcb524c379ab21e31f0be5aeb",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2024-05-02",
+          "end": "2024-05-09",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-04-03",
+          "end": "2025-04-10",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Cities: Skylines",
+      "epic_id": "bc4b1ba9b182475fb74ee218f3590d73",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2020-12-17",
+          "end": "2020-12-24",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-03-10",
+          "end": "2022-03-17",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "DNF Duel",
+      "epic_id": "824fca6e444b4223bbf275cfc0355282",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2023-12-20",
+          "end": "2023-12-27",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-08-08",
+          "end": "2024-08-15",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Enter the Gungeon",
+      "epic_id": "373a2e61db9c41418340c0378c6989a2",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2019-06-13",
+          "end": "2019-06-20",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-08-20",
+          "end": "2020-08-27",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "F.I.S.T.: Forged In Shadow Torch",
+      "epic_id": "6e708b1e608f446eaa80488d26b7444b",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2022-12-26",
+          "end": "2023-01-02",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-07-25",
+          "end": "2024-08-01",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Fallout 3: Game of the Year Edition",
+      "epic_id": "d6f01b1827c64ed388191ae507fe7c1b",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2022-10-20",
+          "end": "2022-10-27",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-12-23",
+          "end": "2023-12-30",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Jotun: Valhalla Edition",
+      "epic_id": "cbbde99547d54f41b8f7bd5fc46726c5",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2019-12-05",
+          "end": "2019-12-12",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-05-12",
+          "end": "2022-05-19",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Killing Floor 2",
+      "epic_id": "e2b82b9dbfa94bb79ecb5714a9e91306",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2020-07-09",
+          "end": "2020-07-16",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-07-07",
+          "end": "2022-07-14",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Loop Hero",
+      "epic_id": "db122f42b41f4dec927e0f280cf653bd",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2021-12-20",
+          "end": "2021-12-27",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-08-03",
+          "end": "2023-08-10",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Metro Last Light Redux",
+      "epic_id": "95da6fba3816455cb8de5241681e1a10",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2021-02-04",
+          "end": "2021-02-11",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-12-24",
+          "end": "2022-12-31",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Moving Out",
+      "epic_id": "2297009423294b39b6c5977e172b0629",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2021-12-28",
+          "end": "2022-01-04",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-10-24",
+          "end": "2024-10-31",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Mutant Year Zero: Road to Eden",
+      "epic_id": "9651fd57c8a34e81949aab28a084ced7",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2019-08-15",
+          "end": "2019-08-22",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-12-22",
+          "end": "2021-12-29",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Never Alone (Kisima Ingitchuna)",
+      "epic_id": "0cd43717a2224f33bb9a95f01d303474",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2021-11-18",
+          "end": "2021-11-25",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-04-20",
+          "end": "2023-04-27",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Prey",
+      "epic_id": "ed17077691c541c19dc95e47fdd1cfd5",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2021-12-25",
+          "end": "2022-01-01",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-05-12",
+          "end": "2022-05-19",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Remnant: From the Ashes",
+      "epic_id": "c3a4300ca5fb498b91008b7e5fe5778e",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2020-08-13",
+          "end": "2020-08-20",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-12-18",
+          "end": "2021-12-25",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Second Extinction™",
+      "epic_id": "b6cc19713fdf44b398c0988a9fc111aa",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2021-12-21",
+          "end": "2021-12-28",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-04-13",
+          "end": "2023-04-20",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Severed Steel",
+      "epic_id": "d49e6e2ef99443fb9bc3176055a65be1",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2022-12-27",
+          "end": "2023-01-03",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-07-27",
+          "end": "2023-08-03",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Sid Meier’s Civilization® VI Platinum Edition",
+      "epic_id": "9cf93671754649668f7a043b6200ff9b",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2020-05-21",
+          "end": "2020-05-28",
+          "type": "giveaway"
+        },
+        {
+          "start": "2025-07-17",
+          "end": "2025-07-24",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Snakebird Complete",
+      "epic_id": "8ecb2895d94f4c64a743c1c4f056743f",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2023-12-29",
+          "end": "2024-01-05",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-11-14",
+          "end": "2024-11-21",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "Wolfenstein The New Order",
+      "epic_id": "52a32a3469dd4a2ca20bfff0c6a66486",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2022-06-02",
+          "end": "2022-06-09",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-12-20",
+          "end": "2022-12-27",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
+    },
+    {
+      "title": "theHunter: Call of the Wild™",
+      "epic_id": "e21e1a89e87f4d5faa776258c369ceea",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2021-11-25",
+          "end": "2021-12-02",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-06-22",
+          "end": "2023-06-29",
+          "type": "giveaway"
+        }
+      ],
+      "image": null
     }
   ],
   "last_updated": "2026-06-14"
