@@ -468,67 +468,51 @@
   }
 
   /**
-   * 在详情页注入 Epic 赠送信息面板（放在购买区域上方）
+   * 在详情页注入 Epic 赠送角标（放在购买按钮区域左下方）
    * @param {object} gameData - 游戏数据
    */
   function injectDetailPanel(gameData) {
-    const existingPanel = document.querySelector('.epic-detail-panel');
-    if (existingPanel) return;
+    const existingBadge = document.querySelector('.epic-detail-badge');
+    if (existingBadge) return;
 
-    const addToCartArea = document.querySelector('.game_area_purchase_game') ||
-                          document.querySelector('#game_area_purchase') ||
-                          document.querySelector('.game_area_purchase');
+    // 定位购买区域
+    const purchaseArea = document.querySelector('.game_area_purchase_game') ||
+                         document.querySelector('#game_area_purchase') ||
+                         document.querySelector('.game_area_purchase');
 
-    if (!addToCartArea) {
-      console.log("[Epic Badge] 未找到购买区域，跳过详情面板注入");
+    if (!purchaseArea) {
+      console.log("[Epic Badge] 未找到购买区域，跳过详情角标注入");
       return;
+    }
+
+    // 找到购买按钮的具体容器（对应 Steam DOM 中按钮 span 的父级）
+    const actionContainer = purchaseArea.querySelector('.game_purchase_action') ||
+                            purchaseArea.querySelector('.game_purchase_action_bg') ||
+                            purchaseArea.querySelector('.discount_block') ||
+                            purchaseArea;
+
+    // 确保父容器有 relative 定位
+    const computedStyle = window.getComputedStyle(actionContainer);
+    if (computedStyle.position === 'static') {
+      actionContainer.style.position = 'relative';
     }
 
     const isCurrentlyFree = gameData.details?.isCurrentlyFree;
     const freeDates = gameData.freeDates || [];
-    const count = freeDates.length;
 
-    // 构建所有赠送日期列表
-    let datesHtml = '';
-    if (count > 0) {
-      datesHtml = '<div class="epic-detail-dates">';
-      [...freeDates].reverse().forEach((d, i) => {
-        const start = formatDateCN(d.start);
-        const end = formatDateCN(d.end);
-        datesHtml += `
-          <div class="epic-detail-date-row ${i === 0 ? 'latest' : ''}">
-            <span class="epic-detail-date-dot"></span>
-            <span class="epic-detail-date-range">${start} - ${end}</span>
-            ${i === 0 ? '<span class="epic-detail-date-badge">最近</span>' : ''}
-          </div>`;
-      });
-      datesHtml += '</div>';
-    }
+    // 格式化 tooltip
+    const tooltipText = formatFreeDates(freeDates);
 
-    const panel = document.createElement('div');
-    panel.className = 'epic-detail-panel';
+    // 创建角标
+    const badge = document.createElement('div');
+    badge.className = BADGE_CLASS + ' epic-detail-badge' + (isCurrentlyFree ? ' currently-free' : '');
+    badge.setAttribute('data-tooltip', tooltipText);
 
-    panel.innerHTML = `
-      <div class="epic-detail-header">
-        <span class="epic-detail-icon"><img class="epic-detail-logo" src="${EPIC_LOGO_URL}" alt="Epic Games"></span>
-        <span class="epic-detail-title">Epic Games 赠送记录</span>
-        ${count > 0 ? `<span class="epic-detail-count">${count} 次</span>` : ''}
-      </div>
-      <div class="epic-detail-body">
-        ${datesHtml || '<div class="epic-detail-empty">暂无赠送记录</div>'}
-        ${isCurrentlyFree ? '<div class="epic-detail-status">现在免费！限时领取中 →</div>' : ''}
-      </div>
-      <a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>
-    `;
+    const arrow = document.createElement('span');
+    arrow.className = 'tooltip-arrow';
+    badge.appendChild(arrow);
 
-    addToCartArea.parentNode.insertBefore(panel, addToCartArea);
-
-    // 点击"现在免费"跳转 Epic 商店
-    if (isCurrentlyFree) {
-      panel.querySelector('.epic-detail-status').addEventListener('click', (e) => {
-        window.open('https://store.epicgames.com/', '_blank');
-      });
-    }
+    actionContainer.appendChild(badge);
   }
 
   // ============================================================
