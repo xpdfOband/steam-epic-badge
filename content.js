@@ -12,8 +12,9 @@
  * ============================================================
  */
 
-(function () {
-  "use strict";
+import { throttle, waitForElement, createLookupMap } from './utils/performance.js';
+
+"use strict";
 
   // ============================================================
   // 配置常量
@@ -28,8 +29,8 @@
   /** 父容器标记类 */
   const PARENT_CLASS = "epic-badge-parent";
 
-  /** 防抖延迟（毫秒） */
-  const DEBOUNCE_DELAY = 300;
+  /** 节流延迟（毫秒） */
+  const THROTTLE_DELAY = 500;
 
   /** 批量查询最大数量 */
   const BATCH_SIZE = 20;
@@ -639,8 +640,41 @@
   /** 待查询的游戏信息队列 */
   let pendingQueries = [];
 
-  /** 查询定时器 */
-  let queryTimer = null;
+  /** 游戏查找 Map（O(1) 查找） */
+  let gamesLookupMap = new Map();
+
+  /**
+   * 初始化游戏查找表
+   * 从 chrome.storage.local 加载所有游戏数据并构建 Map
+   */
+  async function initializeGamesLookup() {
+    try {
+      const result = await new Promise((resolve) => {
+        chrome.storage.local.get(null, (data) => resolve(data));
+      });
+      gamesLookupMap = createLookupMap(Object.values(result), game => game.appId);
+      console.log(`[Epic Badge] 游戏查找表已初始化，共 ${gamesLookupMap.size} 条记录`);
+    } catch (error) {
+      console.warn('[Epic Badge] 初始化游戏查找表失败:', error);
+    }
+  }
+
+  /**
+   * 等待游戏容器加载（用于详情页异步加载场景）
+   * @returns {Promise<Element|null>} 游戏容器元素
+   */
+  async function waitForGameContainer() {
+    try {
+      const container = await waitForElement('.game_area_purchase_game', 3000);
+      return container;
+    } catch (error) {
+      console.log('[Epic Badge] Game container not found, using fallback');
+      return null;
+    }
+  }
+
+  /** 节流后的批量查询函数（leading edge 执行） */
+  const throttledFlushQuery = throttle(flushBatchQuery, THROTTLE_DELAY);
 
   /**
    * 扫描页面上的游戏元素
@@ -734,21 +768,8 @@
       pendingQueries.push(game);
     });
 
-    // 触发批量查询（防抖）
-    scheduleBatchQuery();
-  }
-
-  /**
-   * 安排批量查询（防抖处理）
-   */
-  function scheduleBatchQuery() {
-    if (queryTimer) {
-      clearTimeout(queryTimer);
-    }
-
-    queryTimer = setTimeout(() => {
-      flushBatchQuery();
-    }, DEBOUNCE_DELAY);
+    // 触发批量查询（节流）
+    throttledFlushQuery();
   }
 
   /**
@@ -768,9 +789,9 @@
     // 发送到 background.js 查询
     queryBackground(appIds, batch);
 
-    // 如果还有剩余，继续处理
+    // 如果还有剩余，继续处理（节流）
     if (pendingQueries.length > 0) {
-      scheduleBatchQuery();
+      throttledFlushQuery();
     }
   }
 
@@ -832,8 +853,11 @@
   /** MutationObserver 实例 */
   let observer = null;
 
-  /** 观察防抖定时器 */
-  let observerTimer = null;
+  /** 节流后的 DOM 变化处理函数 */
+  const throttledObserverScan = throttle(() => {
+    console.log("[Epic Badge] 检测到 DOM 变化，重新扫描");
+    scanAndProcess();
+  }, THROTTLE_DELAY);
 
   /**
    * 创建 MutationObserver 监听 DOM 变化
@@ -857,15 +881,8 @@
 
       if (!hasNewNodes) return;
 
-      // 防抖处理
-      if (observerTimer) {
-        clearTimeout(observerTimer);
-      }
-
-      observerTimer = setTimeout(() => {
-        console.log("[Epic Badge] 检测到 DOM 变化，重新扫描");
-        scanAndProcess();
-      }, DEBOUNCE_DELAY);
+      // 节流处理
+      throttledObserverScan();
     });
 
     // 开始观察
@@ -900,6 +917,14 @@
     const pageType = detectPageType();
     if (!isPageEnabled(pageType)) {
       return;
+    }
+
+    // 初始化游戏查找表（O(1) 查找优化）
+    await initializeGamesLookup();
+
+    // 详情页等待购买区域加载
+    if (pageType === 'detail') {
+      await waitForGameContainer();
     }
 
     // 初始扫描
@@ -943,10 +968,11 @@
   // 启动
   // ============================================================
 
-  // 确保 DOM 已准备好
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
-})();
+// 确保 DOM 已准备好
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
+
+export { scanPageForGames, initializeGamesLookup };
