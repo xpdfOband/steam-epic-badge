@@ -5,10 +5,10 @@
 
 /* --- 角标基础样式 --- */
 .epic-badge {
-  /* 绝对定位：相对于父容器（游戏图标）的右上角 */
+  /* 绝对定位：相对于父容器的左下角 */
   position: absolute;
-  top: 0;
-  right: 0;
+  bottom: 0;
+  left: 0;
 
   /* 尺寸：自适应内容 */
   min-width: 24px;
@@ -47,11 +47,11 @@
   cursor: default;
 }
 
-/* --- 角标内容：Epic 图标 + 文字 --- */
+/* --- 角标内容：游戏手柄 + Epic 文字 --- */
 .epic-badge::before {
   content: "🎮 Epic";
   font-size: 10px;
-  margin-right: 3px;
+  margin-right: 0;
 }
 
 /* --- 悬停效果 --- */
@@ -76,6 +76,47 @@
 
 .epic-badge.currently-free:hover {
   box-shadow: 0 2px 8px rgba(76, 175, 80, 0.5);
+}
+
+/* --- 首页大图容器：防止 overflow hidden 裁剪角标 --- */
+.highlighted_app {
+  overflow: visible !important;
+}
+
+/* --- 首页大图角标：左侧堆叠，模仿 Xbox Game Pass 标签 --- */
+.highlighted_app .epic-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: auto;
+  min-width: auto;
+  height: 28px;
+  padding: 0 10px 0 8px;
+  font-size: 13px;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  gap: 5px;
+}
+
+.highlighted_app .epic-badge::before {
+  content: "🎮 Epic";
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-right: 0;
+}
+
+.highlighted_app .epic-badge:hover {
+  transform: none;
+  box-shadow: 0 1px 6px rgba(0, 120, 242, 0.4);
+}
+
+.highlighted_app .epic-badge.currently-free::before {
+  content: "Epic";
+}
+
+.highlighted_app .epic-badge .tooltip-arrow {
+  display: none;
 }
 
 /* --- Tooltip 样式 --- */
@@ -176,6 +217,88 @@
  * ============================================================ */
 .epic-badge-parent {
   position: relative;
+  overflow: visible !important;
+}
+
+/* 新版 Steam：store_main_capsule 内的 info 区域角标 */
+.store_main_capsule .info .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  z-index: 100;
+}
+
+/* 新版 Steam tab 行：tab_item_content 内的角标 */
+.tab_row_item .tab_item_content .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  z-index: 100;
+}
+
+/* 推荐/深度挖掘胶囊（sale_capsule）：角标放胶囊底部 */
+.sale_capsule > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
+/* 折扣胶囊（store_capsule）：角标放底部 */
+.store_capsule > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
+/* 鉴赏家推荐胶囊 */
+.curator_giant_capsule > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  z-index: 100;
+}
+
+/* 交互式推荐器 button 卡片内的角标 */
+button .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
+/* 旧版/兜底：胶囊直接子元素的角标 */
+.store_main_capsule > .epic-badge,
+.home_discount_games_ctn > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
+/* 旧版兼容：tab_content_items 容器内的角标 */
+.tab_content_items > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
 }
 
 /* ============================================================
@@ -304,6 +427,16 @@
 
 .epic-detail-status:hover {
   background: rgba(76, 175, 80, 0.2);
+}
+
+.epic-detail-upcoming {
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #66C0F4;
+  background: rgba(102, 192, 244, 0.1);
+  border-radius: 3px;
+  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
 }
 
 .epic-detail-link {
