@@ -261,6 +261,14 @@
       if (h2 && h2.textContent.trim()) return h2.textContent.trim();
     }
 
+    // 0.5. 推荐区卡片：游戏名在 img 的 alt 属性中
+    if (element.tagName === 'A') {
+      const img = element.querySelector('img[alt]');
+      if (img && img.alt && img.alt.trim()) {
+        return img.alt.trim();
+      }
+    }
+
     // 按优先级尝试各种名称选择器
     const nameSelectors = [
       // 搜索结果
@@ -413,6 +421,13 @@
     const recButton = linkEl.closest('button');
     if (recButton) {
       return recButton;
+    }
+
+    // 0.5. 首页推荐区卡片：link 直接包含 img + 价格，没有中间容器
+    //    检测方式：link 内有 img 但没有 .title/.app_name 等标题元素
+    if (linkEl.tagName === 'A' && linkEl.querySelector('img') &&
+        !linkEl.querySelector('.title, .app_name, .tab_item_name, .search_name')) {
+      return linkEl;
     }
 
     // 1. 新版 Steam tab 行：<a class="tab_row_item">
