@@ -358,6 +358,32 @@ function extractImageUrl(elem) {
   return null;
 }
 
+/**
+ * 通过 Steam API 搜索游戏的 AppID
+ * @param {string} gameName - 游戏名称
+ * @returns {Promise<number|null>} Steam AppID 或 null
+ */
+async function searchSteamAppId(gameName) {
+  try {
+    const url = `https://store.steampowered.com/api/storesearch/?term=${encodeURIComponent(gameName)}&l=english&cc=US`;
+    const response = await fetch(url);
+    if (!response.ok) return null;
+
+    const data = await response.json();
+    if (!data.items || data.items.length === 0) return null;
+
+    // 找到名称最匹配的结果
+    const bestMatch = data.items.find(item =>
+      item.name && fuzzyMatch(item.name, gameName)
+    ) || data.items[0];
+
+    return bestMatch.id || null;
+  } catch (err) {
+    log('warn', `Steam API 查询失败: ${gameName}`, err.message);
+    return null;
+  }
+}
+
 // ============================================================
 // 数据同步与缓存
 // ============================================================
