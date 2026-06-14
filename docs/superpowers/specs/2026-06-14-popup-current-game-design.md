@@ -62,7 +62,7 @@ const upcomingFree = gameData.freeDates.find(d => d.start > today);
 
 ### 4. 获取游戏名称和图片
 
-- 名称：优先使用 `gameData.details.title`，回退到从页面 DOM 提取（通过 `chrome.scripting.executeScript`），最终回退到 "未知游戏"
+- 名称：使用 `gameData.details.title`，不在数据中则显示"未知游戏"
 - 图片：优先使用 `gameData.details.image`，回退到 Steam CDN `https://cdn.akamai.steamstatic.com/steam/apps/{appId}/header.jpg`
 
 ### 5. 渲染卡片
