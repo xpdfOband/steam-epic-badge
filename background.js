@@ -563,7 +563,6 @@ async function queryBatchByAppIds(appIds) {
   for (const appId of appIds) {
     const game = lookupByAppId(appId);
     data[appId] = game ? _buildResult(game, game.isCurrentlyFree === true) : EMPTY_RESULT;
-    }
   }
   return data;
 }
