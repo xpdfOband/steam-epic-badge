@@ -6,3 +6,5 @@ data/epic_history_full.json
 .claude/
 .memsearch/
 dist/
+node_modules/
+package-lock.json
