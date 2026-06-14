@@ -549,12 +549,17 @@
       return;
     }
 
-    const isCurrentlyFree = gameData.details?.isCurrentlyFree;
     const freeDates = gameData.freeDates || [];
     const count = freeDates.length;
 
-    // 检测是否有即将到来的免费赠送（开始日期在今天之后）
+    // 今天日期，用于判断赠送状态
     const today = new Date().toISOString().split('T')[0];
+
+    // isCurrentlyFree：来自 Epic API 或今天落在某个赠送区间内
+    const isCurrentlyFree = gameData.details?.isCurrentlyFree
+      || freeDates.some(d => d.start && d.end && d.start <= today && today <= d.end);
+
+    // 即将到来的免费赠送（开始日期在今天之后）
     const upcomingFree = freeDates.find(d => d.start && d.start > today);
 
     // 构建所有赠送日期列表
