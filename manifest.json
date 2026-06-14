@@ -33,27 +33,16 @@
   },
   "web_accessible_resources": [
     {
-      "resources": [
-        "icons/epic-games.jpg"
-      ],
-      "matches": [
-        "https://store.steampowered.com/*"
-      ]
+      "resources": ["icons/epic-games.jpg"],
+      "matches": ["https://store.steampowered.com/*"]
     }
   ],
   "content_scripts": [
     {
-      "matches": [
-        "https://store.steampowered.com/*"
-      ],
-      "js": [
-        "content.js"
-      ],
-      "css": [
-        "content.css"
-      ],
-      "run_at": "document_idle",
-      "type": "module"
+      "matches": ["https://store.steampowered.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
     }
   ]
 }

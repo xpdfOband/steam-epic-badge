@@ -12,9 +12,8 @@
  * ============================================================
  */
 
-import { throttle, waitForElement, createLookupMap } from './utils/performance.js';
-
-"use strict";
+(function () {
+  "use strict";
 
   // ============================================================
   // 配置常量
@@ -29,8 +28,8 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
   /** 父容器标记类 */
   const PARENT_CLASS = "epic-badge-parent";
 
-  /** 节流延迟（毫秒） */
-  const THROTTLE_DELAY = 500;
+  /** 防抖延迟（毫秒） */
+  const DEBOUNCE_DELAY = 300;
 
   /** 批量查询最大数量 */
   const BATCH_SIZE = 20;
@@ -88,23 +87,14 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
     // 搜索结果页 - 每个搜索结果行
     search: ".search_result_row",
 
-    // 首页推荐 - 高亮推荐游戏（旧版 Steam）
+    // 首页推荐 - 高亮推荐游戏
     homepage_highlight: ".highlighted_app",
 
-    // 首页常规推荐 - 带 /app/ 链接的元素（旧版 Steam）
+    // 首页常规推荐 - 带 /app/ 链接的元素
     homepage_capsule: '.cap a[href*="/app/"]',
 
-    // 首页特惠/新品等板块（旧版 Steam）
+    // 首页特惠/新品等板块
     homepage_tab: '.tab_item a[href*="/app/"]',
-
-    // 首页主轮播胶囊（新版 Steam 2025+）
-    homepage_main_capsule: 'a.store_main_capsule[href*="/app/"]',
-
-    // 首页折扣区域（新版 Steam 2025+）
-    homepage_discount: '.home_discount_games_ctn a[href*="/app/"]',
-
-    // 首页标签页内容区域（新版 Steam 2025+）
-    homepage_tab_content: '.tab_content_items a[href*="/app/"]',
 
     // 游戏详情页 - 游戏名称
     detail_name: ".apphub_AppName",
@@ -217,14 +207,6 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
   function extractGameInfo(element) {
     if (!element) return null;
 
-    // 跳过小按钮（如"访问产品页面"、"添加至愿望单"等）
-    // 这些按钮也有 /app/ 链接，但不是游戏卡片
-    if (element.tagName === 'A' &&
-        element.classList.toString().includes('btn_') &&
-        !element.querySelector('img')) {
-      return null;
-    }
-
     // 方法1：从 href 属性提取 AppID
     let appId = null;
     let name = null;
@@ -263,21 +245,6 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
    * @returns {string} 游戏名称
    */
   function extractGameName(element, appId) {
-    // 0. 交互式推荐器 button 卡片：游戏名在 h2 里
-    const recButton = element.closest('button');
-    if (recButton) {
-      const h2 = recButton.querySelector('h2');
-      if (h2 && h2.textContent.trim()) return h2.textContent.trim();
-    }
-
-    // 0.5. 推荐区卡片：游戏名在 img 的 alt 属性中
-    if (element.tagName === 'A') {
-      const img = element.querySelector('img[alt]');
-      if (img && img.alt && img.alt.trim()) {
-        return img.alt.trim();
-      }
-    }
-
     // 按优先级尝试各种名称选择器
     const nameSelectors = [
       // 搜索结果
@@ -419,74 +386,6 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
   }
 
   /**
-   * 在游戏卡片中查找标题区域作为角标容器
-   * 新版 Steam 首页的 store_main_capsule 是封面图，角标应放在标题附近
-   * @param {Element} linkEl - 游戏链接元素
-   * @returns {Element} 适合放置角标的容器
-   */
-  function findTitleArea(linkEl) {
-    // 0. 交互式推荐器 <button> 卡片（Steam Labs recommender）
-    //    按钮内包含 h2 标题 + "因为您想要"等文本，角标放卡片左下角
-    const recButton = linkEl.closest('button');
-    if (recButton) {
-      return recButton;
-    }
-
-    // 0.5. 首页推荐区卡片：link 直接包含 img + 价格，没有中间容器
-    //    检测方式：link 内有 img 但没有 .title/.app_name 等标题元素
-    if (linkEl.tagName === 'A' && linkEl.querySelector('img') &&
-        !linkEl.querySelector('.title, .app_name, .tab_item_name, .search_name')) {
-      return linkEl;
-    }
-
-    // 1. 新版 Steam tab 行：<a class="tab_row_item">
-    const tabRow = linkEl.closest('.tab_row_item');
-    if (tabRow) {
-      const content = tabRow.querySelector('.tab_item_content');
-      if (content) return content;
-      const titleEl = tabRow.querySelector('.tab_item_title');
-      if (titleEl) return titleEl.parentElement;
-      return tabRow;
-    }
-
-    // 2. 首页大轮播胶囊：<a class="store_main_capsule">
-    const mainCapsule = linkEl.closest('.store_main_capsule');
-    if (mainCapsule) {
-      const info = mainCapsule.querySelector('.info');
-      if (info) return info;
-      return mainCapsule;
-    }
-
-    // 3. 推荐/深度挖掘胶囊：<a class="sale_capsule">
-    const saleCapsule = linkEl.closest('.sale_capsule');
-    if (saleCapsule) {
-      return saleCapsule;
-    }
-
-    // 4. 折扣/特惠胶囊：<a class="store_capsule">
-    const storeCapsule = linkEl.closest('.store_capsule');
-    if (storeCapsule) {
-      return storeCapsule;
-    }
-
-    // 5. 鉴赏家推荐胶囊：<a class="curator_giant_capsule">
-    const curatorCapsule = linkEl.closest('.curator_giant_capsule');
-    if (curatorCapsule) {
-      return curatorCapsule;
-    }
-
-    // 6. 折扣区域
-    const discountLink = linkEl.closest('.home_discount_games_ctn a[href*="/app/"]');
-    if (discountLink) {
-      const info = discountLink.querySelector('.info');
-      if (info) return info;
-      return discountLink;
-    }
-
-    return null;
-  }
-
-  /**
    * 向指定元素注入角标
    * @param {Element} element - 目标元素
    * @param {object} gameData - 游戏数据（包含 freeDates）
@@ -501,31 +400,17 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
     // 确定角标插入位置
     let targetParent = null;
 
-    // 首页大图特殊处理：直接注入到 .highlighted_app 容器本身
-    // 因为其内部的图片容器可能有 overflow:hidden 裁剪角标
-    if (element.classList.contains("highlighted_app") || element.matches(".highlighted_app")) {
-      targetParent = element;
-      // 强制 overflow:visible 防止角标被裁剪
-      element.style.setProperty("overflow", "visible", "important");
-    } else {
-      // 策略1：新版 Steam 布局 — 查找标题区域而不是封面图容器
-      const titleArea = findTitleArea(element);
-      if (titleArea) {
-        targetParent = titleArea;
-      } else {
-        // 策略2：查找图片容器（旧版 Steam 选择器）
-        const imgContainer =
-          element.querySelector(
-            ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn, .highlighted_app_img, .highlighted_capsule"
-          ) || element.querySelector("img")?.parentElement;
+    // 策略1：查找图片容器
+    const imgContainer =
+      element.querySelector(
+        ".search_capsule, .game_capsule_ctn, .tab_item_cap, .small_cap, .app_header_image_ctn, .game_header_image_ctn"
+      ) || element.querySelector("img")?.parentElement;
 
-        if (imgContainer && imgContainer !== element) {
-          targetParent = imgContainer;
-        } else {
-          // 策略3：使用元素本身
-          targetParent = element;
-        }
-      }
+    if (imgContainer) {
+      targetParent = imgContainer;
+    } else {
+      // 策略2：使用元素本身
+      targetParent = element;
     }
 
     // 确保父容器有正确定位
@@ -573,18 +458,9 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
       return;
     }
 
+    const isCurrentlyFree = gameData.details?.isCurrentlyFree;
     const freeDates = gameData.freeDates || [];
     const count = freeDates.length;
-
-    // 今天日期，用于判断赠送状态
-    const today = new Date().toISOString().split('T')[0];
-
-    // isCurrentlyFree：来自 Epic API 或今天落在某个赠送区间内
-    const isCurrentlyFree = gameData.details?.isCurrentlyFree
-      || freeDates.some(d => d.start && d.end && d.start <= today && today <= d.end);
-
-    // 即将到来的免费赠送（开始日期在今天之后）
-    const upcomingFree = freeDates.find(d => d.start && d.start > today);
 
     // 构建所有赠送日期列表
     let datesHtml = '';
@@ -615,9 +491,8 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
       <div class="epic-detail-body">
         ${datesHtml || '<div class="epic-detail-empty">暂无赠送记录</div>'}
         ${isCurrentlyFree ? '<div class="epic-detail-status">现在免费！限时领取中 →</div>' : ''}
-        ${!isCurrentlyFree && upcomingFree ? `<div class="epic-detail-upcoming">即将免费：${formatDateCN(upcomingFree.start)} - ${formatDateCN(upcomingFree.end)}</div>` : ''}
       </div>
-      ${isCurrentlyFree || upcomingFree ? '<a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>' : ''}
+      <a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>
     `;
 
     addToCartArea.parentNode.insertBefore(panel, addToCartArea);
@@ -640,41 +515,8 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
   /** 待查询的游戏信息队列 */
   let pendingQueries = [];
 
-  /** 游戏查找 Map（O(1) 查找） */
-  let gamesLookupMap = new Map();
-
-  /**
-   * 初始化游戏查找表
-   * 从 chrome.storage.local 加载所有游戏数据并构建 Map
-   */
-  async function initializeGamesLookup() {
-    try {
-      const result = await new Promise((resolve) => {
-        chrome.storage.local.get(null, (data) => resolve(data));
-      });
-      gamesLookupMap = createLookupMap(Object.values(result), game => game.appId);
-      console.log(`[Epic Badge] 游戏查找表已初始化，共 ${gamesLookupMap.size} 条记录`);
-    } catch (error) {
-      console.warn('[Epic Badge] 初始化游戏查找表失败:', error);
-    }
-  }
-
-  /**
-   * 等待游戏容器加载（用于详情页异步加载场景）
-   * @returns {Promise<Element|null>} 游戏容器元素
-   */
-  async function waitForGameContainer() {
-    try {
-      const container = await waitForElement('.game_area_purchase_game', 3000);
-      return container;
-    } catch (error) {
-      console.log('[Epic Badge] Game container not found, using fallback');
-      return null;
-    }
-  }
-
-  /** 节流后的批量查询函数（leading edge 执行） */
-  const throttledFlushQuery = throttle(flushBatchQuery, THROTTLE_DELAY);
+  /** 查询定时器 */
+  let queryTimer = null;
 
   /**
    * 扫描页面上的游戏元素
@@ -709,17 +551,10 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
 
       case "homepage":
         selectorsToUse = [
-          // 新版 Steam（2025+）
-          SELECTORS.homepage_main_capsule,
-          SELECTORS.homepage_discount,
-          SELECTORS.homepage_tab_content,
-          // 旧版 Steam（兼容）
           SELECTORS.homepage_highlight,
           SELECTORS.homepage_capsule,
           SELECTORS.homepage_tab,
           SELECTORS.recommended,
-          // 通用兜底
-          SELECTORS.generic_link,
         ];
         break;
 
@@ -768,8 +603,21 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
       pendingQueries.push(game);
     });
 
-    // 触发批量查询（节流）
-    throttledFlushQuery();
+    // 触发批量查询（防抖）
+    scheduleBatchQuery();
+  }
+
+  /**
+   * 安排批量查询（防抖处理）
+   */
+  function scheduleBatchQuery() {
+    if (queryTimer) {
+      clearTimeout(queryTimer);
+    }
+
+    queryTimer = setTimeout(() => {
+      flushBatchQuery();
+    }, DEBOUNCE_DELAY);
   }
 
   /**
@@ -789,9 +637,9 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
     // 发送到 background.js 查询
     queryBackground(appIds, batch);
 
-    // 如果还有剩余，继续处理（节流）
+    // 如果还有剩余，继续处理
     if (pendingQueries.length > 0) {
-      throttledFlushQuery();
+      scheduleBatchQuery();
     }
   }
 
@@ -853,11 +701,8 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
   /** MutationObserver 实例 */
   let observer = null;
 
-  /** 节流后的 DOM 变化处理函数 */
-  const throttledObserverScan = throttle(() => {
-    console.log("[Epic Badge] 检测到 DOM 变化，重新扫描");
-    scanAndProcess();
-  }, THROTTLE_DELAY);
+  /** 观察防抖定时器 */
+  let observerTimer = null;
 
   /**
    * 创建 MutationObserver 监听 DOM 变化
@@ -881,8 +726,15 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
 
       if (!hasNewNodes) return;
 
-      // 节流处理
-      throttledObserverScan();
+      // 防抖处理
+      if (observerTimer) {
+        clearTimeout(observerTimer);
+      }
+
+      observerTimer = setTimeout(() => {
+        console.log("[Epic Badge] 检测到 DOM 变化，重新扫描");
+        scanAndProcess();
+      }, DEBOUNCE_DELAY);
     });
 
     // 开始观察
@@ -917,14 +769,6 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
     const pageType = detectPageType();
     if (!isPageEnabled(pageType)) {
       return;
-    }
-
-    // 初始化游戏查找表（O(1) 查找优化）
-    await initializeGamesLookup();
-
-    // 详情页等待购买区域加载
-    if (pageType === 'detail') {
-      await waitForGameContainer();
     }
 
     // 初始扫描
@@ -968,11 +812,10 @@ import { throttle, waitForElement, createLookupMap } from './utils/performance.j
   // 启动
   // ============================================================
 
-// 确保 DOM 已准备好
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init();
-}
-
-export { scanPageForGames, initializeGamesLookup };
+  // 确保 DOM 已准备好
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
