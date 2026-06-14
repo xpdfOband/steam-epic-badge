@@ -406,6 +406,19 @@ async function refreshCurrentFreeGames() {
   log('log', '开始刷新 Epic 当前免费游戏...');
 
   const currentFree = await fetchCurrentFreeGames();
+
+  // 通过名称匹配设置 steam_appid
+  const historyData = (await getStorage(STORAGE_KEY_HISTORY)) || { games: [] };
+  for (const game of currentFree) {
+    if (!game.steam_appid) {
+      const match = historyData.games.find(h => fuzzyMatch(h.title, game.title));
+      if (match && match.steam_appid) {
+        game.steam_appid = match.steam_appid;
+        log('log', `匹配 Steam AppID: ${game.title} -> ${match.steam_appid}`);
+      }
+    }
+  }
+
   await setStorage(STORAGE_KEY_CURRENT, currentFree);
   await setStorage(STORAGE_KEY_LAST_FETCH, Date.now());
 
