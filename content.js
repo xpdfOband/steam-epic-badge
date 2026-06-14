@@ -401,30 +401,44 @@
    * @returns {Element} 适合放置角标的容器
    */
   function findTitleArea(linkEl) {
-    // 新版 Steam tab 行：<a class="tab_row_item">
-    //   结构: tab_item_header(img) + tab_item_content(title+price) + ...
+    // 1. 新版 Steam tab 行：<a class="tab_row_item">
     const tabRow = linkEl.closest('.tab_row_item');
     if (tabRow) {
-      // tab_item_content 包含标题和价格区域
       const content = tabRow.querySelector('.tab_item_content');
       if (content) return content;
       const titleEl = tabRow.querySelector('.tab_item_title');
-      if (titleEl) return titleEl.parentElement; // .tab_item_col
+      if (titleEl) return titleEl.parentElement;
       return tabRow;
     }
 
-    // 首页大轮播胶囊：<a class="store_main_capsule">
-    //   结构: capsule(img容器) + info(标题+评测+价格)
-    const capsule = linkEl.closest('.store_main_capsule');
-    if (capsule) {
-      // info 区域在胶囊内部，包含 app_name 标题
-      const info = capsule.querySelector('.info');
+    // 2. 首页大轮播胶囊：<a class="store_main_capsule">
+    const mainCapsule = linkEl.closest('.store_main_capsule');
+    if (mainCapsule) {
+      const info = mainCapsule.querySelector('.info');
       if (info) return info;
-      // 回退到胶囊本身
-      return capsule;
+      return mainCapsule;
     }
 
-    // 折扣区域：.home_discount_games_ctn 内的链接
+    // 3. 推荐/深度挖掘胶囊：<a class="sale_capsule">
+    //    标题在 img.alt 中，放在胶囊本身底部
+    const saleCapsule = linkEl.closest('.sale_capsule');
+    if (saleCapsule) {
+      return saleCapsule;
+    }
+
+    // 4. 折扣/特惠胶囊：<a class="store_capsule">
+    const storeCapsule = linkEl.closest('.store_capsule');
+    if (storeCapsule) {
+      return storeCapsule;
+    }
+
+    // 5. 鉴赏家推荐胶囊：<a class="curator_giant_capsule">
+    const curatorCapsule = linkEl.closest('.curator_giant_capsule');
+    if (curatorCapsule) {
+      return curatorCapsule;
+    }
+
+    // 6. 折扣区域
     const discountLink = linkEl.closest('.home_discount_games_ctn a[href*="/app/"]');
     if (discountLink) {
       const info = discountLink.querySelector('.info');

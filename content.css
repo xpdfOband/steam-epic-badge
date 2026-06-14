@@ -240,6 +240,36 @@
   z-index: 100;
 }
 
+/* 推荐/深度挖掘胶囊（sale_capsule）：角标放胶囊底部 */
+.sale_capsule > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
+/* 折扣胶囊（store_capsule）：角标放底部 */
+.store_capsule > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
+/* 鉴赏家推荐胶囊 */
+.curator_giant_capsule > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  z-index: 100;
+}
+
 /* 旧版/兜底：胶囊直接子元素的角标 */
 .store_main_capsule > .epic-badge,
 .home_discount_games_ctn > .epic-badge {
