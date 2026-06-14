@@ -553,6 +553,10 @@
     const freeDates = gameData.freeDates || [];
     const count = freeDates.length;
 
+    // 检测是否有即将到来的免费赠送（开始日期在今天之后）
+    const today = new Date().toISOString().split('T')[0];
+    const upcomingFree = freeDates.find(d => d.start && d.start > today);
+
     // 构建所有赠送日期列表
     let datesHtml = '';
     if (count > 0) {
@@ -582,8 +586,9 @@
       <div class="epic-detail-body">
         ${datesHtml || '<div class="epic-detail-empty">暂无赠送记录</div>'}
         ${isCurrentlyFree ? '<div class="epic-detail-status">现在免费！限时领取中 →</div>' : ''}
+        ${!isCurrentlyFree && upcomingFree ? `<div class="epic-detail-upcoming">即将免费：${formatDateCN(upcomingFree.start)} - ${formatDateCN(upcomingFree.end)}</div>` : ''}
       </div>
-      ${isCurrentlyFree ? '<a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>' : ''}
+      ${isCurrentlyFree || upcomingFree ? '<a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>' : ''}
     `;
 
     addToCartArea.parentNode.insertBefore(panel, addToCartArea);
