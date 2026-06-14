@@ -12,37 +12,30 @@ EPIC_FREE_GAMES_HISTORY = [
     # 2018
     {"title": "Subnautica", "start": "2018-12-14", "end": "2019-01-01", "steam_appid": 264710},
     {"title": "Super Meat Boy", "start": "2018-12-28", "end": "2019-01-10", "steam_appid": 40800},
-
-    # 2019 Q1
+    # 2019
     {"title": "What Remains of Edith Finch", "start": "2019-01-11", "end": "2019-01-24", "steam_appid": 501300},
     {"title": "The Jackbox Party Pack", "start": "2019-01-24", "end": "2019-02-07", "steam_appid": 331670},
     {"title": "Axiom Verge", "start": "2019-02-07", "end": "2019-02-21", "steam_appid": 332200},
     {"title": "Thimbleweed Park", "start": "2019-02-21", "end": "2019-03-07", "steam_appid": 569860},
     {"title": "Slime Rancher", "start": "2019-03-07", "end": "2019-03-21", "steam_appid": 433340},
     {"title": "Oxenfree", "start": "2019-03-21", "end": "2019-04-04", "steam_appid": 388880},
-
-    # 2019 Q2
     {"title": "The Witness", "start": "2019-04-04", "end": "2019-04-18", "steam_appid": 210970},
-    {"title": "Transistor", "start": "2019-04-18", "end": "2019-05-02", "steam_appid": 237990},
+    {"title": "Transistor", "start": "2019-04-18", "end": "2019-05-02", "steam_appid": 237930},
     {"title": "World of Goo", "start": "2019-05-02", "end": "2019-05-16", "steam_appid": 22000},
     {"title": "Stories Untold", "start": "2019-05-16", "end": "2019-05-30", "steam_appid": 558420},
     {"title": "RiME", "start": "2019-05-30", "end": "2019-06-13", "steam_appid": 493200},
     {"title": "Last Day of June", "start": "2019-06-13", "end": "2019-06-27", "steam_appid": 635320},
     {"title": "Overcooked", "start": "2019-06-27", "end": "2019-07-11", "steam_appid": 448510},
-
-    # 2019 Q3
     {"title": "Alan Wake", "start": "2019-07-11", "end": "2019-07-25", "steam_appid": 108710},
     {"title": "For Honor", "start": "2019-07-25", "end": "2019-08-08", "steam_appid": 304390},
     {"title": "GNOG", "start": "2019-08-08", "end": "2019-08-22", "steam_appid": 290510},
     {"title": "Hyper Light Drifter", "start": "2019-08-22", "end": "2019-09-05", "steam_appid": 257850},
     {"title": "Celeste", "start": "2019-09-05", "end": "2019-09-12", "steam_appid": 504230},
     {"title": "Inside", "start": "2019-09-12", "end": "2019-09-26", "steam_appid": 304430},
-
-    # 2019 Q4
     {"title": "Minit", "start": "2019-09-26", "end": "2019-10-10", "steam_appid": 609490},
     {"title": "Metro 2033 Redux", "start": "2019-10-10", "end": "2019-10-17", "steam_appid": 286690},
-    {"title": "Surviving Mars", "start": "2019-10-17", "end": "2019-10-31", "steam_appid": 464920},
-    {"title": "Observer", "start": "2019-10-31", "end": "2019-11-07", "steam_appid": 514900},
+    {"title": "Surviving Mars", "start": "2019-10-17", "end": "2019-10-31", "steam_appid": 3215050},
+    {"title": "Observer", "start": "2019-10-31", "end": "2019-11-07", "steam_appid": 1386900},
     {"title": "SOMA", "start": "2019-11-07", "end": "2019-11-14", "steam_appid": 282140},
     {"title": "Nuclear Throne", "start": "2019-11-14", "end": "2019-11-21", "steam_appid": 242680},
     {"title": "Ruiner", "start": "2019-11-21", "end": "2019-11-28", "steam_appid": 464060},
@@ -53,41 +46,36 @@ EPIC_FREE_GAMES_HISTORY = [
     {"title": "Darksiders: Warmastered Edition", "start": "2019-12-26", "end": "2019-12-31", "steam_appid": 462780},
     {"title": "Darksiders II: Deathinitive Edition", "start": "2019-12-26", "end": "2019-12-31", "steam_appid": 388410},
     {"title": "Steep", "start": "2019-12-26", "end": "2019-12-31", "steam_appid": 460920},
-    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2019-12-31", "end": "2020-01-01", "steam_appid": 847030},
-
-    # 2020 Q1
+    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2019-12-31", "end": "2020-01-01", "steam_appid": 846870},
+    # 2020
     {"title": "Sundered: Eldritch Edition", "start": "2020-01-01", "end": "2020-01-09", "steam_appid": 535480},
     {"title": "Horizon Chase Turbo", "start": "2020-01-09", "end": "2020-01-16", "steam_appid": 386940},
     {"title": "The Bridge", "start": "2020-01-16", "end": "2020-01-23", "steam_appid": 204240},
-    {"title": "Kingdom: New Lands", "start": "2020-01-23", "end": "2020-01-30", "steam_appid": 303390},
-    {"title": "Carcassonne", "start": "2020-01-30", "end": "2020-02-06", "steam_appid": 576500},
-    {"title": "Ticket to Ride", "start": "2020-02-06", "end": "2020-02-13", "steam_appid": 108200},
+    {"title": "Kingdom: New Lands", "start": "2020-01-23", "end": "2020-01-30", "steam_appid": 496300},
+    {"title": "Carcassonne", "start": "2020-01-30", "end": "2020-02-06", "steam_appid": 598810},
+    {"title": "Ticket to Ride", "start": "2020-02-06", "end": "2020-02-13", "steam_appid": 2477010},
     {"title": "Farming Simulator 19", "start": "2020-02-13", "end": "2020-02-20", "steam_appid": 787860},
-    {"title": "Aztez", "start": "2020-02-20", "end": "2020-02-27", "steam_appid": 352720},
-    {"title": "InnerSpace", "start": "2020-02-27", "end": "2020-03-05", "steam_appid": 394790},
+    {"title": "Aztez", "start": "2020-02-20", "end": "2020-02-27", "steam_appid": 244750},
+    {"title": "InnerSpace", "start": "2020-02-27", "end": "2020-03-05", "steam_appid": 347000},
     {"title": "GoNNER", "start": "2020-03-05", "end": "2020-03-12", "steam_appid": 437570},
     {"title": "Offworld Trading Company", "start": "2020-03-12", "end": "2020-03-19", "steam_appid": 271240},
     {"title": "Anodyne 2: Return to Dust", "start": "2020-03-19", "end": "2020-03-26", "steam_appid": 877810},
     {"title": "Tropico 5", "start": "2020-03-26", "end": "2020-04-02", "steam_appid": 245620},
-
-    # 2020 Q2 (GTA V era)
-    {"title": "Death Coming", "start": "2020-04-02", "end": "2020-04-09", "steam_appid": 607050},
+    {"title": "Death Coming", "start": "2020-04-02", "end": "2020-04-09", "steam_appid": 705120},
     {"title": "Drawful 2", "start": "2020-04-09", "end": "2020-04-16", "steam_appid": 442070},
-    {"title": "For The King", "start": "2020-04-16", "end": "2020-04-23", "steam_appid": 526870},
+    {"title": "For The King", "start": "2020-04-16", "end": "2020-04-23", "steam_appid": 527230},
     {"title": "Amnesia: The Dark Descent", "start": "2020-04-23", "end": "2020-04-30", "steam_appid": 57300},
-    {"title": "Crashlands", "start": "2020-04-30", "end": "2020-05-07", "steam_appid": 391720},
+    {"title": "Crashlands", "start": "2020-04-30", "end": "2020-05-07", "steam_appid": 391730},
     {"title": "Pikuniku", "start": "2020-05-07", "end": "2020-05-14", "steam_appid": 572890},
-    {"title": "Grand Theft Auto V", "start": "2020-05-14", "end": "2020-05-21", "steam_appid": 271590},
+    {"title": "Grand Theft Auto V", "start": "2020-05-14", "end": "2020-05-21", "steam_appid": 3240220},
     {"title": "Civilization VI", "start": "2020-05-21", "end": "2020-05-28", "steam_appid": 289070},
     {"title": "Borderlands: The Handsome Collection", "start": "2020-05-28", "end": "2020-06-04", "steam_appid": 495200},
     {"title": "ARK: Survival Evolved", "start": "2020-06-04", "end": "2020-06-11", "steam_appid": 346110},
-    {"title": "Samurai Shodown Neogeo Collection", "start": "2020-06-11", "end": "2020-06-18", "steam_appid": 1076210},
+    {"title": "Samurai Shodown Neogeo Collection", "start": "2020-06-11", "end": "2020-06-18", "steam_appid": 999660},
     {"title": "Pathway", "start": "2020-06-18", "end": "2020-06-25", "steam_appid": 546430},
     {"title": "The Escapists 2", "start": "2020-06-25", "end": "2020-07-09", "steam_appid": 641990},
-
-    # 2020 Q3
     {"title": "Torchlight II", "start": "2020-07-09", "end": "2020-07-16", "steam_appid": 200710},
-    {"title": "Next Up Hero", "start": "2020-07-16", "end": "2020-07-23", "steam_appid": 525210},
+    {"title": "Next Up Hero", "start": "2020-07-16", "end": "2020-07-23", "steam_appid": 667810},
     {"title": "Tacoma", "start": "2020-07-23", "end": "2020-07-30", "steam_appid": 343860},
     {"title": "20XX", "start": "2020-07-30", "end": "2020-08-06", "steam_appid": 322110},
     {"title": "Barony", "start": "2020-08-06", "end": "2020-08-13", "steam_appid": 371970},
@@ -97,16 +85,14 @@ EPIC_FREE_GAMES_HISTORY = [
     {"title": "Shadowrun Collection", "start": "2020-09-03", "end": "2020-09-10", "steam_appid": 300550},
     {"title": "Into The Breach", "start": "2020-09-10", "end": "2020-09-17", "steam_appid": 590380},
     {"title": "Railway Empire", "start": "2020-09-17", "end": "2020-09-24", "steam_appid": 503940},
-    {"title": "RollerCoaster Tycoon 3", "start": "2020-09-24", "end": "2020-10-01", "steam_appid": 2700},
-
-    # 2020 Q4
+    {"title": "RollerCoaster Tycoon 3", "start": "2020-09-24", "end": "2020-10-01", "steam_appid": 1368820},
     {"title": "Pikuniku", "start": "2020-10-01", "end": "2020-10-08", "steam_appid": 572890},
     {"title": "Abzu", "start": "2020-10-08", "end": "2020-10-15", "steam_appid": 384190},
     {"title": "Rising Storm 2: Vietnam", "start": "2020-10-15", "end": "2020-10-22", "steam_appid": 418460},
     {"title": "Blair Witch", "start": "2020-10-22", "end": "2020-10-29", "steam_appid": 1092660},
-    {"title": "Layers of Fear 2", "start": "2020-10-29", "end": "2020-11-05", "steam_appid": 1025920},
-    {"title": "Costume Quest 2", "start": "2020-11-05", "end": "2020-11-12", "steam_appid": 270810},
-    {"title": "The Textorcist", "start": "2020-11-12", "end": "2020-11-19", "steam_appid": 915290},
+    {"title": "Layers of Fear 2", "start": "2020-10-29", "end": "2020-11-05", "steam_appid": 1029890},
+    {"title": "Costume Quest 2", "start": "2020-11-05", "end": "2020-11-12", "steam_appid": 275180},
+    {"title": "The Textorcist", "start": "2020-11-12", "end": "2020-11-19", "steam_appid": 1029810},
     {"title": "Elite Dangerous", "start": "2020-11-19", "end": "2020-11-26", "steam_appid": 359320},
     {"title": "MudRunner", "start": "2020-11-26", "end": "2020-12-03", "steam_appid": 675010},
     {"title": "Cave Story+", "start": "2020-12-03", "end": "2020-12-10", "steam_appid": 200900},
@@ -114,323 +100,313 @@ EPIC_FREE_GAMES_HISTORY = [
     {"title": "Tyranny - Gold Edition", "start": "2020-12-17", "end": "2020-12-24", "steam_appid": 362960},
     {"title": "Alien: Isolation", "start": "2020-12-17", "end": "2020-12-24", "steam_appid": 214490},
     {"title": "Defense Grid: The Awakening", "start": "2020-12-24", "end": "2020-12-31", "steam_appid": 18500},
-    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2020-12-24", "end": "2020-12-31", "steam_appid": 847030},
-
-    # 2021
+    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2020-12-24", "end": "2020-12-31", "steam_appid": 846870},
     {"title": "Crying Suns", "start": "2020-12-31", "end": "2021-01-07", "steam_appid": 873940},
+    # 2021
     {"title": "Star Wars Battlefront II", "start": "2021-01-07", "end": "2021-01-14", "steam_appid": 1237950},
-    {"title": "Galactic Civilizations III", "start": "2021-01-14", "end": "2021-01-21", "steam_appid": 249210},
+    {"title": "Galactic Civilizations III", "start": "2021-01-14", "end": "2021-01-21", "steam_appid": 226860},
     {"title": "Dandara: Trials of Fear Edition", "start": "2021-01-21", "end": "2021-01-28", "steam_appid": 612390},
     {"title": "Metro: Last Light Redux", "start": "2021-01-28", "end": "2021-02-04", "steam_appid": 287390},
-    {"title": "For The King", "start": "2021-02-04", "end": "2021-02-11", "steam_appid": 526870},
+    {"title": "For The King", "start": "2021-02-04", "end": "2021-02-11", "steam_appid": 527230},
     {"title": "Absolute Drift", "start": "2021-02-11", "end": "2021-02-18", "steam_appid": 320140},
     {"title": "Rage 2", "start": "2021-02-18", "end": "2021-02-25", "steam_appid": 548570},
-    {"title": "Sunless Sea", "start": "2021-02-25", "end": "2021-03-04", "steam_appid": 308420},
+    {"title": "Sunless Sea", "start": "2021-02-25", "end": "2021-03-04", "steam_appid": 304650},
     {"title": "Wargame: Red Dragon", "start": "2021-03-04", "end": "2021-03-11", "steam_appid": 251060},
-    {"title": "Surviving Mars", "start": "2021-03-11", "end": "2021-03-18", "steam_appid": 464920},
-    {"title": "The Fall", "start": "2021-03-18", "end": "2021-03-25", "steam_appid": 369370},
-    {"title": "Creature in the Well", "start": "2021-03-25", "end": "2021-04-01", "steam_appid": 879680},
-    {"title": "Tales of the Neon Sea", "start": "2021-04-01", "end": "2021-04-08", "steam_appid": 813780},
+    {"title": "Surviving Mars", "start": "2021-03-11", "end": "2021-03-18", "steam_appid": 3215050},
+    {"title": "The Fall", "start": "2021-03-18", "end": "2021-03-25", "steam_appid": 290770},
+    {"title": "Creature in the Well", "start": "2021-03-25", "end": "2021-04-01", "steam_appid": 852300},
+    {"title": "Tales of the Neon Sea", "start": "2021-04-01", "end": "2021-04-08", "steam_appid": 828740},
     {"title": "3 out of 10", "start": "2021-04-08", "end": "2021-04-15", "steam_appid": 1304550},
     {"title": "The First Tree", "start": "2021-04-15", "end": "2021-04-22", "steam_appid": 555150},
     {"title": "Idle Champions of the Forgotten Realms", "start": "2021-04-22", "end": "2021-04-29", "steam_appid": 627690},
-    {"title": "Pine", "start": "2021-04-22", "end": "2021-04-29", "steam_appid": 1046120},
-    {"title": "Hand of Fate 2", "start": "2021-04-29", "end": "2021-05-06", "steam_appid": 413410},
-    {"title": "Speed Brawl", "start": "2021-05-06", "end": "2021-05-13", "steam_appid": 655780},
-    {"title": "The Lion's Song", "start": "2021-05-13", "end": "2021-05-20", "steam_appid": 527160},
+    {"title": "Pine", "start": "2021-04-22", "end": "2021-04-29", "steam_appid": 2333000},
+    {"title": "Hand of Fate 2", "start": "2021-04-29", "end": "2021-05-06", "steam_appid": 456670},
+    {"title": "Speed Brawl", "start": "2021-05-06", "end": "2021-05-13", "steam_appid": 468670},
+    {"title": "The Lion's Song", "start": "2021-05-13", "end": "2021-05-20", "steam_appid": 437160},
     {"title": "NBA 2K21", "start": "2021-05-20", "end": "2021-05-27", "steam_appid": 1225330},
     {"title": "Among Us", "start": "2021-05-27", "end": "2021-06-03", "steam_appid": 945360},
     {"title": "Frostpunk", "start": "2021-06-03", "end": "2021-06-10", "steam_appid": 323190},
-    {"title": "Control", "start": "2021-06-10", "end": "2021-06-17", "steam_appid": 870780},
-    {"title": "Hell is Other Demons", "start": "2021-06-17", "end": "2021-06-24", "steam_appid": 928640},
+    {"title": "Control", "start": "2021-06-10", "end": "2021-06-17", "steam_appid": 4165870},
+    {"title": "Hell is Other Demons", "start": "2021-06-17", "end": "2021-06-24", "steam_appid": 595790},
     {"title": "Overcooked! 2", "start": "2021-06-17", "end": "2021-06-24", "steam_appid": 728880},
     {"title": "Horizon Chase Turbo", "start": "2021-06-24", "end": "2021-07-01", "steam_appid": 386940},
-    {"title": "The Spectrum Retreat", "start": "2021-07-01", "end": "2021-07-08", "steam_appid": 731600},
+    {"title": "The Spectrum Retreat", "start": "2021-07-01", "end": "2021-07-08", "steam_appid": 763250},
     {"title": "Sonic Mania", "start": "2021-07-01", "end": "2021-07-08", "steam_appid": 584400},
     {"title": "A Plague Tale: Innocence", "start": "2021-07-08", "end": "2021-07-15", "steam_appid": 752590},
-    {"title": "Bridge Constructor: The Walking Dead", "start": "2021-07-15", "end": "2021-07-22", "steam_appid": 1243400},
+    {"title": "Bridge Constructor: The Walking Dead", "start": "2021-07-15", "end": "2021-07-22", "steam_appid": 1336120},
     {"title": "Verdun", "start": "2021-07-22", "end": "2021-07-29", "steam_appid": 242860},
-    {"title": "Morkredd", "start": "2021-07-22", "end": "2021-07-29", "steam_appid": 1308630},
+    {"title": "Morkredd", "start": "2021-07-22", "end": "2021-07-29", "steam_appid": 1331910},
     {"title": "Train Sim World 2", "start": "2021-07-29", "end": "2021-08-05", "steam_appid": 1282590},
-    {"title": "Automachef", "start": "2021-07-29", "end": "2021-08-05", "steam_appid": 1001570},
+    {"title": "Automachef", "start": "2021-07-29", "end": "2021-08-05", "steam_appid": 984800},
     {"title": "Yooka-Laylee", "start": "2021-08-05", "end": "2021-08-12", "steam_appid": 360830},
-    {"title": "Void Bastards", "start": "2021-08-12", "end": "2021-08-19", "steam_appid": 853130},
-    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2021-08-12", "end": "2021-08-19", "steam_appid": 847030},
+    {"title": "Void Bastards", "start": "2021-08-12", "end": "2021-08-19", "steam_appid": 857980},
+    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2021-08-12", "end": "2021-08-19", "steam_appid": 846870},
     {"title": "Rebel Galaxy", "start": "2021-08-19", "end": "2021-08-26", "steam_appid": 290300},
     {"title": "Saints Row: The Third Remastered", "start": "2021-08-26", "end": "2021-09-02", "steam_appid": 978300},
     {"title": "Shadowrun Collection", "start": "2021-09-02", "end": "2021-09-09", "steam_appid": 300550},
-    {"title": "Sheltered", "start": "2021-09-02", "end": "2021-09-09", "steam_appid": 359310},
+    {"title": "Sheltered", "start": "2021-09-02", "end": "2021-09-09", "steam_appid": 356040},
     {"title": "The Escapists", "start": "2021-09-09", "end": "2021-09-16", "steam_appid": 298630},
-    {"title": "Tharsis", "start": "2021-09-09", "end": "2021-09-16", "steam_appid": 314910},
-    {"title": "Speed Brawl", "start": "2021-09-16", "end": "2021-09-23", "steam_appid": 655780},
-    {"title": "The Drone Racing League Simulator", "start": "2021-09-16", "end": "2021-09-23", "steam_appid": 690770},
+    {"title": "Tharsis", "start": "2021-09-09", "end": "2021-09-16", "steam_appid": 323060},
+    {"title": "Speed Brawl", "start": "2021-09-16", "end": "2021-09-23", "steam_appid": 468670},
+    {"title": "The Drone Racing League Simulator", "start": "2021-09-16", "end": "2021-09-23", "steam_appid": 641780},
     {"title": "Europa Universalis IV", "start": "2021-09-23", "end": "2021-09-30", "steam_appid": 236850},
     {"title": "PC Building Simulator", "start": "2021-09-30", "end": "2021-10-07", "steam_appid": 621060},
-    {"title": "Paladins Pack", "start": "2021-10-07", "end": "2021-10-14", "steam_appid": 444090},
-    {"title": "Stubbs the Zombie in Rebel Without a Pulse", "start": "2021-10-14", "end": "2021-10-21", "steam_appid": 1628200},
+    {"title": "Paladins Pack", "start": "2021-10-07", "end": "2021-10-14", "steam_appid": 2087420},
+    {"title": "Stubbs the Zombie in Rebel Without a Pulse", "start": "2021-10-14", "end": "2021-10-21", "steam_appid": 7800},
     {"title": "Among the Sleep", "start": "2021-10-21", "end": "2021-10-28", "steam_appid": 250620},
     {"title": "DARQ: Complete Edition", "start": "2021-10-28", "end": "2021-11-04", "steam_appid": 433550},
     {"title": "Aven Colony", "start": "2021-11-04", "end": "2021-11-11", "steam_appid": 484900},
-    {"title": "Tiny Tina's Assault on Dragon Keep", "start": "2021-11-04", "end": "2021-11-11", "steam_appid": 1712470},
+    {"title": "Tiny Tina's Assault on Dragon Keep", "start": "2021-11-04", "end": "2021-11-11", "steam_appid": 1712840},
     {"title": "Shadow Tactics: Blades of the Shogun", "start": "2021-11-11", "end": "2021-11-18", "steam_appid": 418240},
     {"title": "Rising Storm 2: Vietnam", "start": "2021-11-18", "end": "2021-11-25", "steam_appid": 418460},
     {"title": "The Hunter: Call of the Wild", "start": "2021-11-25", "end": "2021-12-02", "steam_appid": 518790},
     {"title": "Antstream - Epic Welcome Pack", "start": "2021-12-02", "end": "2021-12-09", "steam_appid": None},
     {"title": "Dead by Daylight", "start": "2021-12-02", "end": "2021-12-09", "steam_appid": 381210},
     {"title": "while True: learn()", "start": "2021-12-09", "end": "2021-12-16", "steam_appid": 619150},
-    {"title": "Gods Will Fall", "start": "2021-12-16", "end": "2021-12-23", "steam_appid": 1176100},
+    {"title": "Gods Will Fall", "start": "2021-12-16", "end": "2021-12-23", "steam_appid": 1243690},
     {"title": "My Time at Portia", "start": "2021-12-23", "end": "2021-12-30", "steam_appid": 666140},
     {"title": "Salt and Sanctuary", "start": "2021-12-30", "end": "2022-01-06", "steam_appid": 283640},
-
-    # 2022 Q1
+    # 2022
     {"title": "Tomb Raider Trilogy", "start": "2022-01-06", "end": "2022-01-13", "steam_appid": 203160},
-    {"title": "Gods Will Fall", "start": "2022-01-13", "end": "2022-01-20", "steam_appid": 1176100},
-    {"title": "Galactic Civilizations III", "start": "2022-01-20", "end": "2022-01-27", "steam_appid": 249210},
+    {"title": "Gods Will Fall", "start": "2022-01-13", "end": "2022-01-20", "steam_appid": 1243690},
+    {"title": "Galactic Civilizations III", "start": "2022-01-20", "end": "2022-01-27", "steam_appid": 226860},
     {"title": "Relicta", "start": "2022-01-27", "end": "2022-02-03", "steam_appid": 941570},
     {"title": "Daemon x Machina", "start": "2022-02-03", "end": "2022-02-10", "steam_appid": 1167450},
-    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2022-02-10", "end": "2022-02-17", "steam_appid": 847030},
+    {"title": "Yooka-Laylee and the Impossible Lair", "start": "2022-02-10", "end": "2022-02-17", "steam_appid": 846870},
     {"title": "Windbound", "start": "2022-02-17", "end": "2022-02-24", "steam_appid": 1162130},
-    {"title": "Cris Tales", "start": "2022-02-24", "end": "2022-03-03", "steam_appid": 1121570},
-    {"title": "Black Widow: Recharged", "start": "2022-03-03", "end": "2022-03-10", "steam_appid": 1538850},
-    {"title": "Centipede: Recharged", "start": "2022-03-03", "end": "2022-03-10", "steam_appid": 1538880},
-    {"title": "City of Brass", "start": "2022-03-10", "end": "2022-03-17", "steam_appid": 497910},
-    {"title": "In Sound Mind", "start": "2022-03-17", "end": "2022-03-24", "steam_appid": 1114860},
-    {"title": "Demon's Tilt", "start": "2022-03-24", "end": "2022-03-31", "steam_appid": 814560},
-
-    # 2022 Q2
+    {"title": "Cris Tales", "start": "2022-02-24", "end": "2022-03-03", "steam_appid": 1079830},
+    {"title": "Black Widow: Recharged", "start": "2022-03-03", "end": "2022-03-10", "steam_appid": 1714180},
+    {"title": "Centipede: Recharged", "start": "2022-03-03", "end": "2022-03-10", "steam_appid": 1630960},
+    {"title": "City of Brass", "start": "2022-03-10", "end": "2022-03-17", "steam_appid": 301840},
+    {"title": "In Sound Mind", "start": "2022-03-17", "end": "2022-03-24", "steam_appid": 1119980},
+    {"title": "Demon's Tilt", "start": "2022-03-24", "end": "2022-03-31", "steam_appid": 422510},
     {"title": "The Vanishing of Ethan Carter", "start": "2022-03-31", "end": "2022-04-07", "steam_appid": 258520},
     {"title": "Tomb Raider: Game of the Year Edition", "start": "2022-04-07", "end": "2022-04-14", "steam_appid": 203160},
     {"title": "Rise of the Tomb Raider", "start": "2022-04-14", "end": "2022-04-21", "steam_appid": 391220},
     {"title": "Shadow of the Tomb Raider", "start": "2022-04-21", "end": "2022-04-28", "steam_appid": 750920},
     {"title": "XCOM 2", "start": "2022-04-14", "end": "2022-04-21", "steam_appid": 268500},
-    {"title": "Insurmountable", "start": "2022-04-28", "end": "2022-05-05", "steam_appid": 1387670},
+    {"title": "Insurmountable", "start": "2022-04-28", "end": "2022-05-05", "steam_appid": 1385100},
     {"title": "Borderlands 3", "start": "2022-05-19", "end": "2022-05-26", "steam_appid": 397540},
     {"title": "BioShock: The Collection", "start": "2022-05-26", "end": "2022-06-02", "steam_appid": 409720},
-
+    {"title": "Death Stranding", "start": "2022-12-25", "end": "2022-12-26", "steam_appid": 3280350},
     # 2023
-    {"title": "Death Stranding", "start": "2022-12-25", "end": "2022-12-26", "steam_appid": 1190460},
     {"title": "Dishonored - Definitive Edition", "start": "2023-01-05", "end": "2023-01-12", "steam_appid": 217980},
     {"title": "Kerbal Space Program", "start": "2023-01-12", "end": "2023-01-19", "steam_appid": 220200},
     {"title": "Shadow Tactics: Blades of the Shogun", "start": "2023-01-19", "end": "2023-01-26", "steam_appid": 418240},
-    {"title": "Adios", "start": "2023-01-26", "end": "2023-02-02", "steam_appid": 1365020},
-    {"title": "Hell is Others", "start": "2023-02-02", "end": "2023-02-09", "steam_appid": 1563180},
+    {"title": "Adios", "start": "2023-01-26", "end": "2023-02-02", "steam_appid": 1271400},
+    {"title": "Hell is Others", "start": "2023-02-02", "end": "2023-02-09", "steam_appid": 964440},
     {"title": "City of Gangsters", "start": "2023-02-09", "end": "2023-02-16", "steam_appid": 1386780},
     {"title": "Recipe for Disaster", "start": "2023-02-16", "end": "2023-02-23", "steam_appid": 1492360},
-    {"title": "Duskers", "start": "2023-02-23", "end": "2023-03-02", "steam_appid": 254370},
+    {"title": "Duskers", "start": "2023-02-23", "end": "2023-03-02", "steam_appid": 254320},
     {"title": "Rise of Industry", "start": "2023-03-02", "end": "2023-03-09", "steam_appid": 671440},
-    {"title": "Call of the Sea", "start": "2023-03-09", "end": "2023-03-16", "steam_appid": 1042400},
+    {"title": "Call of the Sea", "start": "2023-03-09", "end": "2023-03-16", "steam_appid": 1042490},
     {"title": "Warhammer 40,000: Gladius - Relics of War", "start": "2023-03-16", "end": "2023-03-23", "steam_appid": 489630},
-    {"title": "World War Z: Aftermath", "start": "2023-03-23", "end": "2023-03-30", "steam_appid": 699130},
-    {"title": "Tunche", "start": "2023-03-30", "end": "2023-04-06", "steam_appid": 1030680},
-    {"title": "The Silent Age", "start": "2023-04-06", "end": "2023-04-13", "steam_appid": 350760},
+    {"title": "World War Z: Aftermath", "start": "2023-03-23", "end": "2023-03-30", "steam_appid": 2243210},
+    {"title": "Tunche", "start": "2023-03-30", "end": "2023-04-06", "steam_appid": 887450},
+    {"title": "The Silent Age", "start": "2023-04-06", "end": "2023-04-13", "steam_appid": 352520},
     {"title": "Second Extinction", "start": "2023-04-13", "end": "2023-04-20", "steam_appid": 1024380},
     {"title": "Mordhau", "start": "2023-04-20", "end": "2023-04-27", "steam_appid": 629760},
     {"title": "Breathedge", "start": "2023-04-27", "end": "2023-05-04", "steam_appid": 738520},
-    {"title": "Against All Odds", "start": "2023-05-04", "end": "2023-05-11", "steam_appid": 1422440},
-    {"title": "Kao the Kangaroo", "start": "2023-05-11", "end": "2023-05-18", "steam_appid": 1363770},
+    {"title": "Against All Odds", "start": "2023-05-04", "end": "2023-05-11", "steam_appid": 1465560},
+    {"title": "Kao the Kangaroo", "start": "2023-05-11", "end": "2023-05-18", "steam_appid": 1370140},
     {"title": "The Sims 4", "start": "2023-05-18", "end": "2023-05-25", "steam_appid": 1222670},
     {"title": "Fallout: New Vegas - Ultimate Edition", "start": "2023-05-25", "end": "2023-06-01", "steam_appid": 22380},
-    {"title": "Midnight Ghost Hunt", "start": "2023-06-01", "end": "2023-06-08", "steam_appid": 752820},
-
+    {"title": "Midnight Ghost Hunt", "start": "2023-06-01", "end": "2023-06-08", "steam_appid": 915810},
     # 2024
-    {"title": "Astro Duel 2", "start": "2024-01-04", "end": "2024-01-11", "steam_appid": 1676440},
-    {"title": "Love", "start": "2024-01-11", "end": "2024-01-18", "steam_appid": 269270},
-    {"title": "Sail Forth", "start": "2024-01-18", "end": "2024-01-25", "steam_appid": 1062210},
+    {"title": "Astro Duel 2", "start": "2024-01-04", "end": "2024-01-11", "steam_appid": 655350},
+    {"title": "Love", "start": "2024-01-11", "end": "2024-01-18", "steam_appid": 2692440},
+    {"title": "Sail Forth", "start": "2024-01-18", "end": "2024-01-25", "steam_appid": 1031460},
     {"title": "Infinifactory", "start": "2024-01-25", "end": "2024-02-01", "steam_appid": 300570},
-    {"title": "Doors: Paradox", "start": "2024-02-01", "end": "2024-02-08", "steam_appid": 1385770},
+    {"title": "Doors: Paradox", "start": "2024-02-01", "end": "2024-02-08", "steam_appid": 1622770},
     {"title": "Doki Doki Literature Club Plus!", "start": "2024-02-08", "end": "2024-02-15", "steam_appid": 1388880},
-    {"title": "Lost Castle", "start": "2024-02-15", "end": "2024-02-22", "steam_appid": 434650},
-    {"title": "Super Meat Boy Forever", "start": "2024-02-22", "end": "2024-02-29", "steam_appid": 1225900},
-    {"title": "Aerial_Knight's Never Yield", "start": "2024-02-29", "end": "2024-03-07", "steam_appid": 1582540},
-    {"title": "Astro Duel 2", "start": "2024-03-07", "end": "2024-03-14", "steam_appid": 1676440},
-    {"title": "Deceive Inc.", "start": "2024-03-14", "end": "2024-03-21", "steam_appid": 1382880},
-    {"title": "The Callisto Protocol", "start": "2024-03-21", "end": "2024-03-28", "steam_appid": 1532460},
+    {"title": "Lost Castle", "start": "2024-02-15", "end": "2024-02-22", "steam_appid": 2445690},
+    {"title": "Super Meat Boy Forever", "start": "2024-02-22", "end": "2024-02-29", "steam_appid": 581660},
+    {"title": "Aerial_Knight's Never Yield", "start": "2024-02-29", "end": "2024-03-07", "steam_appid": 1323540},
+    {"title": "Astro Duel 2", "start": "2024-03-07", "end": "2024-03-14", "steam_appid": 655350},
+    {"title": "Deceive Inc.", "start": "2024-03-14", "end": "2024-03-21", "steam_appid": 820520},
+    {"title": "The Callisto Protocol", "start": "2024-03-21", "end": "2024-03-28", "steam_appid": 1544020},
     {"title": "Make Way", "start": "2024-03-28", "end": "2024-04-04", "steam_appid": 1445790},
     {"title": "Islets", "start": "2024-04-04", "end": "2024-04-11", "steam_appid": 1669420},
-    {"title": "The Outer Worlds: Spacer's Choice Edition", "start": "2024-04-11", "end": "2024-04-18", "steam_appid": 578650},
-    {"title": "Thief", "start": "2024-04-18", "end": "2024-04-25", "steam_appid": 239160},
+    {"title": "The Outer Worlds: Spacer's Choice Edition", "start": "2024-04-11", "end": "2024-04-18", "steam_appid": 1920490},
+    {"title": "Thief", "start": "2024-04-18", "end": "2024-04-25", "steam_appid": 4200960},
     {"title": "Lawn Mowing Simulator", "start": "2024-04-25", "end": "2024-05-02", "steam_appid": 1480560},
-    {"title": "Circus Electrique", "start": "2024-05-02", "end": "2024-05-09", "steam_appid": 1561380},
-    {"title": "Firestone Online Idle RPG", "start": "2024-05-09", "end": "2024-05-16", "steam_appid": 2611420},
+    {"title": "Circus Electrique", "start": "2024-05-02", "end": "2024-05-09", "steam_appid": 1666250},
+    {"title": "Firestone Online Idle RPG", "start": "2024-05-09", "end": "2024-05-16", "steam_appid": 3063880},
     {"title": "Dragon Age: Inquisition", "start": "2024-05-16", "end": "2024-05-23", "steam_appid": 1222690},
     {"title": "Farming Simulator 22", "start": "2024-05-23", "end": "2024-05-30", "steam_appid": 1248130},
     {"title": "Chivalry 2", "start": "2024-05-30", "end": "2024-06-06", "steam_appid": 1824220},
-    {"title": "Midnight Ghost Hunt", "start": "2024-06-06", "end": "2024-06-13", "steam_appid": 752820},
+    {"title": "Midnight Ghost Hunt", "start": "2024-06-06", "end": "2024-06-13", "steam_appid": 915810},
     {"title": "Ghostrunner", "start": "2024-06-13", "end": "2024-06-20", "steam_appid": 1139900},
     {"title": "Ghostwire: Tokyo", "start": "2024-06-20", "end": "2024-06-27", "steam_appid": 1475810},
-    {"title": "Tchia", "start": "2024-06-27", "end": "2024-07-04", "steam_appid": 1492560},
-    {"title": "The Falconeer", "start": "2024-07-04", "end": "2024-07-11", "steam_appid": 1135230},
-    {"title": "Floppy Knights", "start": "2024-07-11", "end": "2024-07-18", "steam_appid": 1665410},
-    {"title": "Arcadegeddon", "start": "2024-07-18", "end": "2024-07-25", "steam_appid": 1521380},
+    {"title": "Tchia", "start": "2024-06-27", "end": "2024-07-04", "steam_appid": 1496590},
+    {"title": "The Falconeer", "start": "2024-07-04", "end": "2024-07-11", "steam_appid": 1135260},
+    {"title": "Floppy Knights", "start": "2024-07-11", "end": "2024-07-18", "steam_appid": 1057800},
+    {"title": "Arcadegeddon", "start": "2024-07-18", "end": "2024-07-25", "steam_appid": 1515640},
     {"title": "Orcs Must Die! 3", "start": "2024-07-25", "end": "2024-08-01", "steam_appid": 1522820},
     {"title": "Celeste", "start": "2024-08-01", "end": "2024-08-08", "steam_appid": 504230},
-    {"title": "Kena: Bridge of Spirits", "start": "2024-08-08", "end": "2024-08-15", "steam_appid": 1722460},
-    {"title": "Doom 64", "start": "2024-08-15", "end": "2024-08-22", "steam_appid": 1148580},
+    {"title": "Kena: Bridge of Spirits", "start": "2024-08-08", "end": "2024-08-15", "steam_appid": 1954200},
+    {"title": "Doom 64", "start": "2024-08-15", "end": "2024-08-22", "steam_appid": 1148590},
     {"title": "Call of the Wild: The Angler", "start": "2024-08-22", "end": "2024-08-29", "steam_appid": 1408610},
     {"title": "Gamedec - Definitive Edition", "start": "2024-08-29", "end": "2024-09-05", "steam_appid": 917720},
-    {"title": "Football Manager 2024", "start": "2024-09-05", "end": "2024-09-12", "steam_appid": 2252570},
-    {"title": "Monument Valley", "start": "2024-09-12", "end": "2024-09-19", "steam_appid": 1945280},
-    {"title": "Monument Valley 2", "start": "2024-09-12", "end": "2024-09-19", "steam_appid": 1945290},
+    {"title": "Football Manager 2024", "start": "2024-09-05", "end": "2024-09-12", "steam_appid": 2473420},
+    {"title": "Monument Valley", "start": "2024-09-12", "end": "2024-09-19", "steam_appid": 1927720},
+    {"title": "Monument Valley 2", "start": "2024-09-12", "end": "2024-09-19", "steam_appid": 1927740},
     {"title": "Rugby 24", "start": "2024-09-19", "end": "2024-09-26", "steam_appid": 1739160},
-    {"title": "The Plucky Squire", "start": "2024-09-26", "end": "2024-10-03", "steam_appid": 1758200},
-    {"title": "Bear and Breakfast", "start": "2024-10-03", "end": "2024-10-10", "steam_appid": 1240620},
+    {"title": "The Plucky Squire", "start": "2024-09-26", "end": "2024-10-03", "steam_appid": 1627570},
+    {"title": "Bear and Breakfast", "start": "2024-10-03", "end": "2024-10-10", "steam_appid": 1136370},
     {"title": "Empyrion - Galactic Survival", "start": "2024-10-10", "end": "2024-10-17", "steam_appid": 383120},
-    {"title": "Outliver: Tribulation", "start": "2024-10-17", "end": "2024-10-24", "steam_appid": 1725680},
-    {"title": "Moving Out 2", "start": "2024-10-24", "end": "2024-10-31", "steam_appid": 996770},
-    {"title": "Dead Island 2", "start": "2024-10-31", "end": "2024-11-07", "steam_appid": 994670},
+    {"title": "Outliver: Tribulation", "start": "2024-10-17", "end": "2024-10-24", "steam_appid": 1236930},
+    {"title": "Moving Out 2", "start": "2024-10-24", "end": "2024-10-31", "steam_appid": 1641700},
+    {"title": "Dead Island 2", "start": "2024-10-31", "end": "2024-11-07", "steam_appid": 934700},
     {"title": "Ghostwire: Tokyo", "start": "2024-11-07", "end": "2024-11-14", "steam_appid": 1475810},
     {"title": "Witch It", "start": "2024-11-14", "end": "2024-11-21", "steam_appid": 559650},
-    {"title": "Arcadegeddon", "start": "2024-11-21", "end": "2024-11-28", "steam_appid": 1521380},
-    {"title": "Beholder 3", "start": "2024-11-28", "end": "2024-12-05", "steam_appid": 1832640},
+    {"title": "Arcadegeddon", "start": "2024-11-21", "end": "2024-11-28", "steam_appid": 1515640},
+    {"title": "Beholder 3", "start": "2024-11-28", "end": "2024-12-05", "steam_appid": 1570070},
     {"title": "Castlevania Anniversary Collection", "start": "2024-12-05", "end": "2024-12-12", "steam_appid": 1018010},
     {"title": "Vampire Survivors", "start": "2024-12-12", "end": "2024-12-19", "steam_appid": 1794680},
     {"title": "Dark Deity", "start": "2024-12-19", "end": "2024-12-26", "steam_appid": 1374840},
-    {"title": "Hellboy: Web of Wyrd", "start": "2024-12-26", "end": "2025-01-02", "steam_appid": 1731870},
-
+    {"title": "Hellboy: Web of Wyrd", "start": "2024-12-26", "end": "2025-01-02", "steam_appid": 2160480},
     # 2025
     {"title": "Kingdom Come: Deliverance", "start": "2025-01-02", "end": "2025-01-09", "steam_appid": 379430},
     {"title": "Hell Let Loose", "start": "2025-01-02", "end": "2025-01-09", "steam_appid": 686810},
     {"title": "Turbo Golf Racing", "start": "2025-01-02", "end": "2025-01-09", "steam_appid": 1324350},
     {"title": "Turmoil", "start": "2025-01-09", "end": "2025-01-16", "steam_appid": 361280},
-    {"title": "Escape Academy", "start": "2025-01-16", "end": "2025-01-23", "steam_appid": 1432090},
+    {"title": "Escape Academy", "start": "2025-01-16", "end": "2025-01-23", "steam_appid": 1812090},
     {"title": "Behind the Frame: The Finest Scenery", "start": "2025-01-23", "end": "2025-01-30", "steam_appid": 1634150},
-    {"title": "Undying", "start": "2025-01-30", "end": "2025-02-06", "steam_appid": 1044180},
-    {"title": "HUMANKIND", "start": "2025-02-06", "end": "2025-02-13", "steam_appid": 1124300},
-    {"title": "Garden Story", "start": "2025-02-20", "end": "2025-02-27", "steam_appid": 1072140},
-    {"title": "Them's Fightin' Herds", "start": "2025-03-06", "end": "2025-03-13", "steam_appid": 589670},
+    {"title": "Undying", "start": "2025-01-30", "end": "2025-02-06", "steam_appid": 512790},
+    {"title": "HUMANKIND", "start": "2025-02-06", "end": "2025-02-13", "steam_appid": 536270},
+    {"title": "Garden Story", "start": "2025-02-20", "end": "2025-02-27", "steam_appid": 1062140},
+    {"title": "Them's Fightin' Herds", "start": "2025-03-06", "end": "2025-03-13", "steam_appid": 574980},
     {"title": "Cat Quest", "start": "2025-03-27", "end": "2025-04-03", "steam_appid": 593280},
-    {"title": "Neko Ghost, Jump!", "start": "2025-03-27", "end": "2025-04-03", "steam_appid": 1446200},
+    {"title": "Neko Ghost, Jump!", "start": "2025-03-27", "end": "2025-04-03", "steam_appid": 1194750},
     {"title": "Cat Quest 2", "start": "2025-04-03", "end": "2025-04-10", "steam_appid": 914710},
-    {"title": "Botanicula", "start": "2025-04-17", "end": "2025-04-24", "steam_appid": 207490},
+    {"title": "Botanicula", "start": "2025-04-17", "end": "2025-04-24", "steam_appid": 207690},
     {"title": "Chuchel", "start": "2025-04-24", "end": "2025-05-01", "steam_appid": 711660},
     {"title": "LEGO Star Wars: The Skywalker Saga", "start": "2025-05-04", "end": "2025-05-05", "steam_appid": 920210},
-    {"title": "Deadtime Defenders", "start": "2025-05-08", "end": "2025-05-15", "steam_appid": 2104270},
-    {"title": "Touch Type Tale", "start": "2025-05-08", "end": "2025-05-15", "steam_appid": 1242450},
-    {"title": "Happy Game", "start": "2025-05-15", "end": "2025-05-22", "steam_appid": 1409550},
-    {"title": "Gigapocalypse", "start": "2025-05-22", "end": "2025-05-29", "steam_appid": 1531200},
-    {"title": "Deliver At All Costs", "start": "2025-05-22", "end": "2025-05-29", "steam_appid": 2475480},
+    {"title": "Deadtime Defenders", "start": "2025-05-08", "end": "2025-05-15", "steam_appid": 1148700},
+    {"title": "Touch Type Tale", "start": "2025-05-08", "end": "2025-05-15", "steam_appid": 909470},
+    {"title": "Happy Game", "start": "2025-05-15", "end": "2025-05-22", "steam_appid": 1206060},
+    {"title": "Gigapocalypse", "start": "2025-05-22", "end": "2025-05-29", "steam_appid": 1543240},
+    {"title": "Deliver At All Costs", "start": "2025-05-22", "end": "2025-05-29", "steam_appid": 1880610},
     {"title": "Sifu", "start": "2025-05-22", "end": "2025-05-29", "steam_appid": 2138710},
     {"title": "Tiny Tina's Wonderlands", "start": "2025-05-29", "end": "2025-06-05", "steam_appid": 1286680},
     {"title": "Limbo", "start": "2025-05-29", "end": "2025-06-05", "steam_appid": 48000},
     {"title": "Deathloop", "start": "2025-06-05", "end": "2025-06-12", "steam_appid": 1252330},
-    {"title": "Ogu and the Secret Forest", "start": "2025-06-05", "end": "2025-06-12", "steam_appid": 1831380},
-    {"title": "Two Point Hospital", "start": "2025-06-12", "end": "2025-06-19", "steam_appid": 516770},
-    {"title": "The Operator", "start": "2025-06-19", "end": "2025-06-26", "steam_appid": 1845680},
+    {"title": "Ogu and the Secret Forest", "start": "2025-06-05", "end": "2025-06-12", "steam_appid": 1985960},
+    {"title": "Two Point Hospital", "start": "2025-06-12", "end": "2025-06-19", "steam_appid": 535930},
+    {"title": "The Operator", "start": "2025-06-19", "end": "2025-06-26", "steam_appid": 1771980},
     {"title": "World of Warships — Starter Pack", "start": "2025-01-09", "end": "2025-01-16", "steam_appid": 552990},
-    {"title": "Fate Seeker", "start": "2025-01-16", "end": "2025-01-23", "steam_appid": 1195290},
+    {"title": "Fate Seeker", "start": "2025-01-16", "end": "2025-01-23", "steam_appid": 882790},
     {"title": "Nobody Saves the World", "start": "2025-01-23", "end": "2025-01-30", "steam_appid": 1432050},
     {"title": "Grime", "start": "2025-01-30", "end": "2025-02-06", "steam_appid": 1123050},
-    {"title": "Beyond Blue", "start": "2025-02-06", "end": "2025-02-13", "steam_appid": 1016580},
-    {"title": "Daily Dadish", "start": "2025-02-13", "end": "2025-02-20", "steam_appid": 1932690},
-    {"title": "F1 Manager 2024", "start": "2025-02-20", "end": "2025-02-27", "steam_appid": 2488620},
+    {"title": "Beyond Blue", "start": "2025-02-06", "end": "2025-02-13", "steam_appid": 883360},
+    {"title": "Daily Dadish", "start": "2025-02-13", "end": "2025-02-20", "steam_appid": 2274700},
+    {"title": "F1 Manager 2024", "start": "2025-02-20", "end": "2025-02-27", "steam_appid": 2591280},
     {"title": "World of Warships — Superpack", "start": "2025-02-27", "end": "2025-03-06", "steam_appid": 552990},
     {"title": "Mages of Mystralia", "start": "2025-03-06", "end": "2025-03-13", "steam_appid": 529660},
     {"title": "Jurassic World Evolution 2", "start": "2025-03-13", "end": "2025-03-20", "steam_appid": 1244460},
     {"title": "Mortal Shell", "start": "2025-03-20", "end": "2025-03-27", "steam_appid": 1110910},
-    {"title": "Invincible Presents: Atom Eve", "start": "2025-03-27", "end": "2025-04-03", "steam_appid": 2180260},
-    {"title": "The Outer Worlds", "start": "2025-04-03", "end": "2025-04-10", "steam_appid": 578650},
+    {"title": "Invincible Presents: Atom Eve", "start": "2025-03-27", "end": "2025-04-03", "steam_appid": 2060870},
+    {"title": "The Outer Worlds", "start": "2025-04-03", "end": "2025-04-10", "steam_appid": 1449110},
     {"title": "Chivalry 2", "start": "2025-04-10", "end": "2025-04-17", "steam_appid": 1824220},
-    {"title": "Botany Manor", "start": "2025-04-17", "end": "2025-04-24", "steam_appid": 1416980},
+    {"title": "Botany Manor", "start": "2025-04-17", "end": "2025-04-24", "steam_appid": 1425350},
     {"title": "River City Girls", "start": "2025-04-24", "end": "2025-05-01", "steam_appid": 1049320},
-    {"title": "Super Space Club", "start": "2025-05-01", "end": "2025-05-08", "steam_appid": 1691600},
-    {"title": "Tales of the Shire", "start": "2025-05-08", "end": "2025-05-15", "steam_appid": 2232620},
-    {"title": "Dead Island 2", "start": "2025-05-15", "end": "2025-05-22", "steam_appid": 994670},
+    {"title": "Super Space Club", "start": "2025-05-01", "end": "2025-05-08", "steam_appid": 1100290},
+    {"title": "Tales of the Shire", "start": "2025-05-08", "end": "2025-05-15", "steam_appid": 2016460},
+    {"title": "Dead Island 2", "start": "2025-05-15", "end": "2025-05-22", "steam_appid": 934700},
     {"title": "Cursed to Golf", "start": "2025-05-22", "end": "2025-05-29", "steam_appid": 1726120},
-    {"title": "Dordogne", "start": "2025-05-29", "end": "2025-06-05", "steam_appid": 1428780},
-    {"title": "The Big Con", "start": "2025-06-05", "end": "2025-06-12", "steam_appid": 1637010},
+    {"title": "Dordogne", "start": "2025-05-29", "end": "2025-06-05", "steam_appid": 1272840},
+    {"title": "The Big Con", "start": "2025-06-05", "end": "2025-06-12", "steam_appid": 1139280},
     {"title": "The Ouroboros King", "start": "2025-06-12", "end": "2025-06-19", "steam_appid": 2096510},
     {"title": "Warhammer 40K Speed Freeks", "start": "2025-06-12", "end": "2025-06-19", "steam_appid": 2078450},
     {"title": "Citizen Sleeper", "start": "2025-06-18", "end": "2025-06-25", "steam_appid": 1578650},
-    {"title": "ROBOBEAT", "start": "2025-06-18", "end": "2025-06-25", "steam_appid": 1638230},
-
-    # 2025 H2
-    {"title": "Sable", "start": "2025-06-26", "end": "2025-07-03", "steam_appid": 1083180},
+    {"title": "ROBOBEAT", "start": "2025-06-18", "end": "2025-06-25", "steam_appid": 1456760},
+    {"title": "Sable", "start": "2025-06-26", "end": "2025-07-03", "steam_appid": 757310},
     {"title": "Backpack Hero", "start": "2025-07-03", "end": "2025-07-10", "steam_appid": 1970580},
-    {"title": "Figment", "start": "2025-07-03", "end": "2025-07-10", "steam_appid": 1524400},
-    {"title": "Figment 2: Creed Valley", "start": "2025-07-10", "end": "2025-07-17", "steam_appid": 1518130},
-    {"title": "Sky Racket", "start": "2025-07-10", "end": "2025-07-17", "steam_appid": 1244040},
+    {"title": "Figment", "start": "2025-07-03", "end": "2025-07-10", "steam_appid": 493540},
+    {"title": "Figment 2: Creed Valley", "start": "2025-07-10", "end": "2025-07-17", "steam_appid": 1085220},
+    {"title": "Sky Racket", "start": "2025-07-10", "end": "2025-07-17", "steam_appid": 994500},
     {"title": "Sid Meier's Civilization VI: Platinum Edition", "start": "2025-07-17", "end": "2025-07-24", "steam_appid": 289070},
-    {"title": "Legion TD 2", "start": "2025-07-24", "end": "2025-07-31", "steam_appid": 468010},
-    {"title": "Keylocker", "start": "2025-07-31", "end": "2025-08-07", "steam_appid": 1668550},
-    {"title": "Pilgrims", "start": "2025-07-31", "end": "2025-08-07", "steam_appid": 1227740},
-    {"title": "112 Operator", "start": "2025-08-07", "end": "2025-08-14", "steam_appid": 1144200},
-    {"title": "Road Redemption", "start": "2025-08-07", "end": "2025-08-14", "steam_appid": 300940},
-    {"title": "Hidden Folks", "start": "2025-08-14", "end": "2025-08-21", "steam_appid": 683900},
-    {"title": "Totally Reliable Delivery Service", "start": "2025-08-14", "end": "2025-08-21", "steam_appid": 1018800},
-    {"title": "Kamaeru: A Frog Refuge", "start": "2025-08-21", "end": "2025-08-28", "steam_appid": 1906480},
-    {"title": "Strange Horticulture", "start": "2025-08-21", "end": "2025-08-28", "steam_appid": 1570370},
+    {"title": "Legion TD 2", "start": "2025-07-24", "end": "2025-07-31", "steam_appid": 469600},
+    {"title": "Keylocker", "start": "2025-07-31", "end": "2025-08-07", "steam_appid": 1325040},
+    {"title": "Pilgrims", "start": "2025-07-31", "end": "2025-08-07", "steam_appid": 1049280},
+    {"title": "112 Operator", "start": "2025-08-07", "end": "2025-08-14", "steam_appid": 793460},
+    {"title": "Road Redemption", "start": "2025-08-07", "end": "2025-08-14", "steam_appid": 300380},
+    {"title": "Hidden Folks", "start": "2025-08-14", "end": "2025-08-21", "steam_appid": 435400},
+    {"title": "Totally Reliable Delivery Service", "start": "2025-08-14", "end": "2025-08-21", "steam_appid": 1011670},
+    {"title": "Kamaeru: A Frog Refuge", "start": "2025-08-21", "end": "2025-08-28", "steam_appid": 1978150},
+    {"title": "Strange Horticulture", "start": "2025-08-21", "end": "2025-08-28", "steam_appid": 1574580},
     {"title": "Machinarium", "start": "2025-08-29", "end": "2025-09-05", "steam_appid": 40700},
-    {"title": "The Battle of Polytopia", "start": "2025-09-11", "end": "2025-09-18", "steam_appid": 1356670},
+    {"title": "The Battle of Polytopia", "start": "2025-09-11", "end": "2025-09-18", "steam_appid": 874390},
     {"title": "Ghostrunner 2", "start": "2025-09-11", "end": "2025-09-18", "steam_appid": 2144740},
-    {"title": "Project Winter", "start": "2025-09-19", "end": "2025-09-26", "steam_appid": 874720},
-    {"title": "Samorost 2", "start": "2025-09-19", "end": "2025-09-26", "steam_appid": 11200},
-    {"title": "Eastern Exorcist", "start": "2025-09-26", "end": "2025-10-03", "steam_appid": 1173420},
-    {"title": "Jorel's Brother and The Most Important Game of the Galaxy", "start": "2025-09-26", "end": "2025-10-02", "steam_appid": 1909010},
-    {"title": "Nightingale", "start": "2025-10-02", "end": "2025-10-09", "steam_appid": 2081210},
-    {"title": "Gravity Circuit", "start": "2025-10-09", "end": "2025-10-16", "steam_appid": 1032900},
-    {"title": "Amnesia: The Bunker", "start": "2025-10-16", "end": "2025-10-23", "steam_appid": 1990890},
+    {"title": "Project Winter", "start": "2025-09-19", "end": "2025-09-26", "steam_appid": 774861},
+    {"title": "Samorost 2", "start": "2025-09-19", "end": "2025-09-26", "steam_appid": 40720},
+    {"title": "Eastern Exorcist", "start": "2025-09-26", "end": "2025-10-03", "steam_appid": 1120810},
+    {"title": "Jorel's Brother and The Most Important Game of the Galaxy", "start": "2025-09-26", "end": "2025-10-02", "steam_appid": 1398910},
+    {"title": "Nightingale", "start": "2025-10-02", "end": "2025-10-09", "steam_appid": 1928980},
+    {"title": "Gravity Circuit", "start": "2025-10-09", "end": "2025-10-16", "steam_appid": 858710},
+    {"title": "Amnesia: The Bunker", "start": "2025-10-16", "end": "2025-10-23", "steam_appid": 1944430},
     {"title": "Samorost 3", "start": "2025-10-16", "end": "2025-10-23", "steam_appid": 421120},
-    {"title": "Fear the Spotlight", "start": "2025-10-23", "end": "2025-10-30", "steam_appid": 2351580},
+    {"title": "Fear the Spotlight", "start": "2025-10-23", "end": "2025-10-30", "steam_appid": 1959390},
     {"title": "Bendy and the Ink Machine", "start": "2025-10-30", "end": "2025-11-06", "steam_appid": 622650},
-    {"title": "Five Nights at Freddy's: Into the Pit", "start": "2025-10-30", "end": "2025-11-06", "steam_appid": 2492920},
+    {"title": "Five Nights at Freddy's: Into the Pit", "start": "2025-10-30", "end": "2025-11-06", "steam_appid": 2638370},
     {"title": "Felix the Reaper", "start": "2025-11-06", "end": "2025-11-13", "steam_appid": 919410},
-    {"title": "ScourgeBringer", "start": "2025-11-13", "end": "2025-11-20", "steam_appid": 1037800},
-    {"title": "Songs of Silence", "start": "2025-11-13", "end": "2025-11-20", "steam_appid": 2337180},
-    {"title": "Zero Hour", "start": "2025-11-13", "end": "2025-11-20", "steam_appid": 1330760},
-    {"title": "Godzilla Voxel Wars", "start": "2025-11-20", "end": "2025-11-27", "steam_appid": 1930350},
-    {"title": "Zoeti", "start": "2025-11-20", "end": "2025-11-27", "steam_appid": 1800180},
-    {"title": "Universe for Sale", "start": "2025-11-27", "end": "2025-12-04", "steam_appid": 1616910},
-    {"title": "The Darkside Detective", "start": "2025-12-04", "end": "2025-12-11", "steam_appid": 368590},
-    {"title": "The Jackbox Party Pack 4", "start": "2025-12-04", "end": "2025-12-11", "steam_appid": 610360},
+    {"title": "ScourgeBringer", "start": "2025-11-13", "end": "2025-11-20", "steam_appid": 1037020},
+    {"title": "Songs of Silence", "start": "2025-11-13", "end": "2025-11-20", "steam_appid": 2195410},
+    {"title": "Zero Hour", "start": "2025-11-13", "end": "2025-11-20", "steam_appid": 1359090},
+    {"title": "Godzilla Voxel Wars", "start": "2025-11-20", "end": "2025-11-27", "steam_appid": 2439780},
+    {"title": "Zoeti", "start": "2025-11-20", "end": "2025-11-27", "steam_appid": 1434540},
+    {"title": "Universe for Sale", "start": "2025-11-27", "end": "2025-12-04", "steam_appid": 1627840},
+    {"title": "The Darkside Detective", "start": "2025-12-04", "end": "2025-12-11", "steam_appid": 368390},
+    {"title": "The Jackbox Party Pack 4", "start": "2025-12-04", "end": "2025-12-11", "steam_appid": 610180},
     {"title": "Hogwarts Legacy", "start": "2025-12-11", "end": "2025-12-18", "steam_appid": 990080},
-    {"title": "Jotunnslayer: Hordes of Hel", "start": "2025-12-18", "end": "2025-12-19", "steam_appid": 2435650},
-    {"title": "Eternights", "start": "2025-12-19", "end": "2025-12-20", "steam_appid": 1959950},
-    {"title": "Blood West", "start": "2025-12-20", "end": "2025-12-21", "steam_appid": 1533800},
-    {"title": "Sorry We're Closed", "start": "2025-12-21", "end": "2025-12-22", "steam_appid": 1757320},
+    {"title": "Jotunnslayer: Hordes of Hel", "start": "2025-12-18", "end": "2025-12-19", "steam_appid": 2820820},
+    {"title": "Eternights", "start": "2025-12-19", "end": "2025-12-20", "steam_appid": 1402110},
+    {"title": "Blood West", "start": "2025-12-20", "end": "2025-12-21", "steam_appid": 1587130},
+    {"title": "Sorry We're Closed", "start": "2025-12-21", "end": "2025-12-22", "steam_appid": 1796580},
     {"title": "Paradise Killer", "start": "2025-12-22", "end": "2025-12-23", "steam_appid": 1160220},
     {"title": "Bloodstained: Ritual of the Night", "start": "2025-12-23", "end": "2025-12-24", "steam_appid": 692850},
-    {"title": "Disco Elysium: The Final Cut", "start": "2025-12-25", "end": "2025-12-26", "steam_appid": 1164730},
+    {"title": "Disco Elysium: The Final Cut", "start": "2025-12-25", "end": "2025-12-26", "steam_appid": 632470},
     {"title": "We Were Here Together", "start": "2025-12-26", "end": "2025-12-27", "steam_appid": 865360},
-    {"title": "Cassette Beasts", "start": "2025-12-27", "end": "2025-12-28", "steam_appid": 1680780},
-    {"title": "SKALD: Against the Black Priory", "start": "2025-12-28", "end": "2025-12-29", "steam_appid": 1331960},
+    {"title": "Cassette Beasts", "start": "2025-12-27", "end": "2025-12-28", "steam_appid": 1321440},
+    {"title": "SKALD: Against the Black Priory", "start": "2025-12-28", "end": "2025-12-29", "steam_appid": 1069160},
     {"title": "Viewfinder", "start": "2025-12-29", "end": "2025-12-30", "steam_appid": 1382070},
     {"title": "Trine Classic Collection", "start": "2025-12-30", "end": "2025-12-31", "steam_appid": None},
-
-    # 2026 Q1
+    # 2026
     {"title": "Total War: Three Kingdoms", "start": "2026-01-01", "end": "2026-01-08", "steam_appid": 779340},
-    {"title": "Wildgate", "start": "2026-01-01", "end": "2026-01-08", "steam_appid": 2776790},
+    {"title": "Wildgate", "start": "2026-01-01", "end": "2026-01-08", "steam_appid": 3504780},
     {"title": "Bloons TD 6", "start": "2026-01-08", "end": "2026-01-15", "steam_appid": 960090},
     {"title": "Styx: Master of Shadows", "start": "2026-01-15", "end": "2026-01-22", "steam_appid": 242640},
     {"title": "Styx: Shards of Darkness", "start": "2026-01-15", "end": "2026-01-22", "steam_appid": 355790},
-    {"title": "Rustler", "start": "2026-01-22", "end": "2026-01-29", "steam_appid": 1161580},
-    {"title": "Definitely Not Fried Chicken", "start": "2026-01-29", "end": "2026-02-05", "steam_appid": 1599750},
-    {"title": "The Darkside Detective: A Fumble in the Dark", "start": "2026-02-12", "end": "2026-02-19", "steam_appid": 827770},
-    {"title": "Nobody Wants to Die", "start": "2026-02-12", "end": "2026-02-19", "steam_appid": 1939910},
-    {"title": "Return to Ash", "start": "2026-02-19", "end": "2026-02-26", "steam_appid": 2905840},
+    {"title": "Rustler", "start": "2026-01-22", "end": "2026-01-29", "steam_appid": 1628880},
+    {"title": "Definitely Not Fried Chicken", "start": "2026-01-29", "end": "2026-02-05", "steam_appid": 1036240},
+    {"title": "The Darkside Detective: A Fumble in the Dark", "start": "2026-02-12", "end": "2026-02-19", "steam_appid": 795420},
+    {"title": "Nobody Wants to Die", "start": "2026-02-12", "end": "2026-02-19", "steam_appid": 1939970},
+    {"title": "Return to Ash", "start": "2026-02-19", "end": "2026-02-26", "steam_appid": 3445830},
     {"title": "STALCRAFT: X - Starter Edition", "start": "2026-02-19", "end": "2026-02-26", "steam_appid": None},
-    {"title": "Boxes: Lost Fragments", "start": "2026-02-26", "end": "2026-03-05", "steam_appid": 2052910},
-    {"title": "My Night Job", "start": "2026-02-26", "end": "2026-03-05", "steam_appid": 1031520},
-    {"title": "Turnip Boy Robs a Bank", "start": "2026-03-05", "end": "2026-03-12", "steam_appid": 2101100},
+    {"title": "Boxes: Lost Fragments", "start": "2026-02-26", "end": "2026-03-05", "steam_appid": 2019810},
+    {"title": "My Night Job", "start": "2026-02-26", "end": "2026-03-05", "steam_appid": 437100},
+    {"title": "Turnip Boy Robs a Bank", "start": "2026-03-05", "end": "2026-03-12", "steam_appid": 2097230},
     {"title": "Cozy Grove", "start": "2026-03-12", "end": "2026-03-19", "steam_appid": 1458100},
-    {"title": "Isonzo", "start": "2026-03-12", "end": "2026-03-19", "steam_appid": 1390190},
-    {"title": "Electrician Simulator", "start": "2026-03-19", "end": "2026-03-26", "steam_appid": 1608400},
-    {"title": "Havendock", "start": "2026-03-26", "end": "2026-04-02", "steam_appid": 2270470},
-    {"title": "Hyper Echelon", "start": "2026-03-26", "end": "2026-04-02", "steam_appid": 2108590},
+    {"title": "Isonzo", "start": "2026-03-12", "end": "2026-03-19", "steam_appid": 1556790},
+    {"title": "Electrician Simulator", "start": "2026-03-19", "end": "2026-03-26", "steam_appid": 1080020},
+    {"title": "Havendock", "start": "2026-03-26", "end": "2026-04-02", "steam_appid": 2020710},
+    {"title": "Hyper Echelon", "start": "2026-03-26", "end": "2026-04-02", "steam_appid": 953330},
     {"title": "TOMAK: Save the Earth Regeneration", "start": "2026-04-02", "end": "2026-04-16", "steam_appid": None},
-    {"title": "Clone Drone in the Danger Zone", "start": "2026-04-02", "end": "2026-04-09", "steam_appid": 464560},
-    {"title": "Prop Sumo", "start": "2026-04-09", "end": "2026-04-16", "steam_appid": 2962980},
-    {"title": "The Stone of Madness", "start": "2026-04-16", "end": "2026-04-23", "steam_appid": 2255160},
-    {"title": "DOOMBLADE", "start": "2026-04-23", "end": "2026-04-30", "steam_appid": 2194840},
-    {"title": "Oddsparks: An Automation Adventure", "start": "2026-04-30", "end": "2026-05-07", "steam_appid": 2590600},
-    {"title": "Arranger: A Role-Puzzling Adventure", "start": "2026-05-07", "end": "2026-05-14", "steam_appid": 1925820},
-    {"title": "Trash Goblin", "start": "2026-05-07", "end": "2026-05-14", "steam_appid": 2374030},
+    {"title": "Clone Drone in the Danger Zone", "start": "2026-04-02", "end": "2026-04-09", "steam_appid": 597170},
+    {"title": "Prop Sumo", "start": "2026-04-09", "end": "2026-04-16", "steam_appid": 3089420},
+    {"title": "The Stone of Madness", "start": "2026-04-16", "end": "2026-04-23", "steam_appid": 1309710},
+    {"title": "DOOMBLADE", "start": "2026-04-23", "end": "2026-04-30", "steam_appid": 922050},
+    {"title": "Oddsparks: An Automation Adventure", "start": "2026-04-30", "end": "2026-05-07", "steam_appid": 1817800},
+    {"title": "Arranger: A Role-Puzzling Adventure", "start": "2026-05-07", "end": "2026-05-14", "steam_appid": 2596420},
+    {"title": "Trash Goblin", "start": "2026-05-07", "end": "2026-05-14", "steam_appid": 2407830},
     {"title": "Sunderfolk - Standard Edition", "start": "2026-05-14", "end": "2026-05-21", "steam_appid": 2605020},
     {"title": "The Telltale Batman Shadows Edition", "start": "2026-05-14", "end": "2026-05-21", "steam_appid": 1423180},
     {"title": "Down in Bermuda", "start": "2026-05-21", "end": "2026-05-28", "steam_appid": 1107300},
-    {"title": "Tomb Raider I-III Remastered", "start": "2026-05-21", "end": "2026-05-28", "steam_appid": 2477760},
-    {"title": "Calico", "start": "2026-05-28", "end": "2026-06-04", "steam_appid": 1591910},
-    {"title": "LONESTAR", "start": "2026-05-28", "end": "2026-06-04", "steam_appid": 2651110},
-    {"title": "Rogue Waters", "start": "2026-06-04", "end": "2026-06-11", "steam_appid": 2753630},
+    {"title": "Tomb Raider I-III Remastered", "start": "2026-05-21", "end": "2026-05-28", "steam_appid": 2478970},
+    {"title": "Calico", "start": "2026-05-28", "end": "2026-06-04", "steam_appid": 1112890},
+    {"title": "LONESTAR", "start": "2026-05-28", "end": "2026-06-04", "steam_appid": 2056210},
+    {"title": "Rogue Waters", "start": "2026-06-04", "end": "2026-06-11", "steam_appid": 1691190},
     {"title": "Songs of Conquest", "start": "2026-06-04", "end": "2026-06-11", "steam_appid": 867210},
 ]
 
@@ -832,12 +808,109 @@ def generate_epic_history_json():
         "last_updated": datetime.now().strftime("%Y-%m-%d")
     }
 
+def verify_appids():
+    """通过 Steam 搜索 API 验证并修正所有 AppID"""
+    import requests
+    import time
+
+    fixed = 0
+    checked = 0
+
+    for game in EPIC_FREE_GAMES_HISTORY:
+        title = game["title"]
+        current_id = game.get("steam_appid")
+        if not current_id:
+            continue
+
+        checked += 1
+        try:
+            resp = requests.get(
+                "https://store.steampowered.com/api/storesearch/",
+                params={"term": title, "l": "english", "cc": "US"},
+                timeout=10
+            )
+            if resp.status_code != 200:
+                continue
+            items = resp.json().get("items", [])
+            if not items:
+                continue
+
+            # 精确匹配优先
+            correct_id = None
+            for item in items:
+                if item["name"].lower() == title.lower():
+                    correct_id = item["id"]
+                    break
+            if correct_id is None:
+                correct_id = items[0]["id"]
+
+            if correct_id != current_id:
+                print(f"❌ {title}: {current_id} -> {correct_id}")
+                game["steam_appid"] = correct_id
+                fixed += 1
+            else:
+                print(f"✅ {title}: {current_id}")
+
+        except Exception as e:
+            print(f"⚠️ {title}: 查询失败 - {e}")
+
+        time.sleep(0.3)
+
+    print(f"\n检查完毕: {checked} 个游戏, {fixed} 个 AppID 已修正")
+    return fixed
+
+def save_verified_script():
+    """将修正后的数据写回脚本文件本身"""
+    import re
+
+    script_path = __file__
+    with open(script_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # 重建 EPIC_FREE_GAMES_HISTORY 列表的文本
+    lines = ["EPIC_FREE_GAMES_HISTORY = ["]
+    current_year = None
+    for game in EPIC_FREE_GAMES_HISTORY:
+        year = game["start"][:4]
+        if year != current_year:
+            lines.append(f"    # {year}")
+            current_year = year
+        lines.append(
+            f'    {{"title": "{game["title"]}", "start": "{game["start"]}", '
+            f'"end": "{game["end"]}", "steam_appid": {game["steam_appid"]}}},'
+        )
+    lines.append("]")
+
+    new_block = "\n".join(lines)
+
+    # 替换 EPIC_FREE_GAMES_HISTORY 块
+    pattern = r"EPIC_FREE_GAMES_HISTORY = \[.*?\n\]"
+    content = re.sub(pattern, new_block, content, flags=re.DOTALL)
+
+    with open(script_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    print(f"已将修正后的数据写回 {script_path}")
+
 if __name__ == "__main__":
-    data = generate_epic_history_json()
-    output_path = "e:/MyProject/steam-epic-badge/data/epic_history_full.json"
+    import sys
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    if "--verify" in sys.argv:
+        # 验证并修正 AppID，然后写回脚本和 JSON
+        fixed = verify_appids()
+        if fixed > 0:
+            save_verified_script()
+            data = generate_epic_history_json()
+            for path in ["data/epic_history.json", "data/epic_history_full.json"]:
+                with open(path, "w", encoding="utf-8") as f:
+                    json.dump(data, f, indent=2, ensure_ascii=False)
+                print(f"已更新: {path}")
+    else:
+        data = generate_epic_history_json()
+        output_path = "data/epic_history_full.json"
 
-    print(f"已生成 {len(data['games'])} 款游戏的历史记录")
-    print(f"保存至: {output_path}")
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+
+        print(f"已生成 {len(data['games'])} 款游戏的历史记录")
+        print(f"保存至: {output_path}")
