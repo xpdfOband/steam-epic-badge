@@ -7,4 +7,3 @@ data/epic_history_full.json
 .memsearch/
 dist/
 node_modules/
-package-lock.json
