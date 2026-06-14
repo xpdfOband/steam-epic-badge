@@ -4016,6 +4016,11 @@
           "start": "2025-06-12",
           "end": "2025-06-19",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-06-11",
+          "end": "2026-06-18",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/2096510/header.jpg"
@@ -4028,6 +4033,11 @@
         {
           "start": "2025-06-12",
           "end": "2025-06-19",
+          "type": "giveaway"
+        },
+        {
+          "start": "2026-06-11",
+          "end": "2026-06-18",
           "type": "giveaway"
         }
       ],
@@ -4042,6 +4052,11 @@
           "start": "2025-06-18",
           "end": "2025-06-25",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-25",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1578650/header.jpg"
@@ -4054,6 +4069,11 @@
         {
           "start": "2025-06-18",
           "end": "2025-06-25",
+          "type": "giveaway"
+        },
+        {
+          "start": "2026-06-18",
+          "end": "2026-06-25",
           "type": "giveaway"
         }
       ],
@@ -5603,5 +5623,6 @@
       ],
       "image": null
     }
-  ]
+  ],
+  "last_updated": "2026-06-14"
 }
