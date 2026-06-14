@@ -1,0 +1,46 @@
+name: Update Epic Free Games
+
+on:
+  schedule:
+    # 每6小时运行一次（Epic 每周四 15:00 UTC 刷新，节假日每天刷新）
+    - cron: "7 */6 * * *"
+  # 手动触发
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout 仓库
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 运行自动追新脚本
+        id: update
+        run: python scripts/auto_update_epic_history.py
+
+      - name: 打印结果
+        run: |
+          echo "has_changes=${{ steps.update.outputs.has_changes }}"
+          echo "added=${{ steps.update.outputs.added }}"
+          echo "updated=${{ steps.update.outputs.updated }}"
+
+      - name: 提交并推送变更
+        if: steps.update.outputs.has_changes == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: |
+            chore: auto-update epic_history.json
+
+            +${{ steps.update.outputs.added }} new games
+            ~${{ steps.update.outputs.updated }} updated
+          file_pattern: "data/epic_history.json"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
