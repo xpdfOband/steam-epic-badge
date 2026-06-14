@@ -38,6 +38,73 @@ const STORAGE_KEY_LAST_KNOWN = 'epic_last_known_free';
 const STORAGE_KEY_UPCOMING = 'epic_upcoming_free';
 
 // ============================================================
+// L1 内存索引 — O(1) 查找替代 O(n) 线性搜索
+// ============================================================
+
+/** @type {Map<string, object>} steam_appid -> game */
+const _indexBySteamAppId = new Map();
+/** @type {Map<string, object>} epic_id (lowercase) -> game */
+const _indexByEpicId = new Map();
+/** @type {Map<string, object>} offerId (lowercase) -> game */
+const _indexByOfferId = new Map();
+
+/**
+ * 从游戏数组构建内存索引
+ * @param {Array} games
+ */
+function buildIndex(games) {
+  _indexBySteamAppId.clear();
+  _indexByEpicId.clear();
+  _indexByOfferId.clear();
+  for (const game of games) {
+    if (game.steam_appid) {
+      _indexBySteamAppId.set(String(game.steam_appid), game);
+    }
+    if (game.epic_id) {
+      _indexByEpicId.set(String(game.epic_id).toLowerCase(), game);
+    }
+    if (game.offerId) {
+      _indexByOfferId.set(String(game.offerId).toLowerCase(), game);
+    }
+  }
+  log('log', `内存索引构建完成: ${_indexBySteamAppId.size} 条 steam_appid, ${_indexByEpicId.size} 条 epic_id`);
+}
+
+/**
+ * 通过 AppID 从内存索引查找游戏（O(1)）
+ * 支持 steam_appid、epic_id、offerId 三种 ID
+ * @param {string} appId
+ * @returns {object|null} 匹配的游戏对象或 null
+ */
+function lookupByAppId(appId) {
+  const id = String(appId).trim();
+  const lowerId = id.toLowerCase();
+  return _indexBySteamAppId.get(id)
+    || _indexByEpicId.get(lowerId)
+    || _indexByOfferId.get(lowerId)
+    || null;
+}
+
+/**
+ * 通过名称模糊匹配从内存索引查找游戏
+ * @param {string} name
+ * @returns {object|null}
+ */
+function lookupByName(name) {
+  if (!name) return null;
+  const lowerName = name.toLowerCase();
+  // 先精确匹配
+  for (const game of _indexByEpicId.values()) {
+    if (game.title && game.title.toLowerCase() === lowerName) return game;
+  }
+  // 再模糊匹配
+  for (const game of _indexByEpicId.values()) {
+    if (game.title && fuzzyMatch(game.title, name)) return game;
+  }
+  return null;
+}
+
+// ============================================================
 // 工具函数
 // ============================================================
 
@@ -305,7 +372,25 @@ async function initializeData() {
   // 2. 拉取 Epic API 当前免费游戏
   await refreshCurrentFreeGames();
 
+  // 3. 构建内存索引
+  await rebuildIndex();
+
   log('log', '=== 初始化完成 ===');
+}
+
+/**
+ * 从 storage 读取数据并重建内存索引
+ * 在初始化和数据刷新后调用
+ */
+async function rebuildIndex() {
+  const historyData = (await getStorage(STORAGE_KEY_HISTORY)) || { games: [] };
+  const currentFree = (await getStorage(STORAGE_KEY_CURRENT)) || [];
+  // 合并历史和当前免费游戏，当前免费的标记 isCurrentlyFree
+  const allGames = [
+    ...historyData.games,
+    ...currentFree.map(g => ({ ...g, isCurrentlyFree: true })),
+  ];
+  buildIndex(allGames);
 }
 
 /**
@@ -324,6 +409,9 @@ async function refreshCurrentFreeGames() {
 
   // 自动将当前免费游戏添加到历史记录
   await addCurrentToHistory(currentFree);
+
+  // 重建内存索引
+  await rebuildIndex();
 
   log('log', `当前免费游戏数据已更新: ${currentFree.length} 款`);
 }
@@ -422,45 +510,26 @@ async function addCurrentToHistory(currentFree) {
 const EMPTY_RESULT = { isFree: false, freeDates: [], source: null, details: null };
 
 /**
- * 在游戏列表中搜索匹配项（公共逻辑）
- * @param {Array} games - 游戏列表
- * @param {Function} matchFn - 匹配函数 (game) => boolean
- * @param {boolean} isCurrentlyFree - 是否标记为当前免费
- * @returns {Object|null} 匹配结果或 null
+ * 从游戏对象构建统一的查询结果
+ * @param {object} game - 游戏数据
+ * @param {boolean} [isCurrentlyFree=false] - 是否当前免费
+ * @returns {object} 标准查询结果
  */
-function _searchInList(games, matchFn, isCurrentlyFree = false) {
-  for (const game of games) {
-    if (matchFn(game)) {
-      return {
-        isFree: true,
-        freeDates: game.free_dates.map(d => ({ start: d.start, end: d.end })),
-        source: 'epic',
-        details: {
-          title: game.title,
-          epic_id: game.epic_id,
-          steam_appid: game.steam_appid,
-          image: game.image,
-          ...(isCurrentlyFree && { isCurrentlyFree: true }),
-        },
-      };
-    }
-  }
-  return null;
+function _buildResult(game, isCurrentlyFree = false) {
+  return {
+    isFree: true,
+    freeDates: game.free_dates.map(d => ({ start: d.start, end: d.end })),
+    source: 'epic',
+    details: {
+      title: game.title,
+      epic_id: game.epic_id,
+      steam_appid: game.steam_appid,
+      image: game.image,
+      ...(isCurrentlyFree && { isCurrentlyFree: true }),
+    },
+  };
 }
 
-/**
- * 通用查询：传入匹配函数，搜索历史 + 当前免费
- * @param {Function} matchFn - 匹配函数 (game) => boolean
- * @returns {Promise<Object>}
- */
-async function _queryGames(matchFn) {
-  const historyData = (await getStorage(STORAGE_KEY_HISTORY)) || { games: [] };
-  const currentFree = (await getStorage(STORAGE_KEY_CURRENT)) || [];
-
-  return _searchInList(historyData.games, matchFn)
-    || _searchInList(currentFree, matchFn, true)
-    || EMPTY_RESULT;
-}
 
 /**
  * 根据游戏名称查询是否为 Epic 赠送游戏
@@ -469,8 +538,8 @@ async function _queryGames(matchFn) {
  */
 function queryByGameName(gameName) {
   if (!gameName) return Promise.resolve(EMPTY_RESULT);
-  const normalizedName = gameName.trim();
-  return _queryGames(game => fuzzyMatch(game.title, normalizedName));
+  const match = lookupByName(gameName.trim());
+  return Promise.resolve(match ? _buildResult(match, match.isCurrentlyFree === true) : EMPTY_RESULT);
 }
 
 /**
@@ -480,35 +549,21 @@ function queryByGameName(gameName) {
  */
 function queryByAppId(appId) {
   if (!appId && appId !== 0) return Promise.resolve(EMPTY_RESULT);
-  const normalizedId = String(appId).trim().toLowerCase();
-  return _queryGames(game =>
-    String(game.epic_id).toLowerCase() === normalizedId
-    || String(game.steam_appid) === normalizedId
-    || String(game.offerId || '').toLowerCase() === normalizedId
-  );
+  const match = lookupByAppId(appId);
+  return Promise.resolve(match ? _buildResult(match, match.isCurrentlyFree === true) : EMPTY_RESULT);
 }
 
 /**
- * 预读 storage 后的批量查询（避免 N 次重复 I/O）
+ * 批量查询 — 使用内存索引 O(1) 查找，无需每次读 storage
  * @param {Array<number|string>} appIds
  * @returns {Promise<Object>} { [appId]: result }
  */
 async function queryBatchByAppIds(appIds) {
-  const historyData = (await getStorage(STORAGE_KEY_HISTORY)) || { games: [] };
-  const currentFree = (await getStorage(STORAGE_KEY_CURRENT)) || [];
-
   const data = {};
   for (const appId of appIds) {
-    const normalizedId = String(appId).trim().toLowerCase();
-    const result = _searchInList(historyData.games, game =>
-      String(game.epic_id).toLowerCase() === normalizedId
-      || String(game.steam_appid) === normalizedId
-    ) || _searchInList(currentFree, game =>
-      String(game.epic_id).toLowerCase() === normalizedId
-      || String(game.steam_appid) === normalizedId
-      || String(game.offerId || '').toLowerCase() === normalizedId
-    , true);
-    data[appId] = result || EMPTY_RESULT;
+    const game = lookupByAppId(appId);
+    data[appId] = game ? _buildResult(game, game.isCurrentlyFree === true) : EMPTY_RESULT;
+    }
   }
   return data;
 }
@@ -547,24 +602,16 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       }
 
       (async () => {
-        // 预读 storage 避免 N 次重复 I/O
-        const historyData = (await getStorage(STORAGE_KEY_HISTORY)) || { games: [] };
-        const currentFree = (await getStorage(STORAGE_KEY_CURRENT)) || [];
-        const allGames = [...historyData.games, ...currentFree];
-
         const results = games.map(item => {
           const name = typeof item === 'string' ? item : item.gameName;
           const id = item.appId;
           if (name) {
-            const match = _searchInList(allGames, g => fuzzyMatch(g.title, name));
-            return match || EMPTY_RESULT;
+            const match = lookupByName(name);
+            return match ? _buildResult(match, true) : EMPTY_RESULT;
           }
           if (id) {
-            const nid = String(id).trim().toLowerCase();
-            const match = _searchInList(allGames, g =>
-              String(g.epic_id).toLowerCase() === nid || String(g.steam_appid) === nid
-            );
-            return match || EMPTY_RESULT;
+            const match = lookupByAppId(id);
+            return match ? _buildResult(match, true) : EMPTY_RESULT;
           }
           return EMPTY_RESULT;
         });
@@ -624,8 +671,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 // ============================================================
-// 安装与闹钟事件
+// 安装与启动事件
 // ============================================================
+
+/**
+ * Service Worker 唤醒时重建内存索引
+ * SW 可能被 Chrome 终止后重启，内存索引会丢失
+ */
+chrome.runtime.onStartup.addListener(async () => {
+  log('log', 'SW 唤醒，重建内存索引...');
+  await rebuildIndex();
+});
 
 /**
  * 扩展安装或更新时触发
