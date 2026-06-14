@@ -220,11 +220,39 @@
   overflow: visible !important;
 }
 
-/* 新版 Steam 胶囊容器适配 */
-.store_main_capsule .epic-badge,
-.tab_content_items .epic-badge,
-.home_discount_games_ctn .epic-badge,
-.spotlight_col .epic-badge {
+/* 新版 Steam：store_main_capsule 内的 info 区域角标 */
+.store_main_capsule .info .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  z-index: 100;
+}
+
+/* 新版 Steam tab 行：tab_item_content 内的角标 */
+.tab_row_item .tab_item_content .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: auto !important;
+  z-index: 100;
+}
+
+/* 旧版/兜底：胶囊直接子元素的角标 */
+.store_main_capsule > .epic-badge,
+.home_discount_games_ctn > .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
+/* 旧版兼容：tab_content_items 容器内的角标 */
+.tab_content_items > .epic-badge {
   position: absolute;
   top: auto !important;
   right: auto !important;
@@ -234,17 +262,7 @@
 }
 
 /* ============================================================
- * 游戏详情页角标（购买按钮左下方）
- * ============================================================ */
-.epic-detail-badge {
-  position: absolute;
-  bottom: -2px;
-  left: -2px;
-  z-index: 100;
-}
-
-/* ============================================================
- * 游戏详情页面板样式（Steam 原生融合）- 保留兼容旧版
+ * 游戏详情页面板样式（Steam 原生融合）
  * ============================================================ */
 .epic-detail-panel {
   background: rgba(0, 0, 0, 0.2);

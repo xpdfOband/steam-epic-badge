@@ -395,6 +395,47 @@
   }
 
   /**
+   * 在游戏卡片中查找标题区域作为角标容器
+   * 新版 Steam 首页的 store_main_capsule 是封面图，角标应放在标题附近
+   * @param {Element} linkEl - 游戏链接元素
+   * @returns {Element} 适合放置角标的容器
+   */
+  function findTitleArea(linkEl) {
+    // 新版 Steam tab 行：<a class="tab_row_item">
+    //   结构: tab_item_header(img) + tab_item_content(title+price) + ...
+    const tabRow = linkEl.closest('.tab_row_item');
+    if (tabRow) {
+      // tab_item_content 包含标题和价格区域
+      const content = tabRow.querySelector('.tab_item_content');
+      if (content) return content;
+      const titleEl = tabRow.querySelector('.tab_item_title');
+      if (titleEl) return titleEl.parentElement; // .tab_item_col
+      return tabRow;
+    }
+
+    // 首页大轮播胶囊：<a class="store_main_capsule">
+    //   结构: capsule(img容器) + info(标题+评测+价格)
+    const capsule = linkEl.closest('.store_main_capsule');
+    if (capsule) {
+      // info 区域在胶囊内部，包含 app_name 标题
+      const info = capsule.querySelector('.info');
+      if (info) return info;
+      // 回退到胶囊本身
+      return capsule;
+    }
+
+    // 折扣区域：.home_discount_games_ctn 内的链接
+    const discountLink = linkEl.closest('.home_discount_games_ctn a[href*="/app/"]');
+    if (discountLink) {
+      const info = discountLink.querySelector('.info');
+      if (info) return info;
+      return discountLink;
+    }
+
+    return null;
+  }
+
+  /**
    * 向指定元素注入角标
    * @param {Element} element - 目标元素
    * @param {object} gameData - 游戏数据（包含 freeDates）
@@ -416,13 +457,10 @@
       // 强制 overflow:visible 防止角标被裁剪
       element.style.setProperty("overflow", "visible", "important");
     } else {
-      // 策略1：查找新版 Steam 胶囊容器（优先，避免 img parent 返回内部小 div）
-      const capsuleContainer = element.closest('.store_main_capsule')
-        || element.closest('.home_discount_games_ctn')
-        || element.closest('.tab_content_items');
-
-      if (capsuleContainer) {
-        targetParent = capsuleContainer;
+      // 策略1：新版 Steam 布局 — 查找标题区域而不是封面图容器
+      const titleArea = findTitleArea(element);
+      if (titleArea) {
+        targetParent = titleArea;
       } else {
         // 策略2：查找图片容器（旧版 Steam 选择器）
         const imgContainer =
@@ -468,51 +506,67 @@
   }
 
   /**
-   * 在详情页注入 Epic 赠送角标（放在购买按钮区域左下方）
+   * 在详情页注入 Epic 赠送信息面板（放在购买区域上方）
    * @param {object} gameData - 游戏数据
    */
   function injectDetailPanel(gameData) {
-    const existingBadge = document.querySelector('.epic-detail-badge');
-    if (existingBadge) return;
+    const existingPanel = document.querySelector('.epic-detail-panel');
+    if (existingPanel) return;
 
-    // 定位购买区域
-    const purchaseArea = document.querySelector('.game_area_purchase_game') ||
-                         document.querySelector('#game_area_purchase') ||
-                         document.querySelector('.game_area_purchase');
+    const addToCartArea = document.querySelector('.game_area_purchase_game') ||
+                          document.querySelector('#game_area_purchase') ||
+                          document.querySelector('.game_area_purchase');
 
-    if (!purchaseArea) {
-      console.log("[Epic Badge] 未找到购买区域，跳过详情角标注入");
+    if (!addToCartArea) {
+      console.log("[Epic Badge] 未找到购买区域，跳过详情面板注入");
       return;
-    }
-
-    // 找到购买按钮的具体容器（对应 Steam DOM 中按钮 span 的父级）
-    const actionContainer = purchaseArea.querySelector('.game_purchase_action') ||
-                            purchaseArea.querySelector('.game_purchase_action_bg') ||
-                            purchaseArea.querySelector('.discount_block') ||
-                            purchaseArea;
-
-    // 确保父容器有 relative 定位
-    const computedStyle = window.getComputedStyle(actionContainer);
-    if (computedStyle.position === 'static') {
-      actionContainer.style.position = 'relative';
     }
 
     const isCurrentlyFree = gameData.details?.isCurrentlyFree;
     const freeDates = gameData.freeDates || [];
+    const count = freeDates.length;
 
-    // 格式化 tooltip
-    const tooltipText = formatFreeDates(freeDates);
+    // 构建所有赠送日期列表
+    let datesHtml = '';
+    if (count > 0) {
+      datesHtml = '<div class="epic-detail-dates">';
+      [...freeDates].reverse().forEach((d, i) => {
+        const start = formatDateCN(d.start);
+        const end = formatDateCN(d.end);
+        datesHtml += `
+          <div class="epic-detail-date-row ${i === 0 ? 'latest' : ''}">
+            <span class="epic-detail-date-dot"></span>
+            <span class="epic-detail-date-range">${start} - ${end}</span>
+            ${i === 0 ? '<span class="epic-detail-date-badge">最近</span>' : ''}
+          </div>`;
+      });
+      datesHtml += '</div>';
+    }
 
-    // 创建角标
-    const badge = document.createElement('div');
-    badge.className = BADGE_CLASS + ' epic-detail-badge' + (isCurrentlyFree ? ' currently-free' : '');
-    badge.setAttribute('data-tooltip', tooltipText);
+    const panel = document.createElement('div');
+    panel.className = 'epic-detail-panel';
 
-    const arrow = document.createElement('span');
-    arrow.className = 'tooltip-arrow';
-    badge.appendChild(arrow);
+    panel.innerHTML = `
+      <div class="epic-detail-header">
+        <span class="epic-detail-icon"><img class="epic-detail-logo" src="${EPIC_LOGO_URL}" alt="Epic Games"></span>
+        <span class="epic-detail-title">Epic Games 赠送记录</span>
+        ${count > 0 ? `<span class="epic-detail-count">${count} 次</span>` : ''}
+      </div>
+      <div class="epic-detail-body">
+        ${datesHtml || '<div class="epic-detail-empty">暂无赠送记录</div>'}
+        ${isCurrentlyFree ? '<div class="epic-detail-status">现在免费！限时领取中 →</div>' : ''}
+      </div>
+      <a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>
+    `;
 
-    actionContainer.appendChild(badge);
+    addToCartArea.parentNode.insertBefore(panel, addToCartArea);
+
+    // 点击"现在免费"跳转 Epic 商店
+    if (isCurrentlyFree) {
+      panel.querySelector('.epic-detail-status').addEventListener('click', (e) => {
+        window.open('https://store.epicgames.com/', '_blank');
+      });
+    }
   }
 
   // ============================================================
