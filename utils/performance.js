@@ -1,27 +1,34 @@
 /**
  * 节流函数 - 限制函数调用频率
  * 借鉴 SubscriptionInfo 的 throttle 实现
+ * 在 leading edge 执行，trailing edge 也会执行最后一次调用
  * @param {Function} fn - 要节流的函数
  * @param {number} delay - 延迟时间（毫秒）
  * @returns {Function} 节流后的函数
  */
 export function throttle(fn, delay = 1000) {
-  let lastCall = 0;
-  let timeoutId = null;
+  let shouldWait = false;
+  let waitingArgs = null;
+
+  const timeoutFunc = () => {
+    if (waitingArgs == null) {
+      shouldWait = false;
+    } else {
+      fn(...waitingArgs);
+      waitingArgs = null;
+      setTimeout(timeoutFunc, delay);
+    }
+  };
 
   return function (...args) {
-    const now = Date.now();
-
-    if (now - lastCall >= delay) {
-      lastCall = now;
-      fn.apply(this, args);
-    } else {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(() => {
-        lastCall = Date.now();
-        fn.apply(this, args);
-      }, delay - (now - lastCall));
+    if (shouldWait) {
+      waitingArgs = args;
+      return;
     }
+
+    fn(...args);
+    shouldWait = true;
+    setTimeout(timeoutFunc, delay);
   };
 }
 

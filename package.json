@@ -1,0 +1,56 @@
+{
+  "name": "steam-epic-badge",
+  "version": "1.0.0",
+  "description": "在 Steam 商店页面标记 Epic 免费游戏",
+  "main": "background.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "node scripts/build.js",
+    "version:get": "node scripts/version.js get",
+    "version:patch": "node scripts/version.js bump patch",
+    "version:minor": "node scripts/version.js bump minor",
+    "version:major": "node scripts/version.js bump major",
+    "release": "npm run build && git add . && git commit -m 'release: v'$(node -p \"require('./manifest.json').version\") && git tag v$(node -p \"require('./manifest.json').version\") && git push && git push --tags"
+  },
+  "keywords": [
+    "steam",
+    "epic",
+    "games",
+    "free",
+    "chrome-extension"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/$1"
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}

@@ -9,7 +9,8 @@ describe('Performance Utils', () => {
       throttledFn();
       throttledFn();
       await new Promise(resolve => setTimeout(resolve, 150));
-      expect(callCount).toBe(1);
+      // 应该调用了两次：一次立即执行，一次在 trailing edge 执行
+      expect(callCount).toBe(2);
     });
 
     test('should execute on trailing edge', async () => {
