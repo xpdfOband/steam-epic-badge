@@ -294,9 +294,14 @@ async function fetchCurrentFreeGames() {
       }
 
       // 提取游戏信息
+      // 优先使用 catalogNs 中的 pageSlug 作为 epic_id
+      const catalogNs = elem.catalogNs;
+      const pageSlug = catalogNs?.mappings?.[0]?.pageSlug || '';
+      const epicId = pageSlug || elem.productSlug || elem.offerId || elem.id || '';
+
       const gameInfo = {
         title: title,
-        epic_id: elem.productSlug || elem.offerId || '',
+        epic_id: epicId,
         steam_appid: null, // Epic API 不直接提供 Steam AppID，需通过本地数据匹配
         free_dates: freeInfo
           ? [{ start: freeInfo.start, end: freeInfo.end, type: 'giveaway' }]
