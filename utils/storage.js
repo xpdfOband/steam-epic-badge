@@ -393,6 +393,119 @@ async function clearExpired(maxAge = DEFAULT_CACHE_MAX_AGE) {
 }
 
 // ============================================================
+// sessionStorage 支持
+// ============================================================
+
+/**
+ * 获取 sessionStorage 数据
+ * sessionStorage 使用 chrome.storage.session（仅在内存中，浏览器关闭后清除）
+ * 支持 TTL 过期机制
+ *
+ * @param {string} key - 存储键
+ * @returns {Promise<Object|null>} 存储的数据对象 { value, timestamp, ttl }，不存在或已过期返回 null
+ *
+ * @example
+ * const data = await getSessionData('current_page_info');
+ * if (data) {
+ *   console.log(data.value); // 实际存储的值
+ * }
+ */
+async function getSessionData(key) {
+  try {
+    return new Promise((resolve) => {
+      chrome.storage.session.get(key, (result) => {
+        if (chrome.runtime.lastError) {
+          console.warn(`[Storage] getSessionData failed for "${key}":`, chrome.runtime.lastError.message);
+          resolve(null);
+          return;
+        }
+
+        const data = result[key];
+        if (!data) {
+          resolve(null);
+          return;
+        }
+
+        // 检查是否过期
+        if (data.ttl && Date.now() - data.timestamp > data.ttl) {
+          resolve(null);
+          return;
+        }
+
+        resolve(data);
+      });
+    });
+  } catch (error) {
+    console.error(`[Storage] getSessionData error for "${key}":`, error);
+    return null;
+  }
+}
+
+/**
+ * 设置 sessionStorage 数据
+ * 数据存储在内存中，浏览器关闭后自动清除
+ *
+ * @param {string} key - 存储键
+ * @param {*} value - 存储的值
+ * @param {number} [ttlMinutes=15] - 过期时间（分钟），默认 15 分钟
+ * @returns {Promise<void>}
+ *
+ * @example
+ * await setSessionData('search_cache', searchResults, 30); // 缓存 30 分钟
+ */
+async function setSessionData(key, value, ttlMinutes = 15) {
+  try {
+    const data = {
+      value,
+      timestamp: Date.now(),
+      ttl: ttlMinutes * 60 * 1000,
+    };
+
+    return new Promise((resolve, reject) => {
+      chrome.storage.session.set({ [key]: data }, () => {
+        if (chrome.runtime.lastError) {
+          reject(new Error(chrome.runtime.lastError.message));
+        } else {
+          resolve();
+        }
+      });
+    });
+  } catch (error) {
+    console.error(`[Storage] setSessionData error for "${key}":`, error);
+    throw error;
+  }
+}
+
+/**
+ * 批量查询优化 - 减少 storage I/O 次数
+ * 一次调用获取多个 appId 的数据，比逐个查询更高效
+ *
+ * @param {Array<string>} appIds - 应用 ID 数组
+ * @returns {Promise<Object>} 查询结果对象，键为 appId，值为对应数据
+ *
+ * @example
+ * const results = await queryBatchByAppIds(['123', '456', '789']);
+ * // => { '123': { name: 'Game 1', ... }, '456': { name: 'Game 2', ... } }
+ */
+async function queryBatchByAppIds(appIds) {
+  if (!Array.isArray(appIds) || appIds.length === 0) return {};
+
+  try {
+    return new Promise((resolve, reject) => {
+      chrome.storage.local.get(appIds, (result) => {
+        if (chrome.runtime.lastError) {
+          reject(new Error(chrome.runtime.lastError.message));
+        } else {
+          resolve(result);
+        }
+      });
+    });
+  } catch (error) {
+    _handleError('queryBatchByAppIds', appIds.join(','), error);
+  }
+}
+
+// ============================================================
 // 统计功能
 // ============================================================
 
@@ -567,6 +680,11 @@ if (typeof module !== 'undefined' && module.exports) {
     setMultiple,
     remove,
     clear,
+    // sessionStorage
+    getSessionData,
+    setSessionData,
+    // 批量查询
+    queryBatchByAppIds,
     // 缓存管理
     isCacheValid,
     updateCache,
@@ -599,6 +717,9 @@ if (typeof module !== 'undefined' && module.exports) {
     setMultiple,
     remove,
     clear,
+    getSessionData,
+    setSessionData,
+    queryBatchByAppIds,
     isCacheValid,
     updateCache,
     clearExpired,
