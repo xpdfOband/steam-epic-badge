@@ -254,6 +254,13 @@
    * @returns {string} 游戏名称
    */
   function extractGameName(element, appId) {
+    // 0. 交互式推荐器 button 卡片：游戏名在 h2 里
+    const recButton = element.closest('button');
+    if (recButton) {
+      const h2 = recButton.querySelector('h2');
+      if (h2 && h2.textContent.trim()) return h2.textContent.trim();
+    }
+
     // 按优先级尝试各种名称选择器
     const nameSelectors = [
       // 搜索结果
@@ -401,6 +408,13 @@
    * @returns {Element} 适合放置角标的容器
    */
   function findTitleArea(linkEl) {
+    // 0. 交互式推荐器 <button> 卡片（Steam Labs recommender）
+    //    按钮内包含 h2 标题 + "因为您想要"等文本，角标放卡片左下角
+    const recButton = linkEl.closest('button');
+    if (recButton) {
+      return recButton;
+    }
+
     // 1. 新版 Steam tab 行：<a class="tab_row_item">
     const tabRow = linkEl.closest('.tab_row_item');
     if (tabRow) {
@@ -420,7 +434,6 @@
     }
 
     // 3. 推荐/深度挖掘胶囊：<a class="sale_capsule">
-    //    标题在 img.alt 中，放在胶囊本身底部
     const saleCapsule = linkEl.closest('.sale_capsule');
     if (saleCapsule) {
       return saleCapsule;

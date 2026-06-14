@@ -270,6 +270,16 @@
   z-index: 100;
 }
 
+/* 交互式推荐器 button 卡片内的角标 */
+button .epic-badge {
+  position: absolute;
+  top: auto !important;
+  right: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 100;
+}
+
 /* 旧版/兜底：胶囊直接子元素的角标 */
 .store_main_capsule > .epic-badge,
 .home_discount_games_ctn > .epic-badge {
