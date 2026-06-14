@@ -429,19 +429,6 @@ button .epic-badge {
   background: rgba(76, 175, 80, 0.2);
 }
 
-.epic-detail-link {
-  display: inline-block;
-  margin-top: 10px;
-  font-size: 11px;
-  color: #8f98a0;
-  font-family: "Motiva Sans", Arial, Helvetica, sans-serif;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.epic-detail-link:hover {
-  color: #66C0F4;
-}
 
 @keyframes epic-detail-fade-in {
   from {

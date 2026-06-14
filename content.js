@@ -583,7 +583,6 @@
         ${datesHtml || '<div class="epic-detail-empty">暂无赠送记录</div>'}
         ${isCurrentlyFree ? '<div class="epic-detail-status">现在免费！限时领取中 →</div>' : ''}
       </div>
-      <a class="epic-detail-link" href="https://store.epicgames.com/" target="_blank">Epic 商店页 ↗</a>
     `;
 
     addToCartArea.parentNode.insertBefore(panel, addToCartArea);
