@@ -266,6 +266,16 @@
           "start": "2019-09-05",
           "end": "2019-09-12",
           "type": "giveaway"
+        },
+        {
+          "start": "2019-08-29",
+          "end": "2019-09-05",
+          "type": "giveaway"
+        },
+        {
+          "start": "2019-12-24",
+          "end": "2019-12-31",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/504230/header.jpg"
@@ -327,6 +337,16 @@
         {
           "start": "2019-10-17",
           "end": "2019-10-31",
+          "type": "giveaway"
+        },
+        {
+          "start": "2019-10-10",
+          "end": "2019-10-17",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-03-11",
+          "end": "2021-03-18",
           "type": "giveaway"
         }
       ],
@@ -406,6 +426,16 @@
           "start": "2019-12-05",
           "end": "2019-12-12",
           "type": "giveaway"
+        },
+        {
+          "start": "2019-12-12",
+          "end": "2019-12-19",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-09-23",
+          "end": "2021-09-30",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/298630/header.jpg"
@@ -484,6 +514,26 @@
           "start": "2019-12-31",
           "end": "2020-01-01",
           "type": "giveaway"
+        },
+        {
+          "start": "2020-12-24",
+          "end": "2020-12-31",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-08-12",
+          "end": "2021-08-19",
+          "type": "giveaway"
+        },
+        {
+          "start": "2019-12-31",
+          "end": "2020-01-07",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-02-03",
+          "end": "2022-02-10",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/846870/header.jpg"
@@ -509,6 +559,21 @@
         {
           "start": "2020-01-09",
           "end": "2020-01-16",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-06-24",
+          "end": "2021-07-01",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-12-16",
+          "end": "2022-12-23",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-05-04",
+          "end": "2023-05-11",
           "type": "giveaway"
         }
       ],
@@ -707,6 +772,16 @@
           "start": "2020-04-16",
           "end": "2020-04-23",
           "type": "giveaway"
+        },
+        {
+          "start": "2020-04-23",
+          "end": "2020-04-30",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-02-04",
+          "end": "2021-02-11",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/527230/header.jpg"
@@ -745,6 +820,11 @@
         {
           "start": "2020-05-07",
           "end": "2020-05-14",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-10-01",
+          "end": "2020-10-08",
           "type": "giveaway"
         }
       ],
@@ -964,6 +1044,11 @@
           "start": "2020-09-03",
           "end": "2020-09-10",
           "type": "giveaway"
+        },
+        {
+          "start": "2021-09-02",
+          "end": "2021-09-09",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/300550/header.jpg"
@@ -1013,19 +1098,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1368820/header.jpg"
     },
     {
-      "title": "Pikuniku",
-      "epic_id": "pikuniku",
-      "steam_appid": 572890,
-      "free_dates": [
-        {
-          "start": "2020-10-01",
-          "end": "2020-10-08",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/572890/header.jpg"
-    },
-    {
       "title": "Abzu",
       "epic_id": "abzu",
       "steam_appid": 384190,
@@ -1046,6 +1118,16 @@
         {
           "start": "2020-10-15",
           "end": "2020-10-22",
+          "type": "giveaway"
+        },
+        {
+          "start": "2020-10-08",
+          "end": "2020-10-15",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-11-03",
+          "end": "2022-11-10",
           "type": "giveaway"
         }
       ],
@@ -1215,19 +1297,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/18500/header.jpg"
     },
     {
-      "title": "Yooka-Laylee and the Impossible Lair",
-      "epic_id": "yooka-laylee-and-the-impossible-lair",
-      "steam_appid": 846870,
-      "free_dates": [
-        {
-          "start": "2020-12-24",
-          "end": "2020-12-31",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/846870/header.jpg"
-    },
-    {
       "title": "Crying Suns",
       "epic_id": "crying-suns",
       "steam_appid": 873940,
@@ -1262,6 +1331,16 @@
           "start": "2021-01-14",
           "end": "2021-01-21",
           "type": "giveaway"
+        },
+        {
+          "start": "2021-01-21",
+          "end": "2021-01-28",
+          "type": "giveaway"
+        },
+        {
+          "start": "2022-01-13",
+          "end": "2022-01-20",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/226860/header.jpg"
@@ -1291,24 +1370,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/287390/header.jpg"
-    },
-    {
-      "title": "For The King",
-      "epic_id": "for-the-king",
-      "steam_appid": 527230,
-      "free_dates": [
-        {
-          "start": "2020-04-23",
-          "end": "2020-04-30",
-          "type": "giveaway"
-        },
-        {
-          "start": "2021-02-04",
-          "end": "2021-02-11",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/527230/header.jpg"
     },
     {
       "title": "Absolute Drift",
@@ -1361,24 +1422,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/251060/header.jpg"
-    },
-    {
-      "title": "Surviving Mars",
-      "epic_id": "surviving-mars",
-      "steam_appid": 3215050,
-      "free_dates": [
-        {
-          "start": "2019-10-10",
-          "end": "2019-10-17",
-          "type": "giveaway"
-        },
-        {
-          "start": "2021-03-11",
-          "end": "2021-03-18",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/3215050/header.jpg"
     },
     {
       "title": "The Fall",
@@ -1518,6 +1561,16 @@
           "start": "2021-05-06",
           "end": "2021-05-13",
           "type": "giveaway"
+        },
+        {
+          "start": "2021-08-05",
+          "end": "2021-08-12",
+          "type": "giveaway"
+        },
+        {
+          "start": "2021-09-16",
+          "end": "2021-09-23",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/468670/header.jpg"
@@ -1622,29 +1675,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/728880/header.jpg"
-    },
-    {
-      "title": "Horizon Chase Turbo",
-      "epic_id": "horizon-chase-turbo",
-      "steam_appid": 386940,
-      "free_dates": [
-        {
-          "start": "2021-06-24",
-          "end": "2021-07-01",
-          "type": "giveaway"
-        },
-        {
-          "start": "2022-12-16",
-          "end": "2022-12-23",
-          "type": "giveaway"
-        },
-        {
-          "start": "2023-05-04",
-          "end": "2023-05-11",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/386940/header.jpg"
     },
     {
       "title": "The Spectrum Retreat",
@@ -1782,19 +1812,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/857980/header.jpg"
     },
     {
-      "title": "Yooka-Laylee and the Impossible Lair",
-      "epic_id": "yooka-laylee-and-the-impossible-lair",
-      "steam_appid": 846870,
-      "free_dates": [
-        {
-          "start": "2021-08-12",
-          "end": "2021-08-19",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/846870/header.jpg"
-    },
-    {
       "title": "Rebel Galaxy",
       "epic_id": "rebel-galaxy",
       "steam_appid": 290300,
@@ -1826,19 +1843,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/978300/header.jpg"
     },
     {
-      "title": "Shadowrun Collection",
-      "epic_id": "shadowrun-collection",
-      "steam_appid": 300550,
-      "free_dates": [
-        {
-          "start": "2021-09-02",
-          "end": "2021-09-09",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/300550/header.jpg"
-    },
-    {
       "title": "Sheltered",
       "epic_id": "sheltered",
       "steam_appid": 356040,
@@ -1852,24 +1856,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/356040/header.jpg"
     },
     {
-      "title": "The Escapists",
-      "epic_id": "the-escapists",
-      "steam_appid": 298630,
-      "free_dates": [
-        {
-          "start": "2019-12-12",
-          "end": "2019-12-19",
-          "type": "giveaway"
-        },
-        {
-          "start": "2021-09-23",
-          "end": "2021-09-30",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/298630/header.jpg"
-    },
-    {
       "title": "Tharsis",
       "epic_id": "tharsis",
       "steam_appid": 323060,
@@ -1881,24 +1867,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/323060/header.jpg"
-    },
-    {
-      "title": "Speed Brawl",
-      "epic_id": "speed-brawl",
-      "steam_appid": 468670,
-      "free_dates": [
-        {
-          "start": "2021-08-05",
-          "end": "2021-08-12",
-          "type": "giveaway"
-        },
-        {
-          "start": "2021-09-16",
-          "end": "2021-09-23",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/468670/header.jpg"
     },
     {
       "title": "The Drone Racing League Simulator",
@@ -2031,27 +1999,19 @@
           "start": "2021-11-11",
           "end": "2021-11-18",
           "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/418240/header.jpg"
-    },
-    {
-      "title": "Rising Storm 2: Vietnam",
-      "epic_id": "rising-storm-2-vietnam",
-      "steam_appid": 418460,
-      "free_dates": [
+        },
         {
-          "start": "2020-10-08",
-          "end": "2020-10-15",
+          "start": "2019-12-28",
+          "end": "2020-01-04",
           "type": "giveaway"
         },
         {
-          "start": "2022-11-03",
-          "end": "2022-11-10",
+          "start": "2022-11-10",
+          "end": "2022-11-17",
           "type": "giveaway"
         }
       ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/418460/header.jpg"
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/418240/header.jpg"
     },
     {
       "title": "The Hunter: Call of the Wild",
@@ -2114,6 +2074,11 @@
           "start": "2021-12-16",
           "end": "2021-12-23",
           "type": "giveaway"
+        },
+        {
+          "start": "2022-01-13",
+          "end": "2022-01-20",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1243690/header.jpg"
@@ -2158,37 +2123,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/203160/header.jpg"
     },
     {
-      "title": "Gods Will Fall",
-      "epic_id": "gods-will-fall",
-      "steam_appid": 1243690,
-      "free_dates": [
-        {
-          "start": "2022-01-13",
-          "end": "2022-01-20",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1243690/header.jpg"
-    },
-    {
-      "title": "Galactic Civilizations III",
-      "epic_id": "galactic-civilizations-iii",
-      "steam_appid": 226860,
-      "free_dates": [
-        {
-          "start": "2021-01-21",
-          "end": "2021-01-28",
-          "type": "giveaway"
-        },
-        {
-          "start": "2022-01-13",
-          "end": "2022-01-20",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/226860/header.jpg"
-    },
-    {
       "title": "Relicta",
       "epic_id": "relicta",
       "steam_appid": 941570,
@@ -2213,24 +2147,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1167450/header.jpg"
-    },
-    {
-      "title": "Yooka-Laylee and the Impossible Lair",
-      "epic_id": "yooka-laylee-and-the-impossible-lair",
-      "steam_appid": 846870,
-      "free_dates": [
-        {
-          "start": "2019-12-31",
-          "end": "2020-01-07",
-          "type": "giveaway"
-        },
-        {
-          "start": "2022-02-03",
-          "end": "2022-02-10",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/846870/header.jpg"
     },
     {
       "title": "Windbound",
@@ -2482,24 +2398,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/220200/header.jpg"
     },
     {
-      "title": "Shadow Tactics: Blades of the Shogun",
-      "epic_id": "shadow-tactics-blades-of-the-shogun",
-      "steam_appid": 418240,
-      "free_dates": [
-        {
-          "start": "2019-12-28",
-          "end": "2020-01-04",
-          "type": "giveaway"
-        },
-        {
-          "start": "2022-11-10",
-          "end": "2022-11-17",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/418240/header.jpg"
-    },
-    {
       "title": "Adios",
       "epic_id": "adios",
       "steam_appid": 1271400,
@@ -2742,6 +2640,11 @@
           "start": "2023-06-01",
           "end": "2023-06-08",
           "type": "giveaway"
+        },
+        {
+          "start": "2024-06-06",
+          "end": "2024-06-13",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/915810/header.jpg"
@@ -2754,6 +2657,11 @@
         {
           "start": "2024-01-04",
           "end": "2024-01-11",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-03-07",
+          "end": "2024-03-14",
           "type": "giveaway"
         }
       ],
@@ -2862,19 +2770,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1323540/header.jpg"
-    },
-    {
-      "title": "Astro Duel 2",
-      "epic_id": "astro-duel-2",
-      "steam_appid": 655350,
-      "free_dates": [
-        {
-          "start": "2024-03-07",
-          "end": "2024-03-14",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/655350/header.jpg"
     },
     {
       "title": "Deceive Inc.",
@@ -3048,22 +2943,14 @@
           "start": "2024-05-30",
           "end": "2024-06-06",
           "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1824220/header.jpg"
-    },
-    {
-      "title": "Midnight Ghost Hunt",
-      "epic_id": "midnight-ghost-hunt",
-      "steam_appid": 915810,
-      "free_dates": [
+        },
         {
-          "start": "2024-06-06",
-          "end": "2024-06-13",
+          "start": "2025-12-31",
+          "end": "2026-01-01",
           "type": "giveaway"
         }
       ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/915810/header.jpg"
+      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1824220/header.jpg"
     },
     {
       "title": "Ghostrunner",
@@ -3091,6 +2978,16 @@
         {
           "start": "2024-06-20",
           "end": "2024-06-27",
+          "type": "giveaway"
+        },
+        {
+          "start": "2023-12-24",
+          "end": "2023-12-31",
+          "type": "giveaway"
+        },
+        {
+          "start": "2024-10-31",
+          "end": "2024-11-07",
           "type": "giveaway"
         }
       ],
@@ -3144,6 +3041,11 @@
           "start": "2024-07-18",
           "end": "2024-07-25",
           "type": "giveaway"
+        },
+        {
+          "start": "2024-11-21",
+          "end": "2024-11-28",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1515640/header.jpg"
@@ -3165,24 +3067,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1522820/header.jpg"
-    },
-    {
-      "title": "Celeste",
-      "epic_id": "celeste",
-      "steam_appid": 504230,
-      "free_dates": [
-        {
-          "start": "2019-08-29",
-          "end": "2019-09-05",
-          "type": "giveaway"
-        },
-        {
-          "start": "2019-12-24",
-          "end": "2019-12-31",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/504230/header.jpg"
     },
     {
       "title": "Kena: Bridge of Spirits",
@@ -3362,27 +3246,14 @@
           "start": "2024-10-31",
           "end": "2024-11-07",
           "type": "giveaway"
+        },
+        {
+          "start": "2025-05-15",
+          "end": "2025-05-22",
+          "type": "giveaway"
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/934700/header.jpg"
-    },
-    {
-      "title": "Ghostwire: Tokyo",
-      "epic_id": "ghostwire-tokyo",
-      "steam_appid": 1475810,
-      "free_dates": [
-        {
-          "start": "2023-12-24",
-          "end": "2023-12-31",
-          "type": "giveaway"
-        },
-        {
-          "start": "2024-10-31",
-          "end": "2024-11-07",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1475810/header.jpg"
     },
     {
       "title": "Witch It",
@@ -3396,19 +3267,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/559650/header.jpg"
-    },
-    {
-      "title": "Arcadegeddon",
-      "epic_id": "arcadegeddon",
-      "steam_appid": 1515640,
-      "free_dates": [
-        {
-          "start": "2024-11-21",
-          "end": "2024-11-28",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1515640/header.jpg"
     },
     {
       "title": "Beholder 3",
@@ -4059,24 +3917,6 @@
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/1449110/header.jpg"
     },
     {
-      "title": "Chivalry 2",
-      "epic_id": "chivalry-2",
-      "steam_appid": 1824220,
-      "free_dates": [
-        {
-          "start": "2024-05-30",
-          "end": "2024-06-06",
-          "type": "giveaway"
-        },
-        {
-          "start": "2025-12-31",
-          "end": "2026-01-01",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/1824220/header.jpg"
-    },
-    {
       "title": "Botany Manor",
       "epic_id": "botany-manor",
       "steam_appid": 1425350,
@@ -4127,19 +3967,6 @@
         }
       ],
       "image": "https://cdn.akamai.steamstatic.com/steam/apps/2016460/header.jpg"
-    },
-    {
-      "title": "Dead Island 2",
-      "epic_id": "dead-island-2",
-      "steam_appid": 934700,
-      "free_dates": [
-        {
-          "start": "2025-05-15",
-          "end": "2025-05-22",
-          "type": "giveaway"
-        }
-      ],
-      "image": "https://cdn.akamai.steamstatic.com/steam/apps/934700/header.jpg"
     },
     {
       "title": "Cursed to Golf",
@@ -5776,6 +5603,5 @@
       ],
       "image": null
     }
-  ],
-  "last_updated": "2026-06-14"
+  ]
 }

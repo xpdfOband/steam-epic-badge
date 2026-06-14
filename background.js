@@ -2,9 +2,9 @@
  * Steam-Epic Badge - Background Service Worker
  *
  * 职责：
- * 1. 加载本地 epic_history.json 历史赠送数据
- * 2. 从 Epic 官方 API 获取当前免费游戏
- * 3. 使用 chrome.storage.local 缓存所有数据
+ * 1. 加载本地 epic_history.json 到内存
+ * 2. 从 Epic API 获取当前免费/即将免费游戏
+ * 3. 统一存储在 epic_history.json（唯一数据源）
  * 4. 监听 content.js 消息，提供查询接口
  * 5. 使用 chrome.alarms 定时刷新 API 数据
  */
@@ -17,12 +17,14 @@
 const EPIC_API_URL =
   'https://store-site-backend-static-ipv4.ak.epicgames.com/freeGamesPromotions?locale=en-US&country=US&allowCountries=US';
 
+/** Steam 搜索 API */
+const STEAM_SEARCH_URL = 'https://store.steampowered.com/api/storesearch/';
+
 /** 本地历史数据路径（相对于扩展根目录） */
 const LOCAL_HISTORY_PATH = 'data/epic_history.json';
 
 /** chrome.storage.local 缓存键 */
-const STORAGE_KEY_HISTORY = 'epic_history';       // 本地历史数据
-const STORAGE_KEY_CURRENT = 'epic_current_free';  // API 当前免费游戏
+const STORAGE_KEY = 'epic_games';        // 唯一数据源
 const STORAGE_KEY_LAST_FETCH = 'epic_last_fetch'; // 上次 API 拉取时间戳
 
 /** 定时刷新闹钟名称 */
@@ -30,12 +32,6 @@ const ALARM_NAME = 'refresh-epic-free-games';
 
 /** 刷新间隔（分钟） */
 const REFRESH_INTERVAL_MINUTES = 60;
-
-/** 存储键：上次已知的免费游戏列表（用于检测新游戏） */
-const STORAGE_KEY_LAST_KNOWN = 'epic_last_known_free';
-
-/** 存储键：即将赠送的游戏 */
-const STORAGE_KEY_UPCOMING = 'epic_upcoming_free';
 
 // ============================================================
 // L1 内存索引 — O(1) 查找替代 O(n) 线性搜索
