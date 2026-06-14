@@ -3529,6 +3529,11 @@
       "steam_appid": 2138710,
       "free_dates": [
         {
+          "start": "2024-12-24",
+          "end": "2024-12-25",
+          "type": "giveaway"
+        },
+        {
           "start": "2025-05-22",
           "end": "2025-05-29",
           "type": "giveaway"
