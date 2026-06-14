@@ -783,7 +783,7 @@
    * @param {Array<number>} appIds - AppID 列表
    * @param {Array} games - 对应的游戏信息数组
    */
-  function queryBackground(appIds, games) {
+  function queryBackground(appIds, games, retryCount = 0) {
     if (!chrome.runtime || !chrome.runtime.sendMessage) {
       return;
     }
@@ -793,6 +793,10 @@
       (response) => {
         if (chrome.runtime.lastError) {
           console.error("[Epic Badge] 通信错误:", chrome.runtime.lastError.message);
+          // 如果是连接错误，重试最多 3 次
+          if (retryCount < 3 && chrome.runtime.lastError.message.includes('Receiving end does not exist')) {
+            setTimeout(() => queryBackground(appIds, games, retryCount + 1), 1000 * (retryCount + 1));
+          }
           return;
         }
         if (response && response.success) {
