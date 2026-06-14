@@ -1,3 +1,14 @@
+## [1.0.1] - 2026-06-14
+
+### Added
+-
+
+### Changed
+-
+
+### Fixed
+-
+
 # Changelog
 
 All notable changes to this project will be documented in this file.

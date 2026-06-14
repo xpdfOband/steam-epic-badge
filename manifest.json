@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Steam Epic Badge",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "在 Steam 商店页面标记曾在 Epic 平台赠送过的游戏",
   "permissions": [
     "storage",
@@ -33,15 +33,25 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["icons/epic-games.jpg"],
-      "matches": ["https://store.steampowered.com/*"]
+      "resources": [
+        "icons/epic-games.jpg"
+      ],
+      "matches": [
+        "https://store.steampowered.com/*"
+      ]
     }
   ],
   "content_scripts": [
     {
-      "matches": ["https://store.steampowered.com/*"],
-      "js": ["content.js"],
-      "css": ["content.css"],
+      "matches": [
+        "https://store.steampowered.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
       "run_at": "document_idle",
       "type": "module"
     }
