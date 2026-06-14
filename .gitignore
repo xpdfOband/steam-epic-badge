@@ -5,3 +5,4 @@ data/epic_history_full.json
 .DS_Store
 .claude/
 .memsearch/
+dist/
