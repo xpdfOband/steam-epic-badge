@@ -5972,6 +5972,11 @@
           "start": "2020-09-24",
           "end": "2020-10-01",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-06-25",
+          "end": "2026-07-02",
+          "type": "giveaway"
         }
       ],
       "image": null,
@@ -8857,6 +8862,20 @@
       ],
       "image": null,
       "status": "history"
+    },
+    {
+      "title": "Voidwrought",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-06-25",
+          "end": "2026-07-02",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/ae3f962fab4d42eba2dbefa4a1e76ff6/voidwrought-bio8j.jpg"
     }
-  ]
+  ],
+  "last_updated": "2026-06-18"
 }
