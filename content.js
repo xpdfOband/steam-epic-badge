@@ -938,13 +938,17 @@
 
     // 详情页延迟重试：购买区域可能晚于脚本加载
     if (pageType === 'detail') {
-      const retryIntervals = [500, 1000, 2000, 3000];
+      const retryIntervals = [500, 1000, 2000, 3000, 5000];
       for (const delay of retryIntervals) {
         await new Promise(resolve => setTimeout(resolve, delay));
-        // 如果还没注入详情面板，重新扫描
-        if (!document.querySelector('.epic-detail-panel')) {
+        // 检查购买区域是否已加载
+        const purchaseArea = document.querySelector('.game_area_purchase_game') ||
+                            document.querySelector('#game_area_purchase') ||
+                            document.querySelector('.game_area_purchase');
+        if (purchaseArea && !document.querySelector('.epic-detail-panel')) {
+          console.log("[Epic Badge] 详情页重试注入，延迟:", delay, "ms");
           scanAndProcess();
-        } else {
+        } else if (document.querySelector('.epic-detail-panel')) {
           break; // 已注入，停止重试
         }
       }
