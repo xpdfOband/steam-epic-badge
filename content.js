@@ -886,6 +886,30 @@
   // ============================================================
 
   /**
+   * 等待 Service Worker 就绪
+   * Manifest V3 的 Service Worker 可能休眠，需要等待激活
+   */
+  async function waitForServiceWorker() {
+    if (chrome.runtime?.sendMessage) {
+      return true;
+    }
+
+    return new Promise((resolve) => {
+      let attempts = 0;
+      const checkInterval = setInterval(() => {
+        attempts++;
+        if (chrome.runtime?.sendMessage) {
+          clearInterval(checkInterval);
+          resolve(true);
+        } else if (attempts > 10) { // 最多等待 10 秒
+          clearInterval(checkInterval);
+          resolve(false);
+        }
+      }, 1000);
+    });
+  }
+
+  /**
    * 扫描页面并处理游戏角标注入
    */
   function scanAndProcess() {
@@ -899,6 +923,9 @@
    * 初始化 content script
    */
   async function init() {
+    // 等待 Service Worker 就绪
+    await waitForServiceWorker();
+
     // 加载设置并检查页面是否启用
     await loadSettings();
     const pageType = detectPageType();

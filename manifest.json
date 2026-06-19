@@ -6,8 +6,7 @@
   "permissions": [
     "storage",
     "activeTab",
-    "alarms",
-    "notifications"
+    "alarms"
   ],
   "host_permissions": [
     "https://store.steampowered.com/*",

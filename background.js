@@ -433,57 +433,10 @@ async function refreshEpicFreeGames() {
   // 重建内存索引
   await rebuildIndex();
 
-  // 检测新游戏并通知
-  await detectAndNotifyNewGames(epicGames);
-
   await setStorage(STORAGE_KEY_LAST_FETCH, Date.now());
   log('log', `Epic 免费游戏刷新完成: ${epicGames.length} 款`);
 }
 
-/**
- * 检测新赠送的游戏并发送通知
- * @param {Array} currentGames - 当前免费游戏列表
- */
-async function detectAndNotifyNewGames(currentGames) {
-  const lastKnown = (await getStorage('epic_last_known')) || [];
-  const lastKnownTitles = new Set(lastKnown.map(g => g.title));
-  const newGames = currentGames.filter(g => !lastKnownTitles.has(g.title));
-
-  if (newGames.length > 0) {
-    log('log', `发现 ${newGames.length} 款新免费游戏:`, newGames.map(g => g.title));
-    sendNewFreeGamesNotification(newGames);
-  }
-
-  await setStorage('epic_last_known', currentGames);
-}
-
-/**
- * 发送新免费游戏通知
- * @param {Array} newGames
- */
-function sendNewFreeGamesNotification(newGames) {
-  if (!chrome.notifications) return;
-
-  const titles = newGames.map(g => g.title).join('、');
-  const message = newGames.length === 1
-    ? `${titles} 现在可以在 Epic Games 免费领取！`
-    : `${newGames.length} 款新游戏可以免费领取：${titles}`;
-
-  chrome.notifications.create('epic-new-free-games', {
-    type: 'basic',
-    iconUrl: chrome.runtime.getURL('icons/icon128.png'),
-    title: '🎮 Epic 新免费游戏！',
-    message,
-    priority: 2,
-    requireInteraction: true,
-  }, (notificationId) => {
-    if (chrome.runtime.lastError) {
-      log('error', '通知发送失败:', chrome.runtime.lastError.message);
-    } else {
-      log('log', '通知已发送:', notificationId);
-    }
-  });
-}
 
 // ============================================================
 // 查询接口
@@ -664,18 +617,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 
   log('log', `定时刷新闹钟已设置: 每 ${REFRESH_INTERVAL_MINUTES} 分钟`);
 });
-
-/**
- * 通知点击事件
- */
-if (chrome.notifications) {
-  chrome.notifications.onClicked.addListener((notificationId) => {
-    if (notificationId === 'epic-new-free-games') {
-      chrome.tabs.create({ url: 'https://store.epicgames.com/free-games' }).catch(() => {});
-      chrome.notifications.clear(notificationId);
-    }
-  });
-}
 
 /**
  * 闹钟触发时刷新数据
