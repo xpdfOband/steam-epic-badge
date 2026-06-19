@@ -936,6 +936,20 @@
     // 初始扫描
     scanAndProcess();
 
+    // 详情页延迟重试：购买区域可能晚于脚本加载
+    if (pageType === 'detail') {
+      const retryIntervals = [500, 1000, 2000, 3000];
+      for (const delay of retryIntervals) {
+        await new Promise(resolve => setTimeout(resolve, delay));
+        // 如果还没注入详情面板，重新扫描
+        if (!document.querySelector('.epic-detail-panel')) {
+          scanAndProcess();
+        } else {
+          break; // 已注入，停止重试
+        }
+      }
+    }
+
     // 设置 DOM 变化监听
     setupObserver();
 
