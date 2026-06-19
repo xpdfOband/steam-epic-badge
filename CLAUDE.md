@@ -12,12 +12,15 @@
 - 数据来源：`E:\MyProject\github_project\epic-free-games-scraper\output\epic_games.db`
 - **不要用 Steam API 自动查询 steam_appid**，搜索结果不准确，需人工校验
 - 同步数据时必须去重（按 epic_id 或 title 匹配）
+- 校验 steam_appid 用 Steam 官方 API `store.steampowered.com/api/appdetails`，不要用 SteamDB（Cloudflare 反爬）
+- 并行校验时每个 agent 间隔 1 秒，避免 429 限流
 
 ## 架构
 - Manifest V3 Chrome 扩展
 - background.js: Service Worker，负责数据获取和内存索引
 - content.js: IIFE 格式（不是 ES module），负责页面角标注入
 - 无 popup，只有 content script 功能
+- 运行时数据自动更新：background.js 每小时从 Epic API 获取最新免费游戏，不需要重新构建
 
 ## 发布
 - `git tag -d v1.0.1 && git push origin :refs/tags/v1.0.1 && git tag v1.0.1 && git push origin v1.0.1`
@@ -26,3 +29,4 @@
 - background.js 语法错误会导致 Service Worker 显示"无效"
 - content.js 的 BOM 头会导致扩展不工作
 - `queryBatchByAppIds` 返回的 `isFree` 依赖 `status` 字段（current/upcoming/history）
+- 子代理不要修改 content.js、background.js、content.css，除非用户明确要求
