@@ -5888,6 +5888,11 @@
           "start": "2025-04-10",
           "end": "2025-04-17",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-09",
+          "type": "giveaway"
         }
       ],
       "image": null,
@@ -8875,7 +8880,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/ae3f962fab4d42eba2dbefa4a1e76ff6/voidwrought-bio8j.jpg"
+    },
+    {
+      "title": "I Have No Mouth, and I Must Scream",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-02",
+          "end": "2026-07-09",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/b153ccd09d834353a8f27ffa9b41f5a2/i-have-no-mouth-and-i-must-scream-163j8.png"
     }
   ],
-  "last_updated": "2026-06-18"
+  "last_updated": "2026-06-25"
 }
