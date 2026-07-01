@@ -8893,7 +8893,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/b153ccd09d834353a8f27ffa9b41f5a2/i-have-no-mouth-and-i-must-scream-163j8.png"
+    },
+    {
+      "title": "Nova Lands",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-16",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/9a2764693c414ecda63d8f785452a4bb/nova-lands-offer-16wzy.png"
     }
   ],
-  "last_updated": "2026-06-25"
+  "last_updated": "2026-07-01"
 }
