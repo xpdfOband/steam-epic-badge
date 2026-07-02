@@ -8906,7 +8906,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/9a2764693c414ecda63d8f785452a4bb/nova-lands-offer-16wzy.png"
+    },
+    {
+      "title": "Tattoo Tycoon",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-09",
+          "end": "2026-07-16",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/0b68dfc82a014fe2ac9971f13e0e3ce5/tattoo-tycoon-11qwx.jpg"
     }
   ],
-  "last_updated": "2026-07-01"
+  "last_updated": "2026-07-02"
 }
