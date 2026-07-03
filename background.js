@@ -650,6 +650,11 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
     }
   }
 
+  // 无论缓存是否过期，都重建内存索引，确保查询可用
+  log('log', '重建内存索引...');
+  await rebuildIndex();
+  log('log', '内存索引就绪');
+
   const existingAlarm = await chrome.alarms.get(ALARM_NAME);
   if (!existingAlarm) {
     chrome.alarms.create(ALARM_NAME, {

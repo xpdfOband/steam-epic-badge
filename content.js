@@ -782,8 +782,10 @@
    * 向 background.js 发送批量查询请求
    * @param {Array<number>} appIds - AppID 列表
    * @param {Array} games - 对应的游戏信息数组
+   * @param {number} retryCount - 重试次数
+   * @param {boolean} isEmptyRetry - 是否是空结果重试
    */
-  function queryBackground(appIds, games, retryCount = 0) {
+  function queryBackground(appIds, games, retryCount = 0, isEmptyRetry = false) {
     if (!chrome.runtime || !chrome.runtime.sendMessage) {
       return;
     }
@@ -795,12 +797,23 @@
           console.error("[Epic Badge] 通信错误:", chrome.runtime.lastError.message);
           // 如果是连接错误，重试最多 3 次
           if (retryCount < 3 && chrome.runtime.lastError.message.includes('Receiving end does not exist')) {
-            setTimeout(() => queryBackground(appIds, games, retryCount + 1), 1000 * (retryCount + 1));
+            setTimeout(() => queryBackground(appIds, games, retryCount + 1, isEmptyRetry), 1000 * (retryCount + 1));
           }
           return;
         }
         if (response && response.success) {
-          handleQueryResponse(response.data, games);
+          const data = response.data;
+          // 检查是否所有结果都为空（可能 background 数据未就绪）
+          const hasAnyResult = data && Object.values(data).some(v => v !== null && v !== undefined);
+
+          if (!hasAnyResult && !isEmptyRetry && retryCount === 0) {
+            // 首次查询全空，可能是 Service Worker 数据未就绪，延迟重试一次
+            console.log("[Epic Badge] 查询结果全空，3秒后重试（等待 Service Worker 数据就绪）...");
+            setTimeout(() => queryBackground(appIds, games, 0, true), 3000);
+            return;
+          }
+
+          handleQueryResponse(data, games);
         }
       }
     );
