@@ -8919,7 +8919,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/0b68dfc82a014fe2ac9971f13e0e3ce5/tattoo-tycoon-11qwx.jpg"
+    },
+    {
+      "title": "Echo Generation: Midnight Edition",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-23",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/d85d8cbcd8bd43308d262ba62af5b5ce/echo-generation-midnight-edition-49ac1.jpg"
     }
   ],
-  "last_updated": "2026-07-02"
+  "last_updated": "2026-07-08"
 }
