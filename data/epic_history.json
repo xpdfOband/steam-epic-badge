@@ -8932,7 +8932,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/d85d8cbcd8bd43308d262ba62af5b5ce/echo-generation-midnight-edition-49ac1.jpg"
+    },
+    {
+      "title": "Luto",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-16",
+          "end": "2026-07-23",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/eda0432529164b29b8a659d627d660e4/luto-14zrp.png"
     }
   ],
-  "last_updated": "2026-07-08"
+  "last_updated": "2026-07-09"
 }
