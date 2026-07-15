@@ -8945,7 +8945,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/eda0432529164b29b8a659d627d660e4/luto-14zrp.png"
+    },
+    {
+      "title": "Foretales",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-23",
+          "end": "2026-07-30",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/2b593b82aea84695b1608d74d3850ceb/foretales-offer-urvzn.jpg"
     }
   ],
-  "last_updated": "2026-07-09"
+  "last_updated": "2026-07-15"
 }
