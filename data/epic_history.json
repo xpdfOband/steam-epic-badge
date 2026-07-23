@@ -8958,7 +8958,33 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/2b593b82aea84695b1608d74d3850ceb/foretales-offer-urvzn.jpg"
+    },
+    {
+      "title": "OTXO",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-30",
+          "end": "2026-08-06",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/f6da0031691c4d94a6e21255b18c1710/otxo-wtcug.jpg"
+    },
+    {
+      "title": "Sol Cesto",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-07-30",
+          "end": "2026-08-06",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/30d70e74bab1498686aba69969a6c19e/sol-cesto-1ara2.png"
     }
   ],
-  "last_updated": "2026-07-15"
+  "last_updated": "2026-07-23"
 }
