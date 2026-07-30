@@ -8433,6 +8433,11 @@
           "start": "2025-12-26",
           "end": "2025-12-27",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-08-06",
+          "end": "2026-08-13",
+          "type": "giveaway"
         }
       ],
       "image": null,
@@ -8991,5 +8996,5 @@
       "image": "https://cdn1.epicgames.com/spt-assets/30d70e74bab1498686aba69969a6c19e/sol-cesto-1ara2.png"
     }
   ],
-  "last_updated": "2026-07-29"
+  "last_updated": "2026-07-30"
 }
