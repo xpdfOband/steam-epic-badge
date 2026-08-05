@@ -8994,7 +8994,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/30d70e74bab1498686aba69969a6c19e/sol-cesto-1ara2.png"
+    },
+    {
+      "title": "Caravan SandWitch",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-08-13",
+          "end": "2026-08-20",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/95b9a9a220e8483c8c1a70ad692de4b3/caravan-sandwitch-1uz0l.jpg"
     }
   ],
-  "last_updated": "2026-07-30"
+  "last_updated": "2026-08-05"
 }
