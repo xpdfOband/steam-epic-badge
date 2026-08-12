@@ -9007,7 +9007,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/95b9a9a220e8483c8c1a70ad692de4b3/caravan-sandwitch-1uz0l.jpg"
+    },
+    {
+      "title": "Cardpocalypse Standard Edition",
+      "epic_id": "cardpocalypse/home",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-08-20",
+          "end": "2026-08-27",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/offer/2bfd5ca43ef443739ada168e017e1b78/s1_2560x1440-8d68e37943d666ad0f05093481c4d7df"
     }
   ],
-  "last_updated": "2026-08-05"
+  "last_updated": "2026-08-12"
 }
