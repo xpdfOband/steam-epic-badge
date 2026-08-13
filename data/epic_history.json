@@ -9020,7 +9020,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/offer/2bfd5ca43ef443739ada168e017e1b78/s1_2560x1440-8d68e37943d666ad0f05093481c4d7df"
+    },
+    {
+      "title": "Epic Mage Bundle",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-08-20",
+          "end": "2026-08-27",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/92837229023341268267ff64cae425a5/albion-online-7k7df.png"
     }
   ],
-  "last_updated": "2026-08-12"
+  "last_updated": "2026-08-13"
 }
