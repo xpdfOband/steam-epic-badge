@@ -1071,6 +1071,11 @@
           "start": "2023-04-27",
           "end": "2023-05-04",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-08-27",
+          "end": "2026-09-03",
+          "type": "giveaway"
         }
       ],
       "image": null,
@@ -9033,7 +9038,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/92837229023341268267ff64cae425a5/albion-online-7k7df.png"
+    },
+    {
+      "title": "Rival Stars Horse Racing : Desktop Edition",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-08-27",
+          "end": "2026-09-03",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/3355791f5b4740618adac242cf0dd46c/rival-stars-horse-racing-scu1x.jpg"
     }
   ],
-  "last_updated": "2026-08-13"
+  "last_updated": "2026-08-20"
 }
