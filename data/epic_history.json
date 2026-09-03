@@ -9064,7 +9064,33 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/04b7a1d78c904065b5c24f9e7816c99a/alone-with-you-cllc3.png"
+    },
+    {
+      "title": "Luftrausers",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-09-10",
+          "end": "2026-09-17",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/85ddeeec9d4243b3a2d78aab87bfae7f/luftrausers-1mxb1.png"
+    },
+    {
+      "title": "Astral Ascent",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-09-10",
+          "end": "2026-09-17",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/974c8a587d714d8d9e0c3b0fefe61a35/astral-ascent-b0gcm.png"
     }
   ],
-  "last_updated": "2026-08-27"
+  "last_updated": "2026-09-03"
 }
