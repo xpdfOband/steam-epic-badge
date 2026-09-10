@@ -9090,7 +9090,33 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/974c8a587d714d8d9e0c3b0fefe61a35/astral-ascent-b0gcm.png"
+    },
+    {
+      "title": "Mindcop",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-09-17",
+          "end": "2026-09-24",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/984cdc148ea6423e866ca6e04a1b429f/mindcop-kplp1.jpg"
+    },
+    {
+      "title": "Shogun Showdown",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-09-17",
+          "end": "2026-09-24",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/450bcfdb9c00453394d7ccc2948ba5db/shogun-showdown-hz1yh.jpg"
     }
   ],
-  "last_updated": "2026-09-03"
+  "last_updated": "2026-09-10"
 }
