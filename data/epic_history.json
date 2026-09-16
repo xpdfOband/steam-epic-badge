@@ -9116,7 +9116,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/450bcfdb9c00453394d7ccc2948ba5db/shogun-showdown-hz1yh.jpg"
+    },
+    {
+      "title": "Mechabellum",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-09-24",
+          "end": "2026-10-01",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/131adc2288294d74aaff6a2f02b51d59/mechabellum-95319.jpg"
     }
   ],
-  "last_updated": "2026-09-10"
+  "last_updated": "2026-09-16"
 }
