@@ -9134,7 +9134,33 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/131adc2288294d74aaff6a2f02b51d59/mechabellum-95319.jpg"
+    },
+    {
+      "title": "System Shock 2: 25th Anniversary Remaster",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-01",
+          "end": "2026-10-08",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/690ff600d5134d9ab12c96862ed5257a/system-shock-2-25th-anniversary-remaster-1e28j.jpg"
+    },
+    {
+      "title": "BURIED STARS",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-01",
+          "end": "2026-10-08",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/e2dc55c2709641a18fc37ef7ce32cfdd/buried-stars-1j9of.jpg"
     }
   ],
-  "last_updated": "2026-09-17"
+  "last_updated": "2026-09-24"
 }
