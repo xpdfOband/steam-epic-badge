@@ -9160,7 +9160,33 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/e2dc55c2709641a18fc37ef7ce32cfdd/buried-stars-1j9of.jpg"
+    },
+    {
+      "title": "Out of Sight",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-08",
+          "end": "2026-10-15",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/6e1bf54cfa6344c89d41e4e7af036ac9/out-of-sight-1l12n.jpg"
+    },
+    {
+      "title": "TerraScape",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-08",
+          "end": "2026-10-15",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/a740a2eed807469f88b9dff17e7cd3a3/terrascape-j7p8d.png"
     }
   ],
-  "last_updated": "2026-09-24"
+  "last_updated": "2026-10-01"
 }
