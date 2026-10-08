@@ -9186,7 +9186,33 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/a740a2eed807469f88b9dff17e7cd3a3/terrascape-j7p8d.png"
+    },
+    {
+      "title": "Bad Cheese",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-15",
+          "end": "2026-10-22",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/6cbb0e3805c4436bafd028cafff48307/bad-cheese-16hj0.png"
+    },
+    {
+      "title": "Agent A: A puzzle in disguise",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-15",
+          "end": "2026-10-22",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/45db4fbe68fe43f4b025dec2014d42e7/agent-a-a-puzzle-in-disguise-3cppl.png"
     }
   ],
-  "last_updated": "2026-10-01"
+  "last_updated": "2026-10-08"
 }
