@@ -9212,7 +9212,33 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/45db4fbe68fe43f4b025dec2014d42e7/agent-a-a-puzzle-in-disguise-3cppl.png"
+    },
+    {
+      "title": "Sker Ritual",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-22",
+          "end": "2026-10-29",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/43d96f4437e34c87b7eff08831d1b1de/sker-ritual-1tuka.png"
+    },
+    {
+      "title": "Home - A Unique Horror Adventure",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-10-22",
+          "end": "2026-10-29",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/46fc0cdb9f164a848e916249a8f68fc7/home-1f6qi.png"
     }
   ],
-  "last_updated": "2026-10-08"
+  "last_updated": "2026-10-15"
 }
