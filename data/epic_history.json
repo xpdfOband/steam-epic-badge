@@ -6606,6 +6606,11 @@
           "start": "2025-12-21",
           "end": "2025-12-22",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-10-29",
+          "end": "2026-11-05",
+          "type": "giveaway"
         }
       ],
       "image": null,
@@ -9240,5 +9245,5 @@
       "image": "https://cdn1.epicgames.com/spt-assets/46fc0cdb9f164a848e916249a8f68fc7/home-1f6qi.png"
     }
   ],
-  "last_updated": "2026-10-15"
+  "last_updated": "2026-10-22"
 }
