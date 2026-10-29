@@ -3823,6 +3823,11 @@
           "start": "2026-03-05",
           "end": "2026-03-12",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-11-05",
+          "end": "2026-11-12",
+          "type": "giveaway"
         }
       ],
       "image": null,
@@ -9243,7 +9248,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/46fc0cdb9f164a848e916249a8f68fc7/home-1f6qi.png"
+    },
+    {
+      "title": "Flotsam",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-11-05",
+          "end": "2026-11-12",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/5c36b876e80d4285b9993947efeeaf2b/flotsam-1yczl.jpg"
     }
   ],
-  "last_updated": "2026-10-22"
+  "last_updated": "2026-10-29"
 }
