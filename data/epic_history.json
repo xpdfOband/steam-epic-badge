@@ -9261,7 +9261,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/5c36b876e80d4285b9993947efeeaf2b/flotsam-1yczl.jpg"
+    },
+    {
+      "title": "Knightica",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-11-12",
+          "end": "2026-11-19",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1nuxm.png"
     }
   ],
-  "last_updated": "2026-10-29"
+  "last_updated": "2026-11-05"
 }
