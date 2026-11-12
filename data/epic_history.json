@@ -304,6 +304,11 @@
           "start": "2021-04-22",
           "end": "2021-04-29",
           "type": "giveaway"
+        },
+        {
+          "start": "2026-11-19",
+          "end": "2026-11-26",
+          "type": "giveaway"
         }
       ],
       "image": null,
@@ -9274,7 +9279,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/357100ca5613420e98208c5f14585e9d/knightica-1nuxm.png"
+    },
+    {
+      "title": "Mark of the Deep",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-11-19",
+          "end": "2026-11-26",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-w1ygr.png"
     }
   ],
-  "last_updated": "2026-11-05"
+  "last_updated": "2026-11-12"
 }
