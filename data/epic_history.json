@@ -9292,7 +9292,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/83a240506a884c10ad8fb99694e57a0d/mark-of-the-deep-w1ygr.png"
+    },
+    {
+      "title": "Firestone – Idle Clicker Online RPG",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-11-26",
+          "end": "2026-12-03",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-i52vr.jpg"
     }
   ],
-  "last_updated": "2026-11-12"
+  "last_updated": "2026-11-18"
 }
