@@ -9305,7 +9305,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/69576a28f7154fe9a0dce97508da5163/firestone-online-idle-rpg-i52vr.jpg"
+    },
+    {
+      "title": "Bread and Fred",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-11-26",
+          "end": "2026-12-03",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/545b4dd8bb364c12b719268198a93ef3/bread-and-fred-3jnwn.jpg"
     }
   ],
-  "last_updated": "2026-11-18"
+  "last_updated": "2026-11-19"
 }
