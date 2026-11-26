@@ -9318,7 +9318,20 @@
         }
       ],
       "image": "https://cdn1.epicgames.com/spt-assets/545b4dd8bb364c12b719268198a93ef3/bread-and-fred-3jnwn.jpg"
+    },
+    {
+      "title": "Strange Antiquities",
+      "epic_id": "",
+      "steam_appid": null,
+      "free_dates": [
+        {
+          "start": "2026-12-03",
+          "end": "2026-12-10",
+          "type": "giveaway"
+        }
+      ],
+      "image": "https://cdn1.epicgames.com/spt-assets/d0e3b7c3690c485ca7a435d298262ab2/strange-antiquities-1kl5s.png"
     }
   ],
-  "last_updated": "2026-11-19"
+  "last_updated": "2026-11-26"
 }
